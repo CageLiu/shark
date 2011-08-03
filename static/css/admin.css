@@ -25,6 +25,7 @@ a {
 a:hover{
 	text-decoration:underline;color:#c90000
 }
+
 em,i {
 	font-style:normal
 }
@@ -390,10 +391,7 @@ body{
 .index .menu dd li.current, .index .menu dd li:hover{
 	border-radius:3px 0 0 3px;
 	background:#4668B0;
-	box-shadow:0 0 8px #c2c2c2;
-	border-style:none none solid solid;
-	border-width:1px;
-	border-color:#fff;
+	box-shadow:0 1px 6px #c2c2c2;
 }
 
 .index .menu li.current a, .index .menu li:hover a{
