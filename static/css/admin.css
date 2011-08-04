@@ -803,10 +803,17 @@ body{
 }
 
 .demo .main_menu li{
-	padding-left:3.5em;
+	margin-left:2em;
 	height:23px;
 	line-height:23px;
-	padding-right:10px
+	padding-right:10px;
+	padding-left:1.5em;
+	border-radius:3px 0 0 3px;
+}
+
+.demo .main_menu li.current{
+	border-radius:3px 0 0 3px;
+	background:#333;
 }
 
 .demo .main_menu dd{
@@ -954,7 +961,8 @@ body{
 	cursor:default;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4C4C), to(#2C2C2C));
 	background:-moz-linear-gradient(top,#4D4C4C, #2C2C2C);
-
+	-webkit-transition:all 0.5s ease-in;
+	-moz-transition:all 0.7s ease;
 }
 
 .demo .taskbar li span{
