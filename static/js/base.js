@@ -41,13 +41,15 @@ $(document).ready(
 	var $workspace = $(".workspace");
 	$mOnff.toggle(
 		function(){
-			$mainMenu.css("left","-195px");
-			$workspace.css("marginLeft","5px");
-		},
-		function(){
+			
 			$mainMenu.css("left","0");
 			$workspace.css("marginLeft","200px");
-		}
+
+		},
+		function(){
+			$mainMenu.css("left","-195px");
+			$workspace.css("marginLeft","5px");
+					}
 	);
 
 	/*
