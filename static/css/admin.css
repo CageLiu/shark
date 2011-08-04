@@ -739,10 +739,11 @@ body{
 	left:-195px;
 	width:200px;
 	height:100%;
-	box-shadow:3px 2px 3px #c2c2c2;
+	box-shadow:3px 2px 3px #a9a9a9;
 	z-index:99;
 	height:100%;
 	background:#333;
+	border-right:1px solid #e8e8e8
 }
 
 .demo .main_menu .user{
