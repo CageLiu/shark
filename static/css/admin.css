@@ -786,14 +786,20 @@ body{
 	position:absolute;
 	right:0;
 	top:50%;
+	height:63px
 }
 
 .demo .menu_onff span{
-	margin-top:-50%;
+	margin-top:-32px;
 	display:block;
 	cursor:pointer;
 	font-weight:bold;
 	font-size:14px;
+	text-align:right;
+	width:5px;
+	border-radius:3px 0 0 3px;
+	background:#ddd;
+	color:#666;
 }
 
 .demo .workspace{
