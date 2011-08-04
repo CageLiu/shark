@@ -772,7 +772,26 @@ body{
 .demo .main_menu dt{
 	font-size:14px;
 	padding:5px 0;
-	padding-left:2em
+	padding-left:2em;
+	position:relative;
+}
+
+.demo .main_menu i.icon{
+	position:absolute;
+	width:0;
+	height:0;
+	border-width:6px;
+	border-color:#fff #fff #fff #6390EC;
+	border-style:solid;
+	left:15px;
+	top:8px;
+	cursor:pointer;
+}
+
+.demo .main_menu dt a{
+	font-weight:bold;
+	color:#4668B0;
+	white-space:nowrap
 }
 
 .demo .main_menu li{
@@ -782,7 +801,7 @@ body{
 	padding-right:10px
 }
 
-.demo .main_menu a{
+.demo .main_menu dd a{
 	color:#333;
 	white-space:nowrap
 }
