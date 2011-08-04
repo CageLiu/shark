@@ -846,6 +846,10 @@ body{
 	border-radius:3px
 }
 
+.demo .switch_workspace span:hover{
+	background:#F49B9B;
+}
+
 .demo .switch_workspace span.current{
 	background:#f30;
 	width:28px;
@@ -874,7 +878,8 @@ body{
 	top:0;
 	width:10px;
 	height:30px;
-	cursor:pointer
+	cursor:pointer;
+	font-weight:bold;
 }
 
 .demo .taskbar span:hover{
