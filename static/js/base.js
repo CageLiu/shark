@@ -42,11 +42,21 @@ $(document).ready(
 	/*
 	 * demo page js start
 	 */
-
 	var $mOnff = $(".menu_onff");
 	var $mainMenu = $(".main_menu");
+	var $menuBox = $(".main_menu dl");
 	var $workspace = $(".workspace");
-	$mOnff.toggle(
+	var $userBox = $(".user");
+
+	
+	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight());
+	$(window).resize(
+		function(){
+			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight());
+		}
+	);
+
+		$mOnff.toggle(
 		function(){
 			$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
 			$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
@@ -55,7 +65,7 @@ $(document).ready(
 		function(){
 			$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
 			$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
-					}
+		}
 	);
 
 	/*

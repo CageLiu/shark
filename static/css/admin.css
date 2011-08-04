@@ -764,22 +764,27 @@ body{
 	font-weight:bold;
 }
 
+.demo .main_menu dl{
+	overflow:auto;
+	margin-right:5px
+}
 
 .demo .main_menu dt{
-	text-indent:1em;
 	font-size:14px;
-	padding:5px 0
+	padding:5px 0;
+	padding-left:2em
 }
 
 .demo .main_menu li{
-	text-indent:2em;
+	padding-left:3.5em;
 	height:23px;
 	line-height:23px;
 	padding-right:10px
 }
 
 .demo .main_menu a{
-	color:#333
+	color:#333;
+	white-space:nowrap
 }
 
 .demo .main_menu a:hover{
@@ -927,7 +932,7 @@ body{
 .demo .taskbar li.current, .demo .taskbar li:hover{
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
-	
+	color:#000	
 }
 
 .demo .workspace .main_cont{
