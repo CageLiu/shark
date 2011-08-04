@@ -31,5 +31,15 @@ $(document).ready(
 			$(".user").css("width","196px");
 		}
 		);
+
+	/*
+	 * demo page js start
+	 */
+
+	
+
+	/*
+	 * demo page js end
+	 */
 	}
 );
