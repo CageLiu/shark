@@ -790,7 +790,7 @@ body{
 }
 
 .demo .menu_onff span{
-	margin-top:-32px;
+	margin-top:-35px;
 	display:block;
 	cursor:pointer;
 	font-weight:bold;
@@ -800,6 +800,7 @@ body{
 	border-radius:3px 0 0 3px;
 	background:#ddd;
 	color:#666;
+	padding-bottom:7px
 }
 
 .demo .workspace{
