@@ -807,6 +807,10 @@ body{
 	padding-bottom:7px
 }
 
+.demo .menu_onff span:hover{
+	background:#333;
+}
+
 .demo .workspace{
 	position:relative;
 	height:100%;
@@ -833,7 +837,7 @@ body{
 .demo .panle_bottom{
 	bottom:0;
 	z-index:999;
-	border-top:1px solid #fff;
+	border-top:1px solid #ccc;
 	border-left:1px solid #555;
 	border-bottom:1px solid #ddd
 }

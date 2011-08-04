@@ -1,5 +1,12 @@
 $(document).ready(
 	function(){
+
+		if($.browser.msie){
+			document.write("用IE，要枪毙");
+		}
+
+
+
 		var $t = $(".menu dt");
 		$("i.hide").eq(0).css("display","block");
 		$t.siblings("dd").eq(0).css("display","block");
