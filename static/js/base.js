@@ -36,7 +36,19 @@ $(document).ready(
 	 * demo page js start
 	 */
 
-	
+	var $mOnff = $(".menu_onff");
+	var $mainMenu = $(".main_menu");
+	var $workspace = $(".workspace");
+	$mOnff.toggle(
+		function(){
+			$mainMenu.css("left","-195px");
+			$workspace.css("marginLeft","5px");
+		},
+		function(){
+			$mainMenu.css("left","0");
+			$workspace.css("marginLeft","200px");
+		}
+	);
 
 	/*
 	 * demo page js end
