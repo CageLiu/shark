@@ -48,14 +48,13 @@ $(document).ready(
 	var $workspace = $(".workspace");
 	$mOnff.toggle(
 		function(){
-			
-			$mainMenu.css("left","0");
-			$workspace.css("marginLeft","200px");
+			$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
+			$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
 
 		},
 		function(){
-			$mainMenu.css("left","-195px");
-			$workspace.css("marginLeft","5px");
+			$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
+			$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
 					}
 	);
 
