@@ -2,7 +2,7 @@ $(document).ready(
 	function(){
 
 		if($.browser.msie){
-			document.write("用IE，要枪毙");
+			document.write("<div style='font-size:30px;color:#f00;line-height:5em;font-weight:bold'>用IE，要枪毙！</div>");
 		}
 
 
