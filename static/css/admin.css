@@ -770,7 +770,8 @@ body{
 .demo .main_menu li{
 	text-indent:2em;
 	height:23px;
-	line-height:23px
+	line-height:23px;
+	padding-right:10px
 }
 
 .demo .main_menu a{
@@ -779,6 +780,20 @@ body{
 
 .demo .main_menu a:hover{
 	text-decoration:none
+}
+
+.demo .menu_onff{
+	position:absolute;
+	right:0;
+	top:50%;
+}
+
+.demo .menu_onff span{
+	margin-top:-50%;
+	display:block;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:14px;
 }
 
 .demo .workspace{
