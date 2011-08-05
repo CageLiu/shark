@@ -47,12 +47,16 @@ $(document).ready(
 	var $menuBox = $(".main_menu dl");
 	var $workspace = $(".workspace");
 	var $userBox = $(".user");
+	var $mainCont = $(".main_cont");
+	var $panle = $(".panle");
 
 	
-	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight());
+	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
+	$mainCont.css("height",$workspace.height()-$panle.outerHeight()*2 + "px");
 	$(window).resize(
 		function(){
-			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight());
+			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
+			$mainCont.css("height",$workspace.height()-$panle.outerHeight()*2 + "px");
 		}
 	);
 
