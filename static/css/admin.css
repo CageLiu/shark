@@ -978,7 +978,8 @@ body{
 
 .demo .taskbar li{
 	float:left;
-	height:30px;
+	height:27px;
+	line-height:27px;
 	padding:0 18px 0px 8px;
 	/*
 	border-left:1px solid #1a1a1a;
@@ -993,7 +994,7 @@ body{
 	-moz-transition:all 0.7s ease;
 	*/
 	border-radius:3px;
-	margin-right:5px;
+	margin-right:3px;
 	border:1px solid #fff;
 	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.7)),to(rgba(255,255,255,.15)));
 	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.15),rgba(255,255,255,.7));
@@ -1003,7 +1004,7 @@ body{
 
 .demo .taskbar li span{
 	position:absolute;
-	right:0;
+	right:3px;
 	top:0;
 	width:10px;
 	height:30px;
