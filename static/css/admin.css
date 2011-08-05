@@ -767,7 +767,7 @@ body{
 .demo .main_menu dl{
 	overflow:auto;
 	margin-right:5px;
-	background:#fff
+	background:url(../image/side_bg.jpg) no-repeat right center #fff
 }
 
 .demo .main_menu dt{
@@ -809,11 +809,32 @@ body{
 	padding-right:10px;
 	padding-left:1.5em;
 	border-radius:3px 0 0 3px;
+	margin-bottom:5px;
 }
 
-.demo .main_menu li.current{
+.demo .main_menu li.current, .demo .main_menu li:hover{
 	border-radius:3px 0 0 3px;
-	background:#333;
+	background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(86,216,245)),
+    color-stop(0.08, rgb(79,191,232)),
+    color-stop(0.16, rgb(74,181,220)),
+    color-stop(0.86, rgb(55,130,162))
+	);
+	background-image: -moz-linear-gradient(
+    center top,
+    rgb(86,216,245) 0%,
+    rgb(79,191,232) 8%,
+    rgb(74,181,220) 16%,
+    rgb(55,130,162) 86%
+	);
+	box-shadow:0 2px 2px #ccc
+}
+
+.demo .main_menu li.current a, .demo .main_menu li:hover a{
+	color:#fff
 }
 
 .demo .main_menu dd{
@@ -959,8 +980,8 @@ body{
 	border-right:1px solid #444;
 	position:relative;
 	cursor:default;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4C4C), to(#2C2C2C));
-	background:-moz-linear-gradient(top,#4D4C4C, #2C2C2C);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
+	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
 	-webkit-transition:all 0.5s ease-in;
 	-moz-transition:all 0.7s ease;
 }
@@ -980,9 +1001,9 @@ body{
 }
 
 .demo .taskbar li.current, .demo .taskbar li:hover{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
-	color:#000	
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4C4C), to(#2C2C2C));
+	background:-moz-linear-gradient(top,#4D4C4C, #2C2C2C);
+	color:#fff	
 }
 
 .demo .workspace .main_cont{
