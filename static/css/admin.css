@@ -730,7 +730,7 @@ body{
 .demo body{
 	height:100%;
 	color:#fff;
-	background:url(../image/bg.jpg) repeat-x center top #fff
+	background:#eee
 }
 
 .demo .main_menu{
@@ -900,36 +900,31 @@ body{
 	position:absolute;
 	left:0;
 	width:100%;
-	/*
 	height:30px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#7ba2f9), to(#558bfa));
-	background:-moz-linear-gradient(top,#7ba2f9,#558bfa);
 	line-height:30px;
-	*/
 }
 
 .demo .panle_top{
 	top:0;
-	/*
 	box-shadow:0px 3px 3px #8c8c8c;
-	border-top:1px solid #eee
-	*/
+	border-top:1px solid #eee;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#7ba2f9), to(#558bfa));
+	background:-moz-linear-gradient(top,#7ba2f9,#558bfa);
+
 }
 
 .demo .panle_bottom{
 	bottom:0;
 	z-index:999;
-	/*
 	border-top:1px solid #ccc;
-	border-bottom:1px solid #ddd
-	*/
+	border-bottom:1px solid #ddd;
+	background:url(../image/taskbar_bg.jpg) repeat-x left top;
 }
 
-/*
 .demo .cur_position{
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
-	border-left:1px solid #8FB0FA;
+	border-left:1px solid #eee;
 	height:30px;
 	padding-left:10px;
 	position:relative;
@@ -940,7 +935,6 @@ body{
 .demo .cur_position a{
 	color:#fff
 }
-*/
 
 .demo em.arrow{
 	display:inline-block;
@@ -962,7 +956,7 @@ body{
 	display:inline-block;
 	width:30px;
 	height:20px;
-	background:#ccc;
+	background:#F49B9B;
 	cursor:pointer;
 	border-radius:3px
 }
@@ -971,7 +965,7 @@ body{
 	background:#F49B9B;
 }
 
-.demo .switch_workspace span.current{
+.demo .switch_workspace span.current, .demo .switch_workspace span:hover{
 	background:#f30;
 	width:28px;
 	height:18px;
@@ -1018,9 +1012,12 @@ body{
 }
 
 .demo .workspace .main_cont{
-	height:100%;
-	color:#000
+	color:#000;
+	padding-top:30px;
+	padding-left:3px;
+	position;relative;
 }
+
 
 
 
