@@ -730,7 +730,7 @@ body{
 .demo body{
 	height:100%;
 	color:#fff;
-	background:#eee
+	background:#f8f8f8
 }
 
 .demo .main_menu{
@@ -755,14 +755,14 @@ body{
 	padding-left:1em;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
+	position:relative;
 }
 
-.demo .main_menu .user a{
-	float:right;
-	color:#f00;
-	margin-right:3px;
-	font-weight:bold;
+.demo .main_menu .user ul{
+	position:absolute;
+	background:#fff
 }
+
 
 .demo .main_menu dl{
 	overflow:auto;
@@ -802,7 +802,7 @@ body{
 	white-space:nowrap
 }
 
-.demo .main_menu li{
+.demo .main_menu dd li{
 	margin-left:2em;
 	height:25px;
 	line-height:25px;
@@ -812,24 +812,10 @@ body{
 	margin-bottom:5px;
 }
 
-.demo .main_menu li.current, .demo .main_menu li:hover{
+.demo .main_menu dd li.current, .demo .main_menu dd li:hover{
 	border-radius:3px 0 0 3px;
-	background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0, rgb(86,216,245)),
-    color-stop(0.08, rgb(79,191,232)),
-    color-stop(0.16, rgb(74,181,220)),
-    color-stop(0.86, rgb(55,130,162))
-	);
-	background-image: -moz-linear-gradient(
-    center top,
-    rgb(86,216,245) 0%,
-    rgb(79,191,232) 8%,
-    rgb(74,181,220) 16%,
-    rgb(55,130,162) 86%
-	);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
+	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
 	box-shadow:0 2px 2px #ccc;
 	margin-top:-2px;
 	border-width:1px;
@@ -837,12 +823,12 @@ body{
 	border-color:#fff
 }
 
-.demo .main_menu li.current a, .demo .main_menu li:hover a{
+.demo .main_menu dd li.current a, .demo .main_menu dd li:hover a{
 	color:#fff
 }
 
 .demo .main_menu dd{
-	display:none
+	display:none;
 }
 
 .demo .main_menu dt.show i.icon{
@@ -922,28 +908,31 @@ body{
 }
 
 .demo .cur_position{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+	background:-moz-linear-gradient(top,#fff,#E3DFDF);
 	border-left:1px solid #eee;
 	height:30px;
 	padding-left:10px;
 	position:relative;
 	z-index:999;
-	border-bottom:1px solid #e8e8e8
+	border-bottom:1px solid #fff
 }
 
 .demo .cur_position a{
 	color:#fff
 }
 
-.demo em.arrow{
+.demo i.arrow{
 	display:inline-block;
 	font-size:0;
 	line-height:0;
-	border-width:4px;
-	border-color:#80A5F5 #789FF3 #719AF0 #fff;
 	border-style:solid;
 	margin-left:4px;
+}
+
+.demo .cur_position i.arrow{
+	border-width:4px;
+	border-color:#80A5F5 #789FF3 #719AF0 #fff;
 }
 
 .demo .switch_workspace{
