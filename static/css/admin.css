@@ -763,6 +763,12 @@ body{
 	background:#fff
 }
 
+.demo .main_menu .user i.arrow{
+	border-width:5px;
+	border-color:#fff #789FF2 #719AF0 #79A0F3;
+	float:right;
+	margin:10px 5px 0 0;
+}
 
 .demo .main_menu dl{
 	overflow:auto;
@@ -919,7 +925,7 @@ body{
 }
 
 .demo .cur_position a{
-	color:#fff
+	color:#333
 }
 
 .demo i.arrow{
@@ -932,7 +938,7 @@ body{
 
 .demo .cur_position i.arrow{
 	border-width:4px;
-	border-color:#80A5F5 #789FF3 #719AF0 #fff;
+	border-color:#F4F2F2 #F0EEEE #EAE8E8 #6390EC;
 }
 
 .demo .switch_workspace{
