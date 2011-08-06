@@ -72,6 +72,16 @@ $(document).ready(
 		}
 	);
 
+	$userBox.find("i").click(function(event){
+		$(this).addClass("show");
+		$userBox.find("ul").slideDown("speed");
+		event.stopPropagation();
+	})
+
+	$("body").click(function(){
+		$userBox.find("ul").slideUp("fast");
+		$userBox.find("i").removeClass("show");
+	})
 	/*
 	 * demo page js end
 	 */

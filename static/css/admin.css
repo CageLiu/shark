@@ -769,15 +769,16 @@ body{
 	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,.55)));
 	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.55),rgba(255,255,255,.8));
 	padding-bottom:3px;
-
+	display:none
 }
 
 .demo .main_menu .user li{
 	height:30px;
+	overflow:hidden
 }
 
 .demo .main_menu .user li a{
-	padding:0 8px 0 15px;
+	padding:0 8px 0 25px;
 }
 
 .demo .main_menu .user li:hover{
@@ -808,6 +809,15 @@ body{
 	float:right;
 	margin:13px 5px 0 0;
 	cursor:pointer;
+	-webkit-transition:all 0.3s ease-in;
+	-moz-transition:all 0.3s ease-in
+}
+
+.demo .main_menu .user i.show{
+	-moz-transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	margin-top:8px;
+	border-color:#fff #7CA2F4 #7EA3F4 #79A0F3;
 }
 
 .demo .main_menu dl{
