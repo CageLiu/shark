@@ -926,9 +926,6 @@ body{
 	border-style:solid none;
 	border-color:#fff;
 	border-width:2px;
-}
-
-.demo .menu_onff span:hover{
 	background:#6390EC;
 }
 
@@ -975,7 +972,8 @@ body{
 }
 
 .demo .cur_position a{
-	color:#333
+	color:#333;
+	font-size:14px
 }
 
 .demo i.arrow{
@@ -987,7 +985,7 @@ body{
 }
 
 .demo .cur_position i.arrow{
-	border-width:4px;
+	border-width:5px;
 	border-color:#F4F2F2 #F0EEEE #EAE8E8 #6390EC;
 }
 
@@ -999,11 +997,13 @@ body{
 
 .demo .switch_workspace span{
 	display:inline-block;
-	width:30px;
-	height:20px;
-	background:#F49B9B;
+	width:28px;
+	height:18px;
 	cursor:pointer;
-	border-radius:3px
+	border-radius:3px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+	background:-moz-linear-gradient(top,#fff,#E3DFDF);
+	border:1px solid #BCBCBC
 }
 
 .demo .switch_workspace span:hover{
@@ -1011,15 +1011,26 @@ body{
 }
 
 .demo .switch_workspace span.current, .demo .switch_workspace span:hover{
-	background:#f30;
-	width:28px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
+	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
+	opacity:0.8;
+	border-color:#fff
+}
+
+.demo .panle_bottom span.skin_btn{
+	position:absolute;
+	left:11px;
+	top:5px;
+	background:url(../image/themes_btn.jpg) no-repeat 0 0;
+	overflow:hidden;
+	width:18px;
 	height:18px;
-	border:1px solid #fff;
+	cursor:pointer;
 }
 
 .demo .taskbar{
 	height:28px;
-	padding-left:1.5%;
+	margin-left:40px;
 }
 
 .demo .taskbar li{
