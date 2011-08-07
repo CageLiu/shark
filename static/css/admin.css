@@ -894,7 +894,7 @@ body{
 }
 
 .demo .main_menu dd.show{
-	display:block
+	display:block;
 }
 
 .demo .main_menu dd a{

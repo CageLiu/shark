@@ -45,6 +45,8 @@ $(document).ready(
 	var $mOnff = $(".menu_onff");
 	var $mainMenu = $(".main_menu");
 	var $menuBox = $(".main_menu dl");
+	var $menuTitle = $menuBox.children("dt");
+	var $menuItem = $menuBox.children("dd");
 	var $workspace = $(".workspace");
 	var $userBox = $(".user");
 	var $mainCont = $(".main_cont");
@@ -57,31 +59,42 @@ $(document).ready(
 		function(){
 			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
 			$mainCont.css("height",$workspace.height()-$panle.outerHeight()*2 + "px");
-		}
-	);
+	});
 
-		$mOnff.toggle(
-		function(){
-			$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
-			$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
-
-		},
-		function(){
-			$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
-			$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
+	$menuTitle.click(function(){
+		if($(this).hasClass("show")){
+			$(this).removeClass("show");
+			$(this).next("dd").removeClass("show");
 		}
-	);
+		else{
+			$menuTitle.removeClass("show");
+			$menuItem.removeClass("show");
+			$(this).addClass("show");
+			$(this).next("dd").addClass("show");
+		}
+	});
+
+	$mOnff.toggle(
+	function(){
+		$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
+		$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
+
+	},
+	function(){
+		$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
+		$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
+	});
 
 	$userBox.find("i").click(function(event){
 		$(this).addClass("show");
 		$userBox.find("ul").slideDown("speed");
 		event.stopPropagation();
-	})
+	});
 
 	$("body").click(function(){
 		$userBox.find("ul").slideUp("fast");
 		$userBox.find("i").removeClass("show");
-	})
+	});
 	/*
 	 * demo page js end
 	 */
