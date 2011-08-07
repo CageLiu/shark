@@ -52,6 +52,7 @@ $(document).ready(
 	var $mainCont = $(".main_cont");
 	var $panle = $(".panle");
 	var $switchBtn = $(".switch_workspace span");
+	var workspaceHeight = $workspace.height();
 
 	
 	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
@@ -99,8 +100,15 @@ $(document).ready(
 	});
 
 	$switchBtn.click(function(){
-		var workspaceHeight = $workspace.height();
 		$workspace.eq(0).stop().animate({"margin-top":-$(this).index() * workspaceHeight},{duration:"speed",easing:"swing"});
+	});
+
+	var numkey = ["alt+a","alt+b","alt+c","alt+d"];
+
+	$.each(numkey,function(i,n){
+		$.hotkeys.add(n,function(){
+			$workspace.eq(0).stop().animate({"margin-top":-i * workspaceHeight},{duration:"speed",easing:"swing"});
+		});	
 	});
 	/*
 	 * demo page js end
