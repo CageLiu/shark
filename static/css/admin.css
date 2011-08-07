@@ -42,7 +42,7 @@ address{
 	font-style:normal;
 }
 body{
-	font:12px/1.5 Tahoma,simsun,'宋体',Helvetica, simsun,sans-serif;/*'Microsoft Yahei','微软雅黑',*/color:#2f2e2a
+	font:12px/1.5 "微软雅黑",'宋体',Helvetica, simsun,sans-serif;/*'Microsoft Yahei','微软雅黑',*/color:#2f2e2a
 }
 .clearfix:after, .wrap:after{
 	content: ".";display:block;height:0;clear:both;visibility:hidden
@@ -841,7 +841,8 @@ body{
 	font-weight:bold;
 	color:#4668b0;
 	white-space:nowrap;
-	cursor:default
+	cursor:default;
+	text-shadow:1px 1px 2px #ccc
 }
 
 .demo .main_menu i.icon{
@@ -966,7 +967,8 @@ body{
 .demo .nav a{
 	display:inline-block;
 	padding:0px 14px;
-	font-size:14px
+	font-size:14px;
+	text-shadow:1px 1px 2px #ccc;
 }
 
 .demo .nav a.current, .demo .nav a:hover{
