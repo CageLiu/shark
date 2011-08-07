@@ -51,6 +51,7 @@ $(document).ready(
 	var $userBox = $(".user");
 	var $mainCont = $(".main_cont");
 	var $panle = $(".panle");
+	var $switchBtn = $(".switch_workspace span");
 
 	
 	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
@@ -95,6 +96,11 @@ $(document).ready(
 	$("body").click(function(){
 		$userBox.find("ul").slideUp("fast");
 		$userBox.find("i").removeClass("show");
+	});
+
+	$switchBtn.click(function(){
+		var workspaceHeight = $workspace.height();
+		$workspace.eq(0).stop().animate({"margin-top":-$(this).index() * workspaceHeight},{duration:"speed",easing:"swing"});
 	});
 	/*
 	 * demo page js end
