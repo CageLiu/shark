@@ -838,6 +838,10 @@ body{
 	background:-moz-linear-gradient(top,#fff,#E3DFDF);
 	margin-bottom:3px;
 	box-shadow:0 2px 4px #ccc;
+	font-weight:bold;
+	color:#4668b0;
+	white-space:nowrap;
+	cursor:default
 }
 
 .demo .main_menu i.icon{
@@ -852,11 +856,6 @@ body{
 	cursor:pointer;
 }
 
-.demo .main_menu dt a{
-	font-weight:bold;
-	color:#4668B0;
-	white-space:nowrap
-}
 
 .demo .main_menu dd li{
 	margin-left:2em;
@@ -959,6 +958,32 @@ body{
 .demo .panle_top:hover{
 	top:0
 }
+
+.demo .nav{
+	padding-left:25px
+}
+
+.demo .nav a{
+	display:inline-block;
+	padding:0px 14px;
+	font-size:14px
+}
+
+.demo .nav a.current, .demo .nav a:hover{
+	height:23px;
+	line-height:23px;
+	border:1px solid #fff;
+	box-shadow:0 0 3px #333 inset;
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.8)),to(rgba(255,255,255,.2)));
+	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
+	border:1px solid #fff;
+	color:#4668B0;
+	padding:0 13px;
+	border-radius:2px;
+	text-decoration:none;
+}
+
+
 .demo .panle_bottom{
 	bottom:0;
 	z-index:999;
