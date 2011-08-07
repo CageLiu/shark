@@ -53,6 +53,7 @@ $(document).ready(
 	var $panle = $(".panle");
 	var $switchBtn = $(".switch_workspace span");
 	var workspaceHeight = $workspace.height();
+	var count = 0;
 
 	
 	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
@@ -61,6 +62,7 @@ $(document).ready(
 		function(){
 			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
 			$mainCont.css("height",$workspace.height()-$panle.outerHeight()-5 + "px");
+			$workspace.eq(0).css("margin-top",-count*$workspace.height()+ "px");
 	});
 
 	$menuTitle.click(function(){
@@ -100,14 +102,22 @@ $(document).ready(
 	});
 
 	$switchBtn.click(function(){
+		var workspaceHeight = $workspace.height();
 		$workspace.eq(0).stop().animate({"margin-top":-$(this).index() * workspaceHeight},{duration:"speed",easing:"swing"});
+		$workspace.css("visibility","hidden");
+		$workspace.eq($(this).index()).css("visibility","visible");
+		count = $(this).index();
 	});
 
 	var numkey = ["alt+a","alt+b","alt+c","alt+d"];
 
 	$.each(numkey,function(i,n){
 		$.hotkeys.add(n,function(){
+			var workspaceHeight = $workspace.height();
 			$workspace.eq(0).stop().animate({"margin-top":-i * workspaceHeight},{duration:"speed",easing:"swing"});
+			$workspace.css("visibility","hidden");
+			$workspace.eq($(this).index()).css("visibility","visible");
+			count = $(this).index();
 		});	
 	});
 	/*
