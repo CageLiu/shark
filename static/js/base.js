@@ -54,11 +54,11 @@ $(document).ready(
 
 	
 	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
-	$mainCont.css("height",$workspace.height()-$panle.outerHeight()*2 + "px");
+	$mainCont.css("height",$workspace.height()-$panle.outerHeight()-5 + "px");
 	$(window).resize(
 		function(){
 			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
-			$mainCont.css("height",$workspace.height()-$panle.outerHeight()*2 + "px");
+			$mainCont.css("height",$workspace.height()-$panle.outerHeight()-5 + "px");
 	});
 
 	$menuTitle.click(function(){

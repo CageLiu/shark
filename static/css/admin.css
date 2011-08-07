@@ -944,7 +944,7 @@ body{
 
 .demo .panle_top{
 	top:-30px;
-	box-shadow:0px 3px 3px #8c8c8c;
+	box-shadow:0px 3px 3px #aaa;
 	border-top:1px solid #eee;
 	margin-left:5px;
 	z-index:99999;
@@ -1121,9 +1121,9 @@ body{
 
 .demo .workspace .main_cont{
 	color:#000;
-	padding-top:30px;
 	padding-left:3px;
-	position;relative;
+	position:relative;
+	top:5px
 }
 
 
