@@ -949,7 +949,7 @@ body{
 	border-top:1px solid #eee;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#7ba2f9), to(#558bfa));
 	background:-moz-linear-gradient(top,#7ba2f9,#558bfa);
-
+	margin-left:5px;
 }
 
 .demo .panle_bottom{

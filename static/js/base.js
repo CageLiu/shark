@@ -78,11 +78,12 @@ $(document).ready(
 	function(){
 		$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
 		$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
-
+		$(".panle_top").stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
 	},
 	function(){
 		$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
 		$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
+		$(".panle_top").stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
 	});
 
 	$userBox.find("i").click(function(event){
