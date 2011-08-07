@@ -944,14 +944,21 @@ body{
 }
 
 .demo .panle_top{
-	top:0;
+	top:-30px;
 	box-shadow:0px 3px 3px #8c8c8c;
 	border-top:1px solid #eee;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#7ba2f9), to(#558bfa));
-	background:-moz-linear-gradient(top,#7ba2f9,#558bfa);
 	margin-left:5px;
+	z-index:99999;
+	border-left:1px solid #eee;
+	border-bottom:1px solid #fff;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+	background:-moz-linear-gradient(top,#fff,#E3DFDF);
+	-moz-transition:top 0.1s ease-in;
+	-webkit-transition:top 0.1s ease-in;
 }
-
+.demo .panle_top:hover{
+	top:0
+}
 .demo .panle_bottom{
 	bottom:0;
 	z-index:999;
@@ -960,21 +967,28 @@ body{
 	background:url(../image/taskbar_bg.jpg) repeat-x center top;
 }
 
-.demo .cur_position{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
-	background:-moz-linear-gradient(top,#fff,#E3DFDF);
-	border-left:1px solid #eee;
-	height:30px;
-	padding-left:10px;
-	position:relative;
-	z-index:999;
-	border-bottom:1px solid #fff
-}
-
-.demo .cur_position a{
-	color:#333;
-	font-size:14px
-}
+/*
+ *.demo .cur_position{
+ *    background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+ *    background:-moz-linear-gradient(top,#fff,#E3DFDF);
+ *    border-left:1px solid #eee;
+ *    height:30px;
+ *    padding-left:10px;
+ *    position:relative;
+ *    z-index:999;
+ *    border-bottom:1px solid #fff
+ *}
+ *
+ *.demo .cur_position a{
+ *    color:#333;
+ *    font-size:14px
+ *}
+ *
+ *.demo .cur_position i.arrow{
+ *    border-width:5px;
+ *    border-color:#F4F2F2 #F0EEEE #EAE8E8 #6390EC;
+ *}
+ */
 
 .demo i.arrow{
 	display:inline-block;
@@ -984,10 +998,7 @@ body{
 	margin-left:4px;
 }
 
-.demo .cur_position i.arrow{
-	border-width:5px;
-	border-color:#F4F2F2 #F0EEEE #EAE8E8 #6390EC;
-}
+
 
 .demo .switch_workspace{
 	position:absolute;
