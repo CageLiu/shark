@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="index">
+<head>
+<title>后台</title>
+	<meta charset="utf-8" />
+	<link type="text/css" rel="stylesheet" href="../static/css/admin.css" />
+	<script type="text/javascript" src="../static/js/jquery.js"></script>
+	<script type="text/javascript" src="../static/js/base.js"></script>
+</head>
+
+<body>
+	<header class="header">
+		<div class="logo">
+			<img src="http://www.google.com.hk/intl/zh-CN/images/logo_cn.png" width="120" height="48" alt="" />
+		</div>
+		<ul class="nav clearfix">
+			<li><a href="#">导航文字</a></li>
+			<li><a href="#">导航文字</a></li>
+			<li><a href="#">导航文字</a></li>
+			<li class="current"><a href="#">导航文字</a></li>
+			<li><a href="#">导航文字</a></li>
+			<li><a href="#">导航文字</a></li>
+			<li><a href="#">导航文字</a></li>
+		</ul>
+		<div class="tool_bar">
+			<div class="user">
+				您好！<span>Administration</span>
+				<a href="#">退出</a>
+			</div>
+			<div class="posit">
+				<span>当前位置：</span>
+				<a href="#">首页</a>
+				<em></em>
+				<a href="#">视频</a>
+				<em></em>
+				<a href="#">详情</a>
+			</div>
+			<form action="#">
+				<div class="search">
+					<input type="text" class="text" required placeholder="搜索" /><input type="submit" class="btn" value="搜索" />
+				</div>
+			</form>
+		</div>
+	</header>
+	<div id="page" class="page">
+		<aside class="menu" id="menu">
+			<dl>
+				<dt>
+					<i class="icon show">
+						<i class="i i_lt"></i>
+						<i class="i i_rt"></i>
+						<i class="i i_lb"></i>
+						<i class="i i_rb"></i>
+					</i>
+					<i class="icon hide">
+						<i class="i i_lt"></i>
+						<i class="i i_rt"></i>
+						<i class="i i_lb"></i>
+						<i class="i i_rb"></i>
+					</i>
+					菜单名称一
+				</dt>		
+				<dd>
+					<ul> 
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li class="current"><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+					</ul>
+				</dd>
+				<dt>
+					<i class="icon show">
+						<i class="i i_lt"></i>
+						<i class="i i_rt"></i>
+						<i class="i i_lb"></i>
+						<i class="i i_rb"></i>
+					</i>
+					<i class="icon hide">
+						<i class="i i_lt"></i>
+						<i class="i i_rt"></i>
+						<i class="i i_lb"></i>
+						<i class="i i_rb"></i>
+					</i>
+					菜单名称二
+				</dt>
+				<dd>
+					<ul> 
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+						<li><a href="#">菜单名称</a></li>
+					</ul>
+				</dd>			</dl>
+		</aside>
+		<section class="cont">
+			<span class="toggle_btn">
+				<em>·<br/>·<br/>·</em>
+			</span>
+			<iframe src="default.html"></iframe>
+		</section>
+	</div>
+</body>
+<script type="text/javascript">
+	var admin_page = document.getElementById("page");
+	admin_page.style.height = document.documentElement.clientHeight - 88 + "px";
+	window.onresize = function(){
+	admin_page.style.height = document.documentElement.clientHeight - 88 + "px";
+	}
+</script>
+</html>
