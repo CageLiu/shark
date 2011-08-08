@@ -116,8 +116,8 @@ $(document).ready(
 			var workspaceHeight = $workspace.height();
 			$workspace.eq(0).stop().animate({"margin-top":-i * workspaceHeight},{duration:"speed",easing:"swing"});
 			$workspace.css("visibility","hidden");
-			$workspace.eq($(this).index()).css("visibility","visible");
-			count = $(this).index();
+			$workspace.eq(i).css("visibility","visible");
+			count = i;
 		});	
 	});
 	/*
