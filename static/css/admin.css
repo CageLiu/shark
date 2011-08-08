@@ -961,65 +961,69 @@ body{
 }
 
 .demo .panle_top .abtn{
-	height:30px;
-	width:10px;
+	height:17px;
+	width:32px;
 	position:absolute;
 	top:29px;
-	-moz-transition:all 0.8s ease-in;
-	-webkit-transition:all 0.8s ease-in;
-	left:4px
+	-moz-transition:top 0.8s ease-in;
+	-webkit-transition:top 0.8s ease-in;
+	left:-4px;
+	background:url(../image/abtn_bg.png) 0 0 no-repeat
 }
 
 .demo .panle_top:hover .abtn{
 	top:9px;
+	background-position:-30px 0
 }
 
-.demo .panle_top:hover .abtn i.up{
-	background-image: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    color-stop(0.42, rgb(255,255,255)),
-    color-stop(0.84, rgb(243,241,241))
-);
-background-image: -moz-linear-gradient(
-    left top,
-    rgb(255,255,255) 42%,
-    rgb(243,241,241) 84%
-);}
-
-.demo .abtn i{
-	-moz-transform:rotate(45deg);
-	-webkit-transform:rotate(45deg);
-	width:10px;
-	height:10px;
-	position:absolute;
-	background:#f00
-}
-
-.demo .panle_top .abtn i.up{
-	top:-4px;
-	background-image: -webkit-gradient(
-    linear,
-    right bottom,
-    left top,
-    color-stop(0.42, rgb(255,255,255)),
-    color-stop(0.11, rgb(227,223,223))
-);
-background-image: -moz-linear-gradient(
-    right bottom,
-    rgb(255,255,255) 42%,
-    rgb(227,223,223) 11%
-);
-}
-
-.demo .panle_top .abtn i.down{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
-}
+/*
+ *.demo .panle_top:hover .abtn i.up{
+ *    background-image: -webkit-gradient(
+ *    linear,
+ *    left top,
+ *    right bottom,
+ *    color-stop(0.42, rgb(255,255,255)),
+ *    color-stop(0.84, rgb(243,241,241))
+ *);
+ *background-image: -moz-linear-gradient(
+ *    left top,
+ *    rgb(255,255,255) 42%,
+ *    rgb(243,241,241) 84%
+ *);}
+ *
+ *.demo .abtn i{
+ *    -moz-transform:rotate(45deg);
+ *    -webkit-transform:rotate(45deg);
+ *    width:10px;
+ *    height:10px;
+ *    position:absolute;
+ *    background:#f00
+ *}
+ *
+ *.demo .panle_top .abtn i.up{
+ *    top:-4px;
+ *    background-image: -webkit-gradient(
+ *    linear,
+ *    right bottom,
+ *    left top,
+ *    color-stop(0.42, rgb(255,255,255)),
+ *    color-stop(0.11, rgb(227,223,223))
+ *);
+ *background-image: -moz-linear-gradient(
+ *    right bottom,
+ *    rgb(255,255,255) 42%,
+ *    rgb(227,223,223) 11%
+ *);
+ *}
+ *
+ *.demo .panle_top .abtn i.down{
+ *    background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
+ *    background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
+ *}
+ */
 
 .demo .nav{
-	padding-left:25px
+	padding-left:33px
 }
 
 .demo .nav a{
