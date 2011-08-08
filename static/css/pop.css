@@ -41,8 +41,8 @@ input.ipt{width:120px;height:22px;border:1px solid #a6a6a6;padding-left:3px;
 .table{width:100%;text-align:center}
 .table tr{height:29px;background：#fff}
 .table td,.table th{border:1px solid #ccc}
-.table tr.odd{background-color:#fafdff;}
-.table tr.even{background-color:#f3faff;}
+.table tr:nth-child(odd){background-color:#fafdff;}
+.table tr:nth-child(even){background-color:#f3faff;}
 .table th{text-align:center;background-color:#fff;
 		 background:-webkit-linear-gradient(bottom,rgba(247,247,247,0.5),rgba(219,219,219,0.5) 50%,rgba(227,227,227,0.5) 50%,rgba(248,248,248,0.5)); 
 		  background:-moz-linear-gradient(bottom,rgba(247,247,247,0.5),rgba(219,219,219,0.5) 50%,rgba(227,227,227,0.5) 50%,rgba(248,248,248,0.5));
