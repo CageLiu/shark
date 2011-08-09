@@ -25,20 +25,23 @@ $(function(){
 		return false;
 	})
 	$(".switch_workspace span").click(function(){
-		switch_wps();
 		cur_wpi=$(this).index();
 	})
 	
+	$(".close_frame").live(  //删除窗口
+		"click",function(e){
+			if(e && e.stopPropagation){
+			  e.stopPropagation();
+			}
+			var url=$(this).parent().attr("title");
+			$("iframe[id='"+url+"']").remove();
+			$(this).parent().remove();
+			del_window_status(url);
+		}
+	)
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	/*
 	 * 打开新窗口
@@ -56,7 +59,12 @@ $(function(){
 			creat_taskbar(wpi,url); //创建任务栏
 			set_window_status(wpi,url); //设置新窗口的本地存储信息
 		}else{
-			console.log(is_opening(url).wpi)
+			var wpi=is_opening(url).wpi;
+			switch_wps(wpi);
+			_wsp.eq(wpi).find("iframe").hide();
+			$("iframe[id='"+url+"']").show();
+			_taskbar.eq(wpi).find("li").removeClass("current");
+			_taskbar.eq(wpi).find("li[title='"+url+"']").addClass("current");
 		}
 	}
 	
@@ -73,7 +81,17 @@ $(function(){
 			};
 		_status.push(new_frame);
 		_frames.setItem("status",JSON.stringify(_status));
-		console.log(_frames.status);
+		//console.log(_frames.status);
+	}
+	
+	/*
+	 * 删除窗口的本地存储信息
+	 * @param url 窗口所打开页面的名称
+	 */
+	function del_window_status(url){
+		var _status=del_elem(url,JSON.parse(_frames.status));
+		_frames.setItem("status",JSON.stringify(_status));
+		console.log(JSON.parse(_frames.status));
 	}
 	
 	/*
@@ -87,10 +105,13 @@ $(function(){
 		$("<li/>",{
 			"title":url,
 			"class":"current",
-			html:url+'<span title="关闭">x</span>',
+			html:url+'<span class="close_frame" title="关闭">x</span>',
 			click:function(){
 				var url=$(this).attr("title");
-				alert(url)
+				_wsp.eq(wpi).find("iframe").hide();
+				$("iframe[id='"+url+"']").show();
+				_taskbar.find("li").removeClass("current");
+				_taskbar.eq(wpi).find("li[title='"+url+"']").addClass("current");
 			}
 		}).appendTo(taskbar);
 	}
@@ -120,8 +141,15 @@ $(function(){
 		}
 	}
 	
-	function switch_wps(){
-		
+	/*
+	 * 切换工作区
+	 * @param index 需要的切换工作区的索引值
+	 */
+	function switch_wps(index){
+		var wsp_Height = _wsp.height();
+		_wsp.eq(0).stop().animate({"margin-top":-index * wsp_Height},{duration:"speed",easing:"swing"});
+		_wsp.css("visibility","hidden").eq(index).css("visibility","visible");
+		cur_wpi=index;
 	}
 	
 	/*
@@ -131,11 +159,29 @@ $(function(){
 	 * @return boolean
 	 */
 	function is_in_array(elem,arr){
-		for(var i=0;i<arr.length;i++){
-			if(elem==arr[i]){
+		$.each(arr,function(i,_elem){
+			if(elem==_elem){
 				return true;
 			}
-		}
+		})
 		return false;
 	}
+	
+	/*
+	 * 删除数组中某个元素
+	 * @param elem 需要删除的元素的值
+	 * @param arr 目标数组
+	 * @return Array 返回一个新的数组,如果删除元素不在目标数组中则返回目标数组
+	 */
+	 function del_elem(elem,arr){
+	 	var tempa=[];
+		$.each(arr,function(i,_item){
+			if(typeof(_item)=="object"){
+				if(elem!=_item.frame_name)tempa.push(_item);
+			}else{
+				if(elem!=_item)tempa.push(_item);
+			}
+		})
+		return tempa;
+	 }
 })
