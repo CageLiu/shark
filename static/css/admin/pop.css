@@ -7,7 +7,7 @@
 .pop_hd a{color:#666}
 	
 .pop_title span.pr{position:absolute;right:0;}
-.pop_button a{display:inline-block;width:21px;height:19px;background:url(../image/icon.png) no-repeat;overflow:hidden;margin-right:4px;}
+.pop_button a{display:inline-block;width:21px;height:19px;background:url(../../img/admin/icon.png) no-repeat;overflow:hidden;margin-right:4px;}
 .pop_button a.fullscreen{background-position:-34px -24px}
 .pop_button a.min{background-position:-63px -24px}
 .pop_button a.max{background-position:-94px -24px}

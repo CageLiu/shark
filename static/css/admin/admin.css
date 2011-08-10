@@ -55,7 +55,7 @@ body{
  *login page css start
  */
 .login body{
-	background:url(../image/body_bg.png) no-repeat center center fixed}
+	background:url(../../img/admin/body_bg.png) no-repeat center center fixed}
 
 .login .wrap{
 	position:absolute;
@@ -825,7 +825,7 @@ body{
 .demo .main_menu dl{
 	overflow:auto;
 	margin-right:5px;
-	background:url(../image/side_bg.jpg) no-repeat right center #fff
+	background:url(../../img/admin/side_bg.jpg) no-repeat right center #fff
 }
 
 .demo .main_menu dt{
@@ -970,7 +970,7 @@ body{
 	-moz-transition:top 0.8s ease-in;
 	-webkit-transition:top 0.8s ease-in;
 	left:-4px;
-	background:url(../image/abtn_bg.png) 0 0 no-repeat
+	background:url(../../img/admin/abtn_bg.png) 0 0 no-repeat
 }
 
 .demo .panle_top:hover .abtn{
@@ -1055,7 +1055,7 @@ body{
 	z-index:999;
 	border-top:1px solid #999;
 	border-bottom:1px solid #ddd;
-	background:url(../image/taskbar_bg.jpg) repeat-x center top;
+	background:url(../../img/admin/taskbar_bg.jpg) repeat-x center top;
 }
 
 /*
@@ -1123,7 +1123,7 @@ body{
 	position:absolute;
 	left:11px;
 	top:5px;
-	background:url(../image/themes_btn.jpg) no-repeat 0 0;
+	background:url(../../img/admin/themes_btn.jpg) no-repeat 0 0;
 	overflow:hidden;
 	width:18px;
 	height:18px;
