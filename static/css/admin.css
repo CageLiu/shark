@@ -212,9 +212,10 @@ body{
 .index .header li.current, .index .header li:hover{
 	color:#fff;
 	border-radius:3px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4668b0), to(#2e53a1));
-	background:-moz-linear-gradient(top,#4668b0,#2e53a1);
-	box-shadow:0 2px 0 #aaa
+	box-shadow:0 2px 0 #aaa;
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
+	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
+
 }
 
 .index .header li.current a, .index .header li:hover a{
@@ -312,10 +313,10 @@ body{
 	color:#fff;
 	position:relative;
 	margin-bottom:3px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4668b0), to(#2e53a1));
-	background:-moz-linear-gradient(top,#4668b0,#2e53a1);
 	border-top:1px solid #bdc5d7;
 	box-shadow:0 3px 3px #c2c2c2;
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
+	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
 
 }
 
@@ -464,7 +465,7 @@ body{
 	text-align:center;
 }
 
-.default table.t  tbody tr:nth-child(even){
+.default table.t  tbody tr:nth-child(odd){
 	background:#eee
 }
 
@@ -478,10 +479,11 @@ body{
 	border-bottom-color:#fff;
 	text-align:center;
 	font-size:14px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#2E405B), to(#243651));
-	background:-moz-linear-gradient(top,#2E405B,#243651);
 	box-shadow:0 2px 3px #ccc;
-	color:#fff
+	color:#333;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+	background:-moz-linear-gradient(top,#fff,#E3DFDF);
+	border-bottom:1px solid #fff;
 }
 
 .default table.t td{
@@ -597,7 +599,7 @@ body{
 	font-size:14px;
 	height:25px;
 	line-height:23px;
-	background:#243651;
+	background:#6BA3F0;
 	color:#fff;
 	border-radius:3px;
 	padding:0 10px
