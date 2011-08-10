@@ -413,7 +413,7 @@ body{
 .index .search input.text{
 	height:16px;
 	width:200px;
-	border:1px solid #243651;
+	border:1px solid #aaa;
 	border-radius:3px 0 0 3px;
 	background:#fff;
 }
@@ -422,7 +422,7 @@ body{
 	height:22px;
 	border:none;
 	border-radius:0 3px 3px 0;
-	background:#243651;
+	background:#578CDA;
 	color:#fff
 }
 
@@ -508,7 +508,7 @@ body{
 .default .page input[type="text"]{
 	width:30px;
 	height:20px;
-	border:1px solid #243651;
+	border:1px solid #888;
 	background:#fff;
 	vertical-align:middle;
 	border-radius:3px 0 0 3px
@@ -518,7 +518,7 @@ body{
 	width:25px;
 	height:26px;
 	border:none;
-	background:#243651;
+	background:#578CDA;
 	color:#fff;
 	vertical-align:middle;
 	font-weight:bold;
@@ -540,15 +540,13 @@ body{
 }
 
 .default .page a.num{
-	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
-	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
+	background:#888;
 	line-height:20px;
 	padding:3px 10px;
 }
 
 .default .page a.btn{
-	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
-	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
+	background:#888;
 	height:26px;
 	width:48px;
 	position:relative
@@ -559,13 +557,13 @@ body{
 	padding:0;
 	border-style:solid;
 	border-width:8px;
-	border-color:#679eeb #fff #5b90de #6198e5;
 	font-size:0;
 	line-height:0;
 	overflow:hidden;
 	position:absolute;
 	top:5px;
-	left:12px
+	left:12px;
+	border-color:#888 #fff #888 #888;
 }
 
 .default .page a.btn:hover span{
@@ -573,8 +571,12 @@ body{
 }
 
 .default .page a.current, .default .page a:hover{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e405b), to(#243651));
-	background:-moz-linear-gradient(top,#2e405b,#243651);
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
+	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
+}
+
+.default .page a.btn:hover span{
+	border-color:#679eeb #fff #5b90de #6198e5;
 }
 
 
@@ -599,7 +601,7 @@ body{
 	font-size:14px;
 	height:25px;
 	line-height:23px;
-	background:#6BA3F0;
+	background:#4668B0;
 	color:#fff;
 	border-radius:3px;
 	padding:0 10px
@@ -633,7 +635,7 @@ body{
 	height:27px;
 	width:61px;
 	border:none;
-	background:#243651;
+	background:#578CDA;
 	border-radius:0 3px 3px 0;
 	vertical-align:middle;
 	color:#fff
@@ -654,7 +656,7 @@ body{
 
 .default .form input.text{
 	height:25px;
-	border:1px solid #243651;
+	border:1px solid #aaa;
 	border-radius:3px;
 	width:180px;
 	vertical-align:middle;
@@ -664,7 +666,7 @@ body{
 	width:350px;
 	height:120px;
 	border-radius:3px;
-	border:1px solid #243651;
+	border:1px solid #aaa;
 	overflow-x:hidden;
 	overflow-y:auto;
 }
@@ -675,18 +677,13 @@ body{
 
 .default .form input.fbtn{
 	border:none;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e405b), to(#243651));
-	background:-moz-linear-gradient(top,#2e405b,#243651);
 	border-radius:3px;
 	color:#fff;
 	padding:5px;
 	border-bottom:1px solid #888;
-}
-
-.default .form input.fbtn:hover{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#6ba3f0), to(#578cda));
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
 	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
-	border-bottom:1px solid #ccc
+
 }
 
 .default .form input[type="checkbox"], .default .form input[type="radio"]{
