@@ -22,6 +22,13 @@ $(function(){
 		_mc=$(".main_cont"),
 		_taskbar=$(".taskbar"),
 		cur_wpi=0; //全局当前工作区索引
+		
+	$("<link/>",{
+		id:"skin_link",
+		"type":"text/css",
+		"rel":"stylesheet",
+		"href":_base_url+_style
+	}).appendTo("head");
 	
 	$(".switch_skin").click(function(){ //换肤
 		set_style(skin[$(this).index()]);
