@@ -51,4 +51,53 @@ body{
 	clear:both
 }
 
+header{
+	height:60px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#EDEDED));
+	background:-moz-linear-gradient(top,#fff,#EDEDED);
+	border-bottom:3px solid #417EB7;
+	box-shadow:0 2px 3px #bbb;
+	position:relative;
+}
 
+.logo{
+	float:left;
+	margin:8px 40px 0 20px;
+}
+
+.nav{
+	float:left;
+	margin-top:28px;
+	height:30px;
+	font-size:15px;
+	text-shadow:2px 2px 2px #ccc;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E6E6E6));
+	background:-moz-linear-gradient(top,#fff,#E6E6E6);
+	border-style:solid;
+	border-width:1px;
+	border-color:#dadada #dadada #fff #dadada;
+	border-radius:4px 4px 0 0;
+	overflow:hidden;
+}
+
+.nav a{
+	padding:0 8px;
+	margin-left:-1px;
+	border-left:1px solid #aaa;
+	float:left;
+	height:16px;
+	line-height:16px;
+	margin-top:7px;
+}
+
+header .tips{
+	position:absolute;
+	top:0;
+	right:10px;
+}
+
+.userbar{
+	float:right;
+	margin-top:38px;
+	margin-right:10px;
+}
