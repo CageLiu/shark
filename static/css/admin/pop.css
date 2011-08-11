@@ -1,7 +1,7 @@
 ﻿input,label{padding:0;vertical-align:top}
 .pop{margin:0 auto;color:#666;width:500px;background:#e8e8e8;border:1px solid #666;
 	border-radius:3px;box-shadow:0 0 6px #999}
-.pop_title{height:24px;padding-left:5px;position:relative;padding-top:5px;}
+.pop_title{height:24px;padding-left:5px;position:relative;padding-top:5px; cursor:move}
 .pop_title i.arrow{border-width:4px;border-color:#E8E8E8 #E8E8E8 #E8E8E8 #666;}
 .pop_hd{font-family:"宋体";color:#666;display:inline;line-height:18px;font-weight:normal;}
 .pop_hd a{color:#666}
