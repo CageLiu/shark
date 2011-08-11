@@ -114,8 +114,10 @@
             <a href="#">扩展</a>
             <a href="#">phpsso</a>
             <a href="#">快速导入</a>
-            <a class="switch_skin" rel="skin_0.css" href="javascript:void('默认')" title="默认">默认</a>
-        	<a class="switch_skin" rel="skin_1.css" href="javascript:void('风格一')" title="风格一">风格一</a>  
+            <span>
+            <a class="switch_skin" href="javascript:void('默认')" title="默认">默认</a>
+        	<a class="switch_skin" href="javascript:void('风格一')" title="风格一">风格一</a>
+            </span>
        	</nav>
 	</div>
 	<div class="workspace">
@@ -167,7 +169,6 @@
 		</div>
 	</div>
 	<div class="workspace">
-		
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">

@@ -5,11 +5,15 @@
  */
 
 $(function(){
+	//初始化
 	if(window.localStorage){
-		var _frames=window.localStorage,_status=new Array();
-		_frames.setItem("status",JSON.stringify(_status)); //界面暂存
-		if(!_frames.getItem("skin"))
-			_frames.setItem("skin","skin_0.css"); //默认皮肤
+		var _frames=window.localStorage,
+			_status=new Array(), //界面暂存
+			skin=["skin_0.css","skin_1.css"];  //皮肤列表;
+		_frames.setItem("status",JSON.stringify(_status));
+		if(!_frames.getItem("skin")){
+			_frames.setItem("skin",skin[0]); //默认皮肤
+		}
 		var _style=_frames.getItem("skin"),_base_url="../static/css/admin/";
 	}else{
 		alert("您的浏览器不支持本地存储！请使用火狐或者谷歌浏览器！");
@@ -19,25 +23,18 @@ $(function(){
 		_taskbar=$(".taskbar"),
 		cur_wpi=0; //全局当前工作区索引
 	
-	$("<link/>",{
-		id:"skin_link",
-		"type":"text/css",
-		"rel":"stylesheet",
-		"href":_base_url+_style
-	}).appendTo("head");
-	
-	$(".switch_skin").click(function(){
-		set_style($(this).attr("rel"));
+	$(".switch_skin").click(function(){ //换肤
+		set_style(skin[$(this).index()]);
 	})
 	
-	$("#left_nav a").click(function(){
+	$("#left_nav a").click(function(){  //左部菜单链接页面加载
 		var wpi=cur_wpi,url=$(this).attr("href");
 		if(url!="#"){
 			open_iframe(wpi,url);
 		}
 		return false;
 	})
-	$(".switch_workspace span").click(function(){
+	$(".switch_workspace span").click(function(){ //刷新工作区索引
 		cur_wpi=$(this).index();
 	})
 	
