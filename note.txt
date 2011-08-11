@@ -1,0 +1,9 @@
+1.每种身份的用户用不同主题区分
+2.列表直接显示在内容区，操作界面使用弹窗
+3.启用离线存储，保存窗口记录
+asdashdj
+asdaksdhkajsdha
+asdjkasdhaksd
+
+asdaldakdad
+asdlaksdaklsd
