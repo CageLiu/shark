@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <link type="text/css" rel="stylesheet" href="../static/css/admin/admin.css" />
 <script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
-<script type="text/javascript" src="../static/js/admin/ui.js"></script>
+<script type="text/javascript" src="../static/js/admin/shark-ui.js"></script>
 <script type="text/javascript" src="../static/js/public/jplugins/easing.js"></script>
 <script type="text/javascript" src="../static/js/public/jplugins/hotkeys.js"></script>
 <script type="text/javascript" src="../static/js/admin/base.js"></script>
