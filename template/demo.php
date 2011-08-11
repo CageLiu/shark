@@ -2,14 +2,13 @@
 <html class="demo">
 <head>
 <title>后台</title>
-	<meta charset="utf-8" />
-	<link type="text/css" rel="stylesheet" href="../static/css/admin/admin.css" />
-	<link type="text/css" rel="stylesheet" href="../static/css/admin/pop.css" />
-	<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
-	<script type="text/javascript" src="../static/js/public/jplugins/easing.js"></script>
-	<script type="text/javascript" src="../static/js/public/jplugins/hotkeys.js"></script>
-	<script type="text/javascript" src="../static/js/admin/base.js"></script>
-    <script type="text/javascript" src="../static/js/admin/ui.js"></script>
+<meta charset="utf-8" />
+<link type="text/css" rel="stylesheet" href="../static/css/admin/admin.css" />
+<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/admin/ui.js"></script>
+<script type="text/javascript" src="../static/js/public/jplugins/easing.js"></script>
+<script type="text/javascript" src="../static/js/public/jplugins/hotkeys.js"></script>
+<script type="text/javascript" src="../static/js/admin/base.js"></script>
 </head>
 
 <body>
@@ -101,42 +100,28 @@
 		</div>
 	</div>
 	<div class="panle panle_top">
-		<!--
-		   -<div class="cur_position">
-		   -    <a href="#">首页</a>
-		   -    <i class="arrow"></i>
-		   -    <a href="#">视频</a>
-		   -    <i class="arrow"></i>
-		   -    <a href="#">详情</a>
-		   -</div>		
-		   -->
-		   <div class="abtn">
-			   <i class="down"></i>
-			   <i class="up"></i>
-		   </div>
-		   <nav class="nav">
-				<a href="#" class="current">我的面板</a>
-				<a href="#">设置</a>
-				<a href="#">模块</a>
-				<a href="#">内容</a>
-				<a href="#">兼职</a>
-				<a href="#">界面</a>
-				<a href="#">扩展</a>
-				<a href="#">phpsso</a>
-				<a href="#">快速导入</a>
-		   </nav>
+    	<div class="abtn">
+           <i class="down"></i>
+           <i class="up"></i>
+    	</div>
+       	<nav class="nav">
+            <a href="#" class="current">我的面板</a>
+            <a href="#">设置</a>
+            <a href="#">模块</a>
+            <a href="#">内容</a>
+            <a href="#">兼职</a>
+            <a href="#">界面</a>
+            <a href="#">扩展</a>
+            <a href="#">phpsso</a>
+            <a href="#">快速导入</a>
+            <a class="switch_skin" rel="skin_0.css" href="javascript:void('默认')" title="默认">默认</a>
+        	<a class="switch_skin" rel="skin_1.css" href="javascript:void('风格一')" title="风格一">风格一</a>  
+       	</nav>
 	</div>
 	<div class="workspace">
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">
-				<!--<li title="任务全称" class="current">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>
-				<li title="任务全称">任务名称<span title="关闭">x</span></li>-->
 			</ul>
 			<div class="switch_workspace">
 				<span title="工作区一 Alt+a" class="current">&nbsp;</span>

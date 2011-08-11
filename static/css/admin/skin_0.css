@@ -1,0 +1,16 @@
+.demo body{
+	background:#f8f8f8
+}
+
+.demo .main_menu{
+	background:#333;
+}
+
+.demo .menu_onff span{
+	background:#6390EC;
+	color:#fff;
+}
+
+.demo .panle_bottom{
+	background:url(../../img/admin/taskbar_bg.jpg) repeat-x center top;
+}

@@ -729,7 +729,6 @@ body{
 .demo body{
 	height:100%;
 	color:#fff;
-	background:#f8f8f8
 }
 
 .demo .main_menu{
@@ -741,7 +740,6 @@ body{
 	box-shadow:3px 2px 3px #a9a9a9;
 	z-index:99;
 	height:100%;
-	background:#333;
 	border-right:1px solid #e8e8e8
 }
 
@@ -920,12 +918,10 @@ body{
 	font-size:14px;
 	text-align:right;
 	width:5px;
-	color:#fff;
 	padding-bottom:7px;
 	border-style:solid none;
 	border-color:#fff;
 	border-width:2px;
-	background:#6390EC;
 }
 
 .demo .workspace{
@@ -1052,7 +1048,6 @@ body{
 	z-index:999;
 	border-top:1px solid #999;
 	border-bottom:1px solid #ddd;
-	background:url(../../img/admin/taskbar_bg.jpg) repeat-x center top;
 }
 
 /*
