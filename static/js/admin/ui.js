@@ -110,7 +110,7 @@ $(function(){
 				var url=$(this).attr("title");
 				_wsp.eq(wpi).find("iframe").hide();
 				$("iframe[id='"+url+"']").show();
-				_taskbar.find("li").removeClass("current");
+				_taskbar.eq(wpi).find("li").removeClass("current");
 				_taskbar.eq(wpi).find("li[title='"+url+"']").addClass("current");
 			}
 		}).appendTo(taskbar);
