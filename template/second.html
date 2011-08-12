@@ -47,8 +47,8 @@
 	<div class="frame" id="frame">
 		<div class="main_menu">
 			<dl>
-				<dt>常用功能操作</dt>
-				<dd>
+				<dt class="show">常用功能操作</dt>
+				<dd class="show">
 					<ul>
 						<li><a href="#">网站栏目管理</a></li>
 						<li><a href="#">档案列表</a></li>
@@ -68,71 +68,75 @@
 			</dl>
 		</div>
 		<div class="main_cont">
-			<table>
-				<tr>
-					<th>表头一</th>
-					<th>表头二</th>
-					<th>表头三</th>
-					<th>表头四</th>
-					<th>表头五</th>
-					<th>表头六</th>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
+			<table class="t">
+				<thead>
+					<tr>
+						<th>表头一</th>
+						<th>表头二</th>
+						<th>表头三</th>
+						<th>表头四</th>
+						<th>表头五</th>
+						<th>表头六</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+				</tbody>
 			</table>
 			<fieldset class="form_wrap">
 				<legend>这里是表单的名称：</legend>
@@ -168,6 +172,13 @@
 					</ul>	
 				</form>
 			</fieldset>
+			<script type="text/javascript">
+				var upload = document.getElementById("upload");
+				var file_src = document.getElementById("file_src");
+				upload.onchange = function(){
+					file_src.value = this.value;
+				}
+			</script>
 		</div>
 	</div>
 </body> 

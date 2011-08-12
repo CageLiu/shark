@@ -130,6 +130,9 @@ header .tips{
 	height:25px;
 	line-height:25px;
 	padding-left:20px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#eeedea), to(#fff));
+	background:-moz-linear-gradient(top,#eeedea,#fff);
+
 }
 
 .cur_posit a{
@@ -167,30 +170,192 @@ i.arrow{
 	height:100%;
 	overflow:auto;
 	border-right:1px solid #cfcfcf;
-background-image: -webkit-gradient(
+	background-image: -webkit-gradient(
     linear,
     left top,
     right top,
     color-stop(0.98, rgb(78,141,200)),
-    color-stop(1, rgb(65,126,183))
-);
-background-image: -moz-linear-gradient(
+    color-stop(1, rgb(65,126,183)));
+	background-image: -moz-linear-gradient(
     left center,
     rgb(78,141,200) 98%,
-    rgb(65,126,183) 100%
-);
+    rgb(65,126,183) 100%);
 	box-shadow:2px 0 3px #aaa;
+	padding-top:8px
 }
 
 .main_menu dl{
-	padding-left:20px;
 	height:100%;
 	overflow:auto;
 	border-right:1px solid #417eb7
 }
 
+.main_menu dt{
+	height:27px;
+	line-height:27px;
+	padding-left:20px;
+	font-size:14px;
+	color:#333
+}
+
+.main_menu dd{
+	padding-left:25px;
+}
+
+.main_menu dt.show{
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e5e5e5));
+	background:-moz-linear-gradient(top,#fff,#e5e5e5);
+	border-bottom:1px solid #fff;
+	border-top:1px solid #5093D1
+}
+
 .main_cont{
 	height:100%;
 	overflow:auto;
-	padding-left:10px
+	padding:8px  10px 0
 }
+
+table.t{
+	width:100%
+}
+
+table.t  tbody tr:nth-child(odd){
+	background:#ddd
+}
+
+table.t tbody tr:hover{
+	background:#6BA3F0;
+	color:#fff
+}
+
+table.t th{
+	height:25px;
+	border:1px solid #ccc;
+	border-bottom-color:#fff;
+	text-align:center;
+	font-size:14px;
+	box-shadow:0 2px 3px #ccc;
+	color:#333;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
+	background:-moz-linear-gradient(top,#fff,#E3DFDF);
+	border-bottom:1px solid #fff;
+}
+
+table.t td{
+	height:30px;
+	line-height:30px;
+	border:1px solid #ccc;
+	text-align:center
+}
+
+.form_wrap{
+	border:1px solid #aaa;
+	border-radius:3px;
+	margin:8px 0
+}
+
+.form_wrap legend{
+	font-size:14px;
+	height:25px;
+	line-height:23px;
+	background:#4E8DC8;
+	color:#fff;
+	border-radius:3px;
+	padding:0 10px
+}
+
+.form li{
+	padding:5px 0 5px 160px;
+	position:relative;
+}
+
+.form li.file input[type="file"]{
+	opacity:0;
+	position:relative;
+	z-index:9999;
+	width:208px
+}
+
+.form span.imitate_file{
+	position:absolute;
+	left:160px;
+	top:3px
+}
+
+.form li.file input[type="text"]{
+	width:140px;
+	height:21px;
+	border-radius:3px 0 0 3px
+}
+
+.form li.file input[type="submit"]{
+	height:27px;
+	width:61px;
+	border:none;
+	background:#578CDA;
+	border-radius:0 3px 3px 0;
+	vertical-align:middle;
+	color:#fff
+}
+
+.form li.file label{
+	top:5px
+}
+
+.form label{
+	position:absolute;
+	top:8px;
+	left:0;
+	width:160px;
+	text-align:right;
+	font-size:14px
+}
+
+.form input.text{
+	height:25px;
+	border:1px solid #aaa;
+	border-radius:3px;
+	width:180px;
+	vertical-align:middle;
+}
+
+.form li.tarea textarea{
+	width:350px;
+	height:120px;
+	border-radius:3px;
+	border:1px solid #aaa;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+.form li.tarea label{
+	top:3px
+}
+
+.form input.fbtn{
+	border:none;
+	border-radius:3px;
+	color:#fff;
+	padding:5px;
+	border-bottom:1px solid #888;
+	background:-webkit-gradient(linear,0 0,0 100%,from(#6ba3f0),to(#578cda));
+	background:-moz-linear-gradient(top,#6ba3f0,#578cda);
+
+}
+
+.form input[type="checkbox"],  .form input[type="radio"]{
+	margin-right:5px;
+	position:relative;
+	display:inline-block;
+	margin-top:5px;
+	top:3px;
+}
+
+.form li.radio{
+	padding-bottom:10px
+}
+
+
+
+
+

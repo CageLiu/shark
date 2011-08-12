@@ -4,9 +4,9 @@ $(document).ready(function(){
 	var $curposit = $("#cur_posit");
 	var $frame = $("#frame");
 
-	$frame.css("height",$body.height() - 89 + "px");
+	$frame.css("height",$body.height() - 98 + "px");
 
 	$(window).resize(function(){
-		$frame.css("height",$body.height() - 89 + "px");
+		$frame.css("height",$body.height() - 98 + "px");
 	});
 });
