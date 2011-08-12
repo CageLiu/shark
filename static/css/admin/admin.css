@@ -748,10 +748,7 @@ body{
 	line-height:30px;
 	border-bottom:1px solid #eee;
 	border-top:1px solid #e8e8e8;
-	border-right:1px solid #5183ea;
 	padding-left:1em;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
 	position:relative;
 }
 
@@ -802,7 +799,6 @@ body{
 
 .demo .main_menu .user i.arrow{
 	border-width:6px;
-	border-color:#fff #759DF1 #6893ED #749CF1;
 	float:right;
 	margin:13px 5px 0 0;
 	cursor:pointer;
@@ -820,7 +816,6 @@ body{
 .demo .main_menu dl{
 	overflow:auto;
 	margin-right:5px;
-	background:url(../../img/admin/side_bg.jpg) no-repeat right center #fff
 }
 
 .demo .main_menu dt{
@@ -836,7 +831,6 @@ body{
 	margin-bottom:3px;
 	box-shadow:0 2px 4px #ccc;
 	font-weight:bold;
-	color:#4668b0;
 	white-space:nowrap;
 	cursor:default;
 	text-shadow:1px 1px 2px #ccc
@@ -847,7 +841,6 @@ body{
 	width:0;
 	height:0;
 	border-width:6px;
-	border-color:#F9F8F8 #F2F1F1 #EBE8E8 #6390EC;
 	border-style:solid;
 	left:15px;
 	top:8px;
@@ -867,8 +860,6 @@ body{
 
 .demo .main_menu dd li.current, .demo .main_menu dd li:hover{
 	border-radius:3px 0 0 3px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
 	box-shadow:0 2px 2px #ccc;
 	margin-top:-2px;
 	border-width:1px;
@@ -884,11 +875,6 @@ body{
 	display:none;
 }
 
-.demo .main_menu dt.show i.icon{
-	-moz-transform:rotate(45deg) translate(16%,27%);
-	-webkit-transform:rotate(45deg) translate(16%,27%);
-	border-color:#F2F1F1 #E9E6E6 #EBE8E8 #6390EC;
-}
 
 .demo .main_menu dd.show{
 	display:block;
@@ -1033,13 +1019,12 @@ body{
 	line-height:23px;
 	border:1px solid #fff;
 	box-shadow:0 0 3px #333 inset;
-	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.8)),to(rgba(255,255,255,.2)));
-	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
 	border:1px solid #fff;
-	color:#4668B0;
 	padding:0 13px;
 	border-radius:2px;
 	text-decoration:none;
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.8)),to(rgba(255,255,255,.2)));
+	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
 }
 
 
@@ -1105,8 +1090,6 @@ body{
 }
 
 .demo .switch_workspace span.current, .demo .switch_workspace span:hover{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
-	background:-moz-linear-gradient(top,#8fb0fa,#6390ec);
 	opacity:0.8;
 	border-color:#fff
 }
@@ -1202,8 +1185,5 @@ body{
 .taskbar li.current,.taskbar li:hover{
 	opacity:1;
 }
-.taskbar li.current{
-	border-color:#09F;
-	box-shadow:inset 0 0 5px #09F;
-}
+
 /*--end--*/
