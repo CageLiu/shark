@@ -168,7 +168,6 @@ i.arrow{
 	left:-200px;
 	top:0;
 	height:100%;
-	overflow:auto;
 	border-right:1px solid #cfcfcf;
 	background-image: -webkit-gradient(
     linear,
@@ -181,9 +180,37 @@ i.arrow{
     rgb(78,141,200) 98%,
     rgb(65,126,183) 100%);
 	box-shadow:2px 0 3px #aaa;
-	padding-top:8px
+	padding-bottom:8px
 }
-
+#spl,#spt{
+	display:block;
+	position:absolute;
+	overflow:hidden;
+	font-size:12px;
+	border:1px #c1c0c0 solid;
+	cursor:pointer;
+	color:#666;
+}
+#spt{
+	height:6px;
+	padding:0 20px;
+	margin-left:-20px;
+	left:50%;
+	bottom:-10px;
+	border-radius:0 0 2px 2px;
+	border-top:none;
+	line-height:8px
+}
+#spl{
+	width:6px;
+	padding:16px 0;
+	top:50%;
+	margin-top:-18px;
+	right:-9px;
+	border-radius:0 2px 2px 0;
+	text-indent:-2px;
+	border-left:none
+}
 .main_menu dl{
 	height:100%;
 	overflow:auto;
@@ -191,23 +218,70 @@ i.arrow{
 }
 
 .main_menu dt{
-	height:27px;
-	line-height:27px;
-	padding-left:20px;
+	height:28px;
+	text-indent:20px;
 	font-size:14px;
-	color:#333
+	color:#FFF;
+	border-top:1px #2969a6 solid;
+	cursor:pointer
+}
+
+.main_menu dt:first-child{
+	margin-top:8px;
+}
+.main_menu dt span{
+	display:block;
+	border-top:1px #417eb7 solid;
+	border-bottom:1px #488bcb solid;
+	line-height:26px
 }
 
 .main_menu dd{
-	padding-left:25px;
+	padding:6px 0;
+	display:none;
 }
 
 .main_menu dt.show{
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e5e5e5));
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e5e5e5));
 	background:-moz-linear-gradient(top,#fff,#e5e5e5);
-	border-bottom:1px solid #fff;
-	border-top:1px solid #5093D1
+	border-top:1px #5093d1 solid;
+	border-bottom:1px #417eb7 solid;
+	color:#000;
+	font-weight:bold
 }
+
+.main_menu dt.show span{
+	border-top-color:#488bcb;
+	border-bottom-color:#FFF
+}
+
+.main_menu dd.show{
+	display:block
+}
+
+.main_menu ul a{
+	color:#b9ddff;
+	display:block;
+	height:24px;
+	line-height:24px;
+	padding-left:30px;
+	text-decoration:none
+}
+
+.main_menu ul a:hover{
+	background-color:rgba(45,104,159,0.3)
+}
+
+.main_menu ul a.current{
+	background-color:rgba(45,104,159,1)
+}
+
+
+
+
+
+
+
 
 .main_cont{
 	height:100%;
