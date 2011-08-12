@@ -42,7 +42,7 @@ address{
 	font-style:normal;
 }
 body{
-	font:12px/1.5 "微软雅黑",'宋体',Helvetica, simsun,sans-serif;/*'Microsoft Yahei','微软雅黑',*/color:#2f2e2a;background:#f1f1f1;
+	font:12px/1.5 "微软雅黑",'宋体',Helvetica, simsun,sans-serif;/*'Microsoft Yahei','微软雅黑',*/color:#2f2e2a;background:#f1f1f1;height:100%
 }
 .clearfix:after, .wrap:after{
 	content: ".";display:block;height:0;clear:both;visibility:hidden
@@ -53,6 +53,7 @@ body{
 
 html{
 	overflow:hidden;
+	height:100%
 }
 
 header{
@@ -163,11 +164,33 @@ i.arrow{
 	position:absolute;
 	left:-200px;
 	top:0;
-	height:100%
+	height:100%;
+	overflow:auto;
+	border-right:1px solid #cfcfcf;
+background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0.98, rgb(78,141,200)),
+    color-stop(1, rgb(65,126,183))
+);
+background-image: -moz-linear-gradient(
+    left center,
+    rgb(78,141,200) 98%,
+    rgb(65,126,183) 100%
+);
+	box-shadow:2px 0 3px #aaa;
+}
+
+.main_menu dl{
+	padding-left:20px;
+	height:100%;
+	overflow:auto;
+	border-right:1px solid #417eb7
 }
 
 .main_cont{
-	width:100%;
 	height:100%;
 	overflow:auto;
+	padding-left:10px
 }
