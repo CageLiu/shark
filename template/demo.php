@@ -27,7 +27,7 @@
 		</div>
 		<dl id="left_nav">
 			<dt class="show">
-				内容发布管理 fda
+				内容发布管理
 				<i class="icon">&nbsp;</i>
 			</dt>
 			<dd class="show">
