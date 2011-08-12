@@ -18,10 +18,13 @@ $(function(){
 	}else{
 		alert("您的浏览器不支持本地存储！请使用火狐或者谷歌浏览器！");
 	}
+	
 	var _wsp=$(".workspace"),
 		_mc=$(".main_cont"),
 		_taskbar=$(".taskbar"),
 		cur_wpi=0; //全局当前工作区索引
+		
+	open_iframe(cur_wpi,"help/help.html"); //默认打开帮助页
 		
 	$("<link/>",{
 		id:"skin_link",
@@ -37,6 +40,7 @@ $(function(){
 	$("#left_nav a").click(function(){  //左部菜单链接页面加载
 		var wpi=cur_wpi,url=$(this).attr("href");
 		if(url!="#"){
+			$("#help_frame").hide();
 			open_iframe(wpi,url);
 		}
 		return false;
@@ -104,7 +108,6 @@ $(function(){
 			};
 		_status.push(new_frame);
 		_frames.setItem("status",JSON.stringify(_status));
-		//console.log(_frames.status);
 	}
 	
 	/*
@@ -114,7 +117,6 @@ $(function(){
 	function del_window_status(url){
 		var _status=del_elem(url,JSON.parse(_frames.status));
 		_frames.setItem("status",JSON.stringify(_status));
-		console.log(JSON.parse(_frames.status));
 	}
 	
 	/*

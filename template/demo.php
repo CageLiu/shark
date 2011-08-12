@@ -133,7 +133,6 @@
 			</div>
 		</div>
 		<div class="main_cont">
-			
 		</div>
 	</div>
 	<div class="workspace">
