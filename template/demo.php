@@ -116,7 +116,10 @@
             <a href="#">快速导入</a>
             <span>
             <a class="switch_skin" href="javascript:void('默认')" title="默认">默认</a>
-        	<a class="switch_skin" href="javascript:void('风格一')" title="风格一">风格一</a>
+        	<a class="switch_skin" href="javascript:void('风格1')" title="风格1">风格1</a>
+            <a class="switch_skin" href="javascript:void('风格2')" title="风格2">风格2</a>
+        	<a class="switch_skin" href="javascript:void('风格3')" title="风格3">风格3</a>
+            <a class="switch_skin" href="javascript:void('风格4')" title="风格4">风格4</a>
             </span>
        	</nav>
 	</div>

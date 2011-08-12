@@ -9,7 +9,7 @@ $(function(){
 	if(window.localStorage){
 		var _frames=window.localStorage,
 			_status=new Array(), //界面暂存
-			skin=["skin_0.css","skin_1.css"];  //皮肤列表;
+			skin=["skin_00.css","skin_01.css","skin_02.css","skin_03.css","skin_04.css"];  //皮肤列表;
 		_frames.setItem("status",JSON.stringify(_status));
 		if(!_frames.getItem("skin")){
 			_frames.setItem("skin",skin[0]); //默认皮肤
@@ -24,7 +24,7 @@ $(function(){
 		_taskbar=$(".taskbar"),
 		cur_wpi=0; //全局当前工作区索引
 		
-	open_iframe(cur_wpi,"help/help.html"); //默认打开帮助页
+	//open_iframe(cur_wpi,"help/help.html"); //默认打开帮助页
 		
 	$("<link/>",{
 		id:"skin_link",
