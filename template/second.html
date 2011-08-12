@@ -5,10 +5,11 @@
 	<meta charset="utf-8" />
 	<link type="text/css" rel="stylesheet" href="../static/css/admin/second.css" />
 	<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
+	<script type="text/javascript" src="../static/js/admin/second.js"></script>
 </head>
 
 <body>
-	<header>
+	<header id="header">
 		<div class="logo">
 			<a href="#"><img src="http://www.google.com.hk/intl/zh-CN/images/logo_cn.png" alt="麒麟财经" width="120" height="48"  /></a>
 		</div>
@@ -35,18 +36,19 @@
 			<a href="#">退出</a>
 		</div>
 	</header>
-	<div class="cur_posit">
+	<div class="cur_posit" id="cur_posit">
+		<span>当前位置：</span>
 		<a href="#">首页</a>
-		<i class="arrow">&nbsp;</i>
+		<i class="arrow"></i>
 		<a href="#">列表</a>
-		<i class="arrow">&nbsp;</i>
+		<i class="arrow"></i>
 		<a href="#">详细</a>
 	</div>
-	<div class="frame">
+	<div class="frame" id="frame">
 		<div class="main_menu">
 			<dl>
-				<dt>常用功能操作</dt>
-				<dd>
+				<dt class="show">常用功能操作</dt>
+				<dd class="show">
 					<ul>
 						<li><a href="#">网站栏目管理</a></li>
 						<li><a href="#">档案列表</a></li>
@@ -66,71 +68,75 @@
 			</dl>
 		</div>
 		<div class="main_cont">
-			<table>
-				<tr>
-					<th>表头一</th>
-					<th>表头二</th>
-					<th>表头三</th>
-					<th>表头四</th>
-					<th>表头五</th>
-					<th>表头六</th>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
-				<tr>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-					<td>单元格</td>
-				</tr>
+			<table class="t">
+				<thead>
+					<tr>
+						<th>表头一</th>
+						<th>表头二</th>
+						<th>表头三</th>
+						<th>表头四</th>
+						<th>表头五</th>
+						<th>表头六</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+					<tr>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+						<td>单元格</td>
+					</tr>
+				</tbody>
 			</table>
 			<fieldset class="form_wrap">
 				<legend>这里是表单的名称：</legend>
@@ -166,6 +172,13 @@
 					</ul>	
 				</form>
 			</fieldset>
+			<script type="text/javascript">
+				var upload = document.getElementById("upload");
+				var file_src = document.getElementById("file_src");
+				upload.onchange = function(){
+					file_src.value = this.value;
+				}
+			</script>
 		</div>
 	</div>
 </body> 
