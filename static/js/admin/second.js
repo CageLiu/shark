@@ -14,12 +14,12 @@ $(document).ready(function(){
 		$frame.css("height",$body.height() - 98 + "px");
 	});
 	
-	left_nav()
+	top_nav();
+	left_nav();
 	$("#spl").click(function(){
 		setting.left_nav=setting.left_nav?false:true;
 		left_nav();
 	})
-	
 	$("#spt").click(function(){
 		setting.top_nav=setting.top_nav?false:true;
 		top_nav();
