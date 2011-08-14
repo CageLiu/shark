@@ -1,0 +1,55 @@
+.demo body{
+	background:#ccc
+}
+
+.demo .main_menu{
+	background:#8082cd;
+}
+
+.demo .menu_onff span{
+	background:#adaede;
+	color:#222
+}
+
+.demo .panle_bottom{
+	background:#ccc
+}
+
+.demo .main_menu .user{background: -webkit-gradient(linear, 0 0, 0 100%, from(#a7a6e0), to(#8181cb));
+	background:-moz-linear-gradient(top,#a7a6e0,#8181cb);}
+	
+.demo .main_menu dt{color:#6563a2;}
+
+.demo .main_menu .user i.arrow{
+	border-color:#fff #9291d3 #8787cf #9190d4;
+}
+.demo .main_menu .user{border-right:1px solid #7d7cc0;border-top:1px solid #7d7cc0;}
+
+.demo .main_menu i.icon{border-color:#f9f8f8 #f2f1f1 #ebe8e8 #8181cb}
+
+.demo .main_menu dt.show i.icon{
+	-moz-transform:rotate(45deg) translate(16%,27%);
+	-webkit-transform:rotate(45deg) translate(16%,27%);
+	border-color:#F2F1F1 #E9E6E6 #EBE8E8 #8082cc;
+}
+.demo .main_menu dd li.current, .demo .main_menu dd li:hover{	
+background: -webkit-gradient(linear, 0 0, 0 100%, from(#a9a5e0), to(#8482cd));
+	background:-moz-linear-gradient(top,#a9a5e0,#8482cd);
+}
+
+
+.demo .main_menu dl{
+	background:url(../../img/admin/side_bg04.jpg) no-repeat right center #fff;
+}
+	
+.taskbar li.current{
+	border-color:#9191cd;
+	box-shadow:inset 0 0 5px #9191cd;
+}
+	
+.demo .switch_workspace span.current, .demo .switch_workspace span:hover{
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#adaede), to(#9191cd));
+	background:-moz-linear-gradient(top,#adaede,#9191cd);}	
+	
+	
+.demo .nav a.current, .demo .nav a:hover{color:#9191cd;}

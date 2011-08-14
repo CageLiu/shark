@@ -1,5 +1,5 @@
 .demo body{
-	background:#eee
+	background:url(../../../static/img/admin/bg00.jpg) repeat 0 0
 }
 
 .demo .main_menu{
@@ -7,12 +7,14 @@
 }
 
 .demo .menu_onff span{
-	background:#8fb0fa;
-	color:#222
+	background:#333;
+	color:#fff
 }
 
 .demo .panle_bottom{
-	background:#ccc
+	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.55), rgba(227, 223, 223, 0.36));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.55)),to(rgba(227,223,223,0.36)));
+	border-top-color:#fff
 }
 
 .demo .main_menu .user{background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
@@ -22,6 +24,10 @@
 
 .demo .main_menu .user i.arrow{
 	border-color:#fff #759df1 #6893ed #749cf1;
+}
+
+.demo .main_menu .user i.show{
+	border-color:#fff #7BA2F4 #84A8F7 #7BA2F4;
 }
 
 .demo .main_menu i.icon{border-color:#f9f8f8 #f2f1f1 #ebe8e8 #6390ec}
@@ -47,8 +53,8 @@ background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 }
 	
 .taskbar li.current{
-	border-color:#09F;
-	box-shadow:inset 0 0 5px #09F;
+	border-color:#777;
+	box-shadow:inset 0 0 5px #fff;
 }
 	
 .demo .switch_workspace span.current, .demo .switch_workspace span:hover{

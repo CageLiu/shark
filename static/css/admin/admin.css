@@ -810,7 +810,6 @@ body{
 	-moz-transform:rotate(180deg);
 	-webkit-transform:rotate(180deg);
 	margin-top:8px;
-	border-color:#fff #7CA2F4 #7EA3F4 #79A0F3;
 }
 
 .demo .main_menu dl{
@@ -1178,9 +1177,10 @@ body{
 	border:none;
 	height:100%;
 	width:100%;
+	background:#fff
 }
 .taskbar li{
-	opacity:0.5;
+	opacity:0.6;
 }
 .taskbar li.current,.taskbar li:hover{
 	opacity:1;
