@@ -113,17 +113,28 @@ $(document).ready(
 		}
 	});
 
-	var numkey = ["alt+1","alt+2","alt+3","alt+4"];
 
-	$.each(numkey,function(i,n){
-		$.hotkeys.add(n,function(){
-			var workspaceHeight = $workspace.height();
-			$workspace.eq(0).stop().animate({"margin-top":-i * workspaceHeight},{duration:"speed",easing:"swing"});
-			$workspace.css("visibility","hidden");
-			$workspace.eq(i).css("visibility","visible");
-			count = i;
-		});	
-	});
+/*快捷键 start*/
+/*
+ *    var numkey = ["alt+1","alt+2","alt+3","alt+4"];
+ *
+ *    $.each(numkey,function(i,n){
+ *        $.hotkeys.add(n,function(){
+ *            var workspaceHeight = $workspace.height();
+ *            $workspace.eq(0).stop().animate({"margin-top":-i * workspaceHeight},{duration:"speed",easing:"swing"});
+ *            $workspace.css("visibility","hidden");
+ *            $workspace.eq(i).css("visibility","visible");
+ *            count = i;
+ *        });	
+ *    });
+ */
+
+/*快捷键 end*/
+
+
+
+
+
 	/*
 	 * demo page js end
 	 */
