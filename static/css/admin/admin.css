@@ -1193,5 +1193,21 @@ body{
 .taskbar li.current,.taskbar li:hover{
 	opacity:1;
 }
-
+.skin_box{
+	background:#FFF;
+	display:none;
+	box-shadow:0 0 4px #000 inset;
+	width:34px;
+	padding:2px;
+	position:absolute;
+	bottom:32px;
+	right:-40px
+}
+.skin_box a{
+	display:block;
+}
+.skin_box a:hover{
+	background:#FC6;
+	color:#F00;
+}
 /*--end--*/

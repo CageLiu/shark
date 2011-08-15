@@ -35,6 +35,10 @@ $(function(){
 	
 	$(".switch_skin").click(function(){ //换肤
 		set_style(skin[$(this).index()]);
+		$(".skin_box").hide();
+	})
+	$(".skin_btn").click(function(){
+		$(".skin_box").toggle()
 	})
 	
 	$("#left_nav a").click(function(){  //左部菜单链接页面加载
