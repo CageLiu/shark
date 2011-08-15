@@ -824,7 +824,7 @@ body{
 	position:relative;
 	border-width:1px;
 	border-style:solid none;
-	border-color:#ddd #fff #fff;
+	border-color:#fff;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#E3DFDF));
 	background:-moz-linear-gradient(top,#fff,#E3DFDF);
 	margin-bottom:3px;
@@ -832,7 +832,10 @@ body{
 	font-weight:bold;
 	white-space:nowrap;
 	cursor:default;
-	text-shadow:1px 1px 2px #ccc
+	text-shadow:1px 1px 2px #ccc;
+	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.55), rgba(227, 223, 223, 0.36));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.55)),to(rgba(227,223,223,0.36)));
+
 }
 
 .demo .main_menu i.icon{
@@ -881,7 +884,8 @@ body{
 
 .demo .main_menu dd a{
 	color:#333;
-	white-space:nowrap
+	white-space:nowrap;
+	display:block
 }
 
 .demo .main_menu a:hover{
