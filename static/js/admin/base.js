@@ -57,24 +57,24 @@ $(document).ready(
 
 	
 	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
-	$mainCont.css("height",$workspace.height()-$panle.outerHeight()-5 + "px");
+	$mainCont.css("height",$workspace.height()-$panle.outerHeight() * 2 - 3 + "px");
 	$(window).resize(
 		function(){
 			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
-			$mainCont.css("height",$workspace.height()-$panle.outerHeight()-5 + "px");
+			$mainCont.css("height",$workspace.height()-$panle.outerHeight() * 2 -3 + "px");
 			$workspace.eq(0).css("margin-top",-count*$workspace.height()+ "px");
 	});
 
 	$menuTitle.click(function(){
 		if($(this).hasClass("show")){
 			$(this).removeClass("show");
-			$(this).next("dd").removeClass("show");
+			$(this).next("dd").slideUp("speed");
 		}
 		else{
 			$menuTitle.removeClass("show");
-			$menuItem.removeClass("show");
+			$menuItem.slideUp("speed");
 			$(this).addClass("show");
-			$(this).next("dd").addClass("show");
+			$(this).next("dd").slideDown("speed");
 		}
 	});
 
@@ -82,13 +82,11 @@ $(document).ready(
 	function(){
 		$mainMenu.stop().animate({"left":0},{duration:"fast",easing:"linear"});
 		$workspace.stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
-		$(".panle_top").stop().animate({"marginLeft":"200px"},{duration:"fast",easing:"linear"});
 		$(this).attr("title","收起菜单");
 	},
 	function(){
 		$mainMenu.stop().animate({"left":"-195px"},{duration:"fast",easing:"linear"});
 		$workspace.stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
-		$(".panle_top").stop().animate({"marginLeft":"5px"},{duration:"fast",easing:"linear"});
 		$(this).attr("title","展开菜单");
 	});
 
