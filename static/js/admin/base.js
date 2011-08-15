@@ -105,10 +105,12 @@ $(document).ready(
 
 	$switchBtn.click(function(){
 		var workspaceHeight = $workspace.height();
+		if(!$(this).hasClass("current")){
 		$workspace.eq(0).stop().animate({"margin-top":-$(this).index() * workspaceHeight},{duration:"speed",easing:"swing"});
 		$workspace.animate({"opacity":0},"fast");
 		$workspace.eq($(this).index()).animate({"opacity":1},"speed");
 		count = $(this).index();
+		}
 	});
 
 	var numkey = ["alt+1","alt+2","alt+3","alt+4"];
