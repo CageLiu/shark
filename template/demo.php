@@ -129,10 +129,10 @@
 			<ul class="taskbar">
 			</ul>
 			<div class="switch_workspace">
-				<span title="工作区一 Alt+a" class="current">&nbsp;</span>
-				<span title="工作区二 Alt+b">&nbsp;</span>
-				<span title="工作区三 Alt+c">&nbsp;</span>
-				<span title="工作区四 Alt+d">&nbsp;</span>
+				<span title="工作区一 Alt+1" class="current">&nbsp;</span>
+				<span title="工作区二 Alt+2">&nbsp;</span>
+				<span title="工作区三 Alt+3">&nbsp;</span>
+				<span title="工作区四 Alt+4">&nbsp;</span>
 			</div>
 		</div>
 		<div class="main_cont">
@@ -145,10 +145,10 @@
 			<ul class="taskbar">
 			</ul>
 			<div class="switch_workspace">
-				<span title="工作区一 Alt+a">&nbsp;</span>
-				<span title="工作区二 Alt+b" class="current">&nbsp;</span>
-				<span title="工作区三 Alt+c">&nbsp;</span>
-				<span title="工作区四 Alt+d">&nbsp;</span>
+				<span title="工作区一 Alt+1">&nbsp;</span>
+				<span title="工作区二 Alt+2" class="current">&nbsp;</span>
+				<span title="工作区三 Alt+3">&nbsp;</span>
+				<span title="工作区四 Alt+4">&nbsp;</span>
 			</div>
 		</div>
 		<div class="main_cont">
@@ -161,10 +161,10 @@
 			<ul class="taskbar">
 			</ul>
 			<div class="switch_workspace">
-				<span title="工作区一 Alt+a">&nbsp;</span>
-				<span title="工作区二 Alt+b">&nbsp;</span>
-				<span title="工作区三 Alt+c" class="current">&nbsp;</span>
-				<span title="工作区四 Alt+d">&nbsp;</span>
+				<span title="工作区一 Alt+1">&nbsp;</span>
+				<span title="工作区二 Alt+2">&nbsp;</span>
+				<span title="工作区三 Alt+3" class="current">&nbsp;</span>
+				<span title="工作区四 Alt+4">&nbsp;</span>
 			</div>
 		</div>
 		<div class="main_cont">
@@ -176,10 +176,10 @@
 			<ul class="taskbar">
 			</ul>
 			<div class="switch_workspace">
-				<span title="工作区一 Alt+a">&nbsp;</span>
-				<span title="工作区二 Alt+b">&nbsp;</span>
-				<span title="工作区三 Alt+c">&nbsp;</span>
-				<span title="工作区四 Alt+d" class="current">&nbsp;</span>
+				<span title="工作区一 Alt+1">&nbsp;</span>
+				<span title="工作区二 Alt+2">&nbsp;</span>
+				<span title="工作区三 Alt+3">&nbsp;</span>
+				<span title="工作区四 Alt+4" class="current">&nbsp;</span>
 			</div>
 		</div>
 		<div class="main_cont">

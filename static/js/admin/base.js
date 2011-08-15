@@ -111,7 +111,7 @@ $(document).ready(
 		count = $(this).index();
 	});
 
-	var numkey = ["alt+a","alt+b","alt+c","alt+d"];
+	var numkey = ["alt+1","alt+2","alt+3","alt+4"];
 
 	$.each(numkey,function(i,n){
 		$.hotkeys.add(n,function(){

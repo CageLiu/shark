@@ -1113,7 +1113,8 @@ body{
 .demo .taskbar{
 	height:28px;
 	margin-left:40px;
-	border-left:1px dotted #fff
+	border-left:1px dotted #fff;
+	padding-left:10px
 }
 
 .demo .taskbar li{
