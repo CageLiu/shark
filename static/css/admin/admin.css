@@ -1196,18 +1196,14 @@ body{
 .skin_box{
 	background:#FFF;
 	display:none;
-	box-shadow:0 0 4px #000 inset;
-	width:34px;
-	padding:2px;
+	width:33px;
+	padding:4px;
 	position:absolute;
 	bottom:32px;
-	right:-40px
+	right:-43px;
+	opacity:0.9;
 }
 .skin_box a{
 	display:block;
-}
-.skin_box a:hover{
-	background:#FC6;
-	color:#F00;
 }
 /*--end--*/
