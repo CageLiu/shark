@@ -19,6 +19,7 @@
 	
 .demo .main_menu dt{color:#4668b0;}
 
+
 .demo .main_menu .user i.arrow{
 	border-color:#fff #759df1 #6893ed #749cf1;
 }
@@ -27,12 +28,8 @@
 	border-color:#fff #7BA2F4 #84A8F7 #7BA2F4;
 }
 
-.demo .main_menu i.icon{border-color:#f9f8f8 #f2f1f1 #ebe8e8 #6390ec}
-
 .demo .main_menu dt.show i.icon{
-	-moz-transform:rotate(45deg) translate(16%,27%);
-	-webkit-transform:rotate(45deg) translate(16%,27%);
-	border-color:#F2F1F1 #E9E6E6 #EBE8E8 #6390EC;
+	background-position:-185px 0
 }
 .demo .main_menu dd li.current, .demo .main_menu dd li:hover{	
 background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
