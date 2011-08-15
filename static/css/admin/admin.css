@@ -1052,7 +1052,9 @@ body{
 
 .demo .cur_position span{
 	padding-left:20px;
-	background:url(../../../static/img/admin/icon.png) no-repeat -223px 0
+	background:url(../../../static/img/admin/icon.png) no-repeat -223px 8px;
+	height:24px;
+	display:inline-block
 }
 
 .demo .cur_position i.arrow{
