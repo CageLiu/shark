@@ -37,8 +37,14 @@ $(function(){
 		set_style(skin[$(this).index()]);
 		$(".skin_box").hide();
 	})
+	$("body").click(function(e){
+		if(e && e.stopPropagation && $(e.target).attr("class")!="skin_btn"){
+		  e.stopPropagation(); //阻止非IE事件冒泡
+		  $(".skin_box").hide();
+		}
+	})
 	$(".skin_btn").click(function(){
-		$(".skin_box").toggle()
+		$(".skin_box").toggle();
 	})
 	
 	$("#left_nav a").click(function(){  //左部菜单链接页面加载
