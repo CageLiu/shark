@@ -3,19 +3,19 @@ $(document).ready(function(){
 	var $header = $("#header");
 	var $curposit = $("#cur_posit");
 	var $frame = $("#frame");
-	var setting={
-		top_nav:false,  //是否关闭
-		left_nav:false  //是否关闭
+	var setting={  //工作区初始设置
+		top_nav:false,  //顶部工作区是否关闭
+		left_nav:false  //左边工作区是否关闭
 	}
 	
-	$frame.css("height",$body.height() - 98 + "px");
-
-	$(window).resize(function(){
-		$frame.css("height",$body.height() - 98 + "px");
-	});
-	
+	//初始化
+	var default_set_top=setting.top_nav;
 	top_nav();
 	left_nav();
+	fixed_set();
+	
+	//事件绑定
+	$(window).resize(function(){fixed_set()});
 	$("#spl").click(function(){
 		setting.left_nav=setting.left_nav?false:true;
 		left_nav();
@@ -25,6 +25,13 @@ $(document).ready(function(){
 		top_nav();
 	})
 	
+	function fixed_set(){
+		if(default_set_top){
+			$frame.css("height",$body.height() - 38 + "px");
+		}else{
+			$frame.css("height",$body.height() - 98 + "px");
+		}
+	}
 	function top_nav(){
 		if(setting.top_nav){
 			$header.css("margin-top","-60px");
