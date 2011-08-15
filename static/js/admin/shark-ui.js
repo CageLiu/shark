@@ -173,7 +173,8 @@ $(function(){
 	function switch_wps(index){
 		var wsp_Height = _wsp.height();
 		_wsp.eq(0).stop().animate({"margin-top":-index * wsp_Height},{duration:"speed",easing:"swing"});
-		_wsp.css("visibility","hidden").eq(index).css("visibility","visible");
+		_wsp.animate({"opacity":0},"fast");
+		_wsp.eq(index).animate({"opacity":1},"speed");
 		cur_wpi=index;
 	}
 	
