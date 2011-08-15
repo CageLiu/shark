@@ -1070,7 +1070,9 @@ body{
 .demo .switch_workspace{
 	position:absolute;
 	right:5px;
-	top:5px;
+	top:0;
+	padding:5px 0 0 10px;
+	border-left:1px dotted #fff
 }
 
 .demo .switch_workspace span{
@@ -1107,6 +1109,7 @@ body{
 .demo .taskbar{
 	height:28px;
 	margin-left:40px;
+	border-left:1px dotted #fff
 }
 
 .demo .taskbar li{
