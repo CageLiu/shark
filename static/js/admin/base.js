@@ -104,8 +104,8 @@ $(document).ready(
 	$switchBtn.click(function(){
 		var workspaceHeight = $workspace.height();
 		$workspace.eq(0).stop().animate({"margin-top":-$(this).index() * workspaceHeight},{duration:"speed",easing:"swing"});
-		$workspace.animate({"opacity":0},"100");
-		$workspace.eq($(this).index()).animate({"opacity":1},"100");
+		$workspace.animate({"opacity":0},"speed");
+		$workspace.eq($(this).index()).animate({"opacity":1},"10");
 		count = $(this).index();
 	});
 
