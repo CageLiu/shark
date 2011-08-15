@@ -2,9 +2,6 @@
 	background:url(../../../static/img/admin/bg03.jpg) repeat center 0
 }
 
-.demo .main_menu{
-	background:#6390EC;
-}
 
 .demo .menu_onff span{
 	background:#333;
@@ -44,7 +41,8 @@ background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 
 
 .demo .main_menu dl{
-	background:url(../../img/admin/side_bg00.jpg) no-repeat right center #fff;
+	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.55), rgba(227, 223, 223, 0.36));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.55)),to(rgba(227,223,223,0.36)));
 }
 
 .demo .nav a.current, .demo .nav a:hover{

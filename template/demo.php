@@ -106,24 +106,17 @@
             <a class="switch_skin" href="javascript:void('风格4')" title="风格4">风格4</a>
         </div>
 	</div>
-	<div class="panle panle_top">
-    	<div class="abtn">
-           <i class="down"></i>
-           <i class="up"></i>
-    	</div>
-       	<nav class="nav">
-            <a href="#" class="current">我的面板</a>
-            <a href="#">设置</a>
-            <a href="#">模块</a>
-            <a href="#">内容</a>
-            <a href="#">兼职</a>
-            <a href="#">界面</a>
-            <a href="#">扩展</a>
-            <a href="#">phpsso</a>
-            <a href="#">快速导入</a>
-       	</nav>
-	</div>
 	<div class="workspace">
+		<div class="panle panle_top">
+			<div class="cur_position">
+				<span>当前位置：</span>
+				<a href="#">首页</a>
+				&gt;
+				<a href="#">视频</a>
+				&gt;
+				<a href="#">详情</a>
+			</div>		
+		</div>
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">
@@ -139,7 +132,16 @@
 		</div>
 	</div>
 	<div class="workspace">
-		
+		<div class="panle panle_top">
+			<div class="cur_position">
+				<span>当前位置：</span>
+				<a href="#">首页</a>
+				&gt;
+				<a href="#">视频</a>
+				&gt;
+				<a href="#">详情</a>
+			</div>		
+		</div>
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">
@@ -155,7 +157,16 @@
 		</div>
 	</div>
 	<div class="workspace">
-		
+		<div class="panle panle_top">
+			<div class="cur_position">
+				<span>当前位置：</span>
+				<a href="#">首页</a>
+				&gt;
+				<a href="#">视频</a>
+				&gt;
+				<a href="#">详情</a>
+			</div>		
+		</div>
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">
@@ -171,6 +182,16 @@
 		</div>
 	</div>
 	<div class="workspace">
+		<div class="panle panle_top">
+			<div class="cur_position">
+				<span>当前位置：</span>
+				<a href="#">首页</a>
+				&gt;
+				<a href="#">视频</a>
+				&gt;
+				<a href="#">详情</a>
+			</div>		
+		</div>
 		<div class="panle panle_bottom">
 			<span class="skin_btn" title="更换任务栏背景">&nbsp;</span>
 			<ul class="taskbar">
