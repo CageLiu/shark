@@ -38,8 +38,7 @@ $(function(){
 		$(".skin_box").hide();
 	})
 	$("body").click(function(e){
-		if(e && e.stopPropagation && $(e.target).attr("class")!="skin_btn"){
-		  e.stopPropagation(); //阻止非IE事件冒泡
+		if($(e.target).attr("class")!="skin_btn"){
 		  $(".skin_box").hide();
 		}
 	})
