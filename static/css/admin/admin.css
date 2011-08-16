@@ -831,8 +831,13 @@ body{
 
 .demo .userbar{
 	position:absolute;
-	right:0;
-	top:0
+	right:45px;
+	top:0;
+	z-index:9999;
+	padding:0 10px;
+	border-style:none dotted;
+	border-color:#fff;
+	border-width:1px
 }
 
 .demo .userbar span{
@@ -844,7 +849,6 @@ body{
 	background-image:url(../../img/admin/icon.png);
 	background-repeat:no-repeat;
 	color:#000;
-	text-shadow:1px 1px 1px #666;
 	margin-right:5px
 }
 
@@ -1106,14 +1110,14 @@ body{
 	-moz-transition:all 0.9s ease;
 	display:inline-block;
 	height:30px;
-	text-shadow:2px 2px 3px #777;
-	border-right:1px solid #eee;
+	border-right:1px dotted #eee;
 }
 
 .demo .nav a:hover{
 	text-decoration:none;
 	-webkit-transform:scale(1.2,1);
-	-moz-transform:scale(1.2,1)
+	-moz-transform:scale(1.2,1);
+	text-shadow:2px 2px 3px #777777
 }
 
 .demo .nav a.current{
