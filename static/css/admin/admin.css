@@ -1059,6 +1059,30 @@ body{
  */
 
 
+.demo .nav a{
+	font-size:14px;
+	color:#000;
+	padding:0 10px;
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-webkit-transition:all 0.9s ease;
+	-moz-transition:all 0.9s ease;
+	display:inline-block;
+	height:30px;
+	text-shadow:2px 2px 3px #777;
+	border-right:1px solid #eee;
+}
+
+.demo .nav a:hover{
+	text-decoration:none;
+	-webkit-transform:scale(1.2,1);
+	-moz-transform:scale(1.2,1)
+}
+
+.demo .nav a.current{
+	color:#fff
+}
+
 .demo .panle_bottom{
 	bottom:0;
 	z-index:999;

@@ -63,10 +63,12 @@ background: -webkit-gradient(linear, 0 0, 0 100%, from(#8fb0fa), to(#6390ec));
 
 }
 
-.demo .nav a.current, .demo .nav a:hover{
-	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.8)),to(rgba(255,255,255,.2)));
-	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
-}
+/*
+ *.demo .nav a.current, .demo .nav a:hover{
+ *    background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,.8)),to(rgba(255,255,255,.2)));
+ *    background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
+ *}
+ */
 	
 .taskbar li.current{
 	border-color:#777;
