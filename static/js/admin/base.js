@@ -48,7 +48,7 @@ $(document).ready(
 	var $menuTitle = $menuBox.children("dt");
 	var $menuItem = $menuBox.children("dd");
 	var $workspace = $(".workspace");
-	var $userBox = $(".user");
+	var $logo = $(".logo");
 	var $mainCont = $(".main_cont");
 	var $panle = $(".panle");
 	var $switchBtn = $(".switch_workspace span");
@@ -56,11 +56,11 @@ $(document).ready(
 	var count = 0;
 
 	
-	$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
+	$menuBox.css("height",$mainMenu.height() - $logo.outerHeight() + "px");
 	$mainCont.css("height",$workspace.height()-$panle.outerHeight() * 2 - 3 + "px");
 	$(window).resize(
 		function(){
-			$menuBox.css("height",$mainMenu.height() - $userBox.outerHeight() + "px");
+			$menuBox.css("height",$mainMenu.height() - $logo.outerHeight() + "px");
 			$mainCont.css("height",$workspace.height()-$panle.outerHeight() * 2 -3 + "px");
 			$workspace.eq(0).css("margin-top",-count*$workspace.height()+ "px");
 	});
@@ -90,16 +90,18 @@ $(document).ready(
 		$(this).attr("title","展开菜单");
 	});
 
-	$userBox.find("i").click(function(event){
-		$(this).addClass("show");
-		$userBox.find("ul").slideDown("speed");
-		event.stopPropagation();
-	});
-
-	$("body").click(function(){
-		$userBox.find("ul").slideUp("fast");
-		$userBox.find("i").removeClass("show");
-	});
+/*
+ *    $userBox.find("i").click(function(event){
+ *        $(this).addClass("show");
+ *        $userBox.find("ul").slideDown("speed");
+ *        event.stopPropagation();
+ *    });
+ *
+ *    $("body").click(function(){
+ *        $userBox.find("ul").slideUp("fast");
+ *        $userBox.find("i").removeClass("show");
+ *    });
+ */
 
 	$switchBtn.click(function(){
 		var workspaceHeight = $workspace.height();

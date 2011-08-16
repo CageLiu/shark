@@ -743,73 +743,96 @@ body{
 	border-right:1px solid #e8e8e8
 }
 
-.demo .main_menu .user{
+/*
+ *.demo .main_menu .user{
+ *    height:30px;
+ *    line-height:30px;
+ *    border-bottom:1px solid #eee;
+ *    border-top:1px solid #e8e8e8;
+ *    padding-left:1em;
+ *    position:relative;
+ *}
+ *
+ *.demo .main_menu .user ul{
+ *    position:absolute;
+ *    border-radius:0 0 0 5px;
+ *    right:-1px;
+ *    top:30px;
+ *    z-index:9;
+ *    text-align:right;
+ *    box-shadow:-1px 2px 2px #777;
+ *    background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,.55)));
+ *    background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.55),rgba(255,255,255,.8));
+ *    padding-bottom:3px;
+ *    display:none
+ *}
+ *
+ *.demo .main_menu .user li{
+ *    height:30px;
+ *    overflow:hidden
+ *}
+ *
+ *.demo .main_menu .user li a{
+ *    padding:0 8px 0 25px;
+ *}
+ *
+ *.demo .main_menu .user li:hover{
+ *    border-width:1px;
+ *    border-style:solid none;
+ *    border-color:#ccc;
+ *    height:28px;
+ *    box-shadow:-1px 0 30px #fff inset
+ *}
+ *
+ *.demo .main_menu .user li:hover a{
+ *    color:#000;
+ *    display:block;
+ *    border-width:1px;
+ *    border-style:solid none;
+ *    border-color:#eee;
+ *    background:#fff;
+ *    height:26px;
+ *    line-height:26px;
+ *    background:#fff;
+ *    background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,.2)));
+ *    background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
+ *}
+ *
+ *.demo .main_menu .user i.arrow{
+ *    border-width:6px;
+ *    float:right;
+ *    margin:13px 5px 0 0;
+ *    cursor:pointer;
+ *    -webkit-transition:all 0.3s ease-in;
+ *    -moz-transition:all 0.3s ease-in
+ *}
+ *
+ *.demo .main_menu .user i.show{
+ *    -moz-transform:rotate(180deg);
+ *    -webkit-transform:rotate(180deg);
+ *    margin-top:8px;
+ *}
+ */
+
+.demo .logo{
 	height:30px;
+	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.55), rgba(227, 223, 223, 0.36));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.55)),to(rgba(227,223,223,0.36)));
+	width:195px;
+	font-size:20px;
 	line-height:30px;
-	border-bottom:1px solid #eee;
-	border-top:1px solid #e8e8e8;
-	padding-left:1em;
-	position:relative;
+	text-align:center;
+	color:#fff;
+	text-shadow:1px 1px 2px #ccc;
+	-webkit-text-fill-color：transparent
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color:#000;
 }
 
-.demo .main_menu .user ul{
+.demo .userbar{
 	position:absolute;
-	border-radius:0 0 0 5px;
-	right:-1px;
-	top:30px;
-	z-index:9;
-	text-align:right;
-	box-shadow:-1px 2px 2px #777;
-	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,.55)));
-	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.55),rgba(255,255,255,.8));
-	padding-bottom:3px;
-	display:none
-}
-
-.demo .main_menu .user li{
-	height:30px;
-	overflow:hidden
-}
-
-.demo .main_menu .user li a{
-	padding:0 8px 0 25px;
-}
-
-.demo .main_menu .user li:hover{
-	border-width:1px;
-	border-style:solid none;
-	border-color:#ccc;
-	height:28px;
-	box-shadow:-1px 0 30px #fff inset
-}
-
-.demo .main_menu .user li:hover a{
-	color:#000;
-	display:block;
-	border-width:1px;
-	border-style:solid none;
-	border-color:#eee;
-	background:#fff;
-	height:26px;
-	line-height:26px;
-	background:#fff;
-	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.8)),to(rgba(255,255,255,.2)));
-	background:-moz-linear-gradient(0 100% 90deg,rgba(255,255,255,.2),rgba(255,255,255,.8));
-}
-
-.demo .main_menu .user i.arrow{
-	border-width:6px;
-	float:right;
-	margin:13px 5px 0 0;
-	cursor:pointer;
-	-webkit-transition:all 0.3s ease-in;
-	-moz-transition:all 0.3s ease-in
-}
-
-.demo .main_menu .user i.show{
-	-moz-transform:rotate(180deg);
-	-webkit-transform:rotate(180deg);
-	margin-top:8px;
+	right:10px;
+	top:0
 }
 
 .demo .main_menu dl{
@@ -883,7 +906,7 @@ body{
 }
 
 .demo .main_menu dd a{
-	color:#333;
+	color:#000;
 	white-space:nowrap;
 	display:block
 }
@@ -1108,8 +1131,8 @@ body{
 
 .demo .panle_bottom span.skin_btn{
 	position:absolute;
-	left:11px;
-	top:5px;
+	right:11px;
+	top:6px;
 	background:url(../../img/admin/icon.png) no-repeat -200px 0;
 	overflow:hidden;
 	width:18px;
@@ -1165,14 +1188,13 @@ body{
 	color:#f00
 }
 
-.demo .taskbar li.current, .demo .taskbar li:hover{
-	/*
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4C4C), to(#2C2C2C));
-	background:-moz-linear-gradient(top,#4D4C4C, #2C2C2C);
-	color:#fff	
-	*/
-
-}
+/*
+ *.demo .taskbar li.current, .demo .taskbar li:hover{
+ *    background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4C4C), to(#2C2C2C));
+ *    background:-moz-linear-gradient(top,#4D4C4C, #2C2C2C);
+ *    color:#fff;
+ *}
+ */
 
 .demo .workspace .main_cont{
 	color:#000;
