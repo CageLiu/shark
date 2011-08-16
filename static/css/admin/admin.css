@@ -858,23 +858,23 @@ body{
 }
 
 .demo .userbar a.sys{
-	background-position:-227px -114px
+	background-position:-227px -113px
 }
 
 .demo .userbar a.hmsg{
-	background-position:0 -83px
+	background-position:0 -82px
 }
 
 .demo .userbar a.nmsg{
-	background-position:0 -114px
+	background-position:0 -113px
 }
 
 .demo .userbar a.channel{
-	background-position:-224px -84px
+	background-position:-224px -83px
 }
 
 .demo .userbar a.quit{
-	background-position:0 -145px
+	background-position:0 -144px
 }
 
 .demo .main_menu dl{
@@ -908,7 +908,7 @@ body{
 	width:12px;
 	height:12px;
 	left:11px;
-	top:9px;
+	top:10px;
 	background-image:url(../../img/admin/icon.png);
 	background-repeat:no-repeat;
 	background-position:-170px 0
