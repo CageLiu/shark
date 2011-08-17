@@ -341,25 +341,32 @@ body{
 	-moz-transition:top 0.1s ease-in;
 	-webkit-transition:top 0.1s ease-in;
 }
-.demo .panle_top:hover{
-	top:0
+
+.demo .nav{
+	padding-left:10px
 }
 
-.demo .panle_top .abtn{
-	height:17px;
-	width:32px;
-	position:absolute;
-	top:29px;
-	-moz-transition:top 0.8s ease-in;
-	-webkit-transition:top 0.8s ease-in;
-	left:-4px;
-	background:url(../../img/admin/abtn_bg.png) 0 0 no-repeat
-}
-
-.demo .panle_top:hover .abtn{
-	top:9px;
-	background-position:-30px 0
-}
+/*
+ *.demo .panle_top:hover{
+ *    top:0
+ *}
+ *
+ *.demo .panle_top .abtn{
+ *    height:17px;
+ *    width:32px;
+ *    position:absolute;
+ *    top:29px;
+ *    -moz-transition:top 0.8s ease-in;
+ *    -webkit-transition:top 0.8s ease-in;
+ *    left:-4px;
+ *    background:url(../../img/admin/abtn_bg.png) 0 0 no-repeat
+ *}
+ *
+ *.demo .panle_top:hover .abtn{
+ *    top:9px;
+ *    background-position:-30px 0
+ *}
+ */
 
 /*
  *.demo .panle_top:hover .abtn i.up{
