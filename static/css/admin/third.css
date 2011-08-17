@@ -437,7 +437,7 @@ body{
 
 
 .demo .nav a{
-	font-size:14px;
+	font-size:13px;
 	color:#000;
 	padding:0 10px;
 	/*
@@ -476,7 +476,7 @@ body{
 	z-index:999;
 	border-bottom:1px solid #fff;
 	color:#333;
-	font-size:14px;
+	font-size:13px;
 }
 
 .demo .cur_position span{
