@@ -166,13 +166,11 @@ body{
 
 .demo .userbar{
 	position:absolute;
-	right:45px;
+	right:41px;
 	top:0;
 	z-index:9999;
-	padding:0 10px;
-	border-style:none dotted;
-	border-color:#fff;
-	border-width:1px
+	border-right:1px dotted #aaa;
+	padding-right:7px;
 }
 
 .demo .userbar span{
@@ -231,7 +229,7 @@ body{
 	box-shadow:0 2px 4px #ccc;
 	font-weight:bold;
 	white-space:nowrap;
-	cursor:default;
+	cursor:pointer;
 	text-shadow:1px 1px 2px #ccc;
 	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.55), rgba(227, 223, 223, 0.36));
 	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0.55)),to(rgba(227,223,223,0.36)));
