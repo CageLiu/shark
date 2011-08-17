@@ -448,14 +448,13 @@ body{
 	 */
 	display:inline-block;
 	height:30px;
-	border-right:1px dotted #eee;
 }
 
 .demo .nav a:hover{
 	text-decoration:none;
-	-webkit-transform:scale(1.2,1);
-	-moz-transform:scale(1.2,1);
-	text-shadow:2px 2px 3px #777777
+	-webkit-transform:scale(1.2);
+	-moz-transform:scale(1.2);
+	text-shadow:2px 2px 3px #aaa
 }
 
 .demo .nav a.current{

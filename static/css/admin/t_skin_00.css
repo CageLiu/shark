@@ -27,9 +27,14 @@
 }
 
 .demo .panle_bottom{
-	background:-moz-linear-gradient(center top , rgba(227, 223, 223, 1), rgba(255, 255, 255, 1));
-	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(227,223,223,1)),to(rgba(255,255,255,1)));
-	border-top-color:#fff
+	/*
+	 *background:-moz-linear-gradient(center top , rgba(227, 223, 223, 1), rgba(255, 255, 255, 1));
+	 *background:-webkit-gradient(linear,0 0,0 100%,from(rgba(227,223,223,1)),to(rgba(255,255,255,1)));
+	 */
+	background:-moz-linear-gradient(center top , #f0f0f0,#fff);
+	background:-webkit-gradient(linear,0 0,0 100%,from(#f0f0f0),to(#fff));
+	border-top-color:#fff;
+	box-shadow:4px -3px 3px #ddd
 }
 
 .demo .main_menu .user{
