@@ -54,21 +54,23 @@ body{
 /*
  *login page css start
  */
-.login body{
+/*.login body{
 	background:url(../../img/admin/body_bg.png) no-repeat center center fixed}
-
-.login .wrap{
+*/
+/*.login .wrap{
 	position:absolute;
 	left:50%;
 	top:50%;
 	height:203px
-}
+}*/
 
 .login .box {
-	position:relative;
+	/*position:relative;
 	margin-left:-50%;
 	top:-50%;
-	float:left;
+	float:left;*/
+	width:330px; 
+	margin:0 auto;
 	padding:10px 11px 20px;
 	border-radius:10px;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4d4c4c), to(#2c2c2c));
@@ -1303,3 +1305,74 @@ body{
 	display:block;
 }
 /*--end--*/
+
+/*login page*/
+.login-top{
+	padding:100px 0 30px;
+	border-bottom:1px #CCC solid;
+	background:#F1F1F1;
+	box-shadow:0 2px 5px #CCC;
+}
+.login-form{
+	padding-top:20px;
+}
+.login-top h1{
+	position:relative;
+	top:0;
+	width:200px;
+	height:50px;
+	margin:0 auto;
+	font-family:Segoe UI, Verdana, sans-serif;
+    font-size:40px;
+    text-shadow:-3px 0 4px #006;
+}
+.login-top h1 span{
+	position:absolute;
+	height:50px;
+	color:#FFF;
+	z-index:2;
+	cursor:pointer;
+	text-decoration:none;
+	-webkit-mask-image:-webkit-gradient(linear,0 0,0 100%,from(rgba(0,0,0,1)),to(rgba(0,0,0,0)));
+	-webkit-mask-position:0 0;
+}
+.login-top h1:after {
+    content:"Magic Box";
+    color:#666;
+    text-shadow:3px 2px 5px #999;
+}
+.shortcut-button{
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+	width:120px;
+	border:1px #666 solid;
+	border-radius:6px;
+	background:rgba(255,255,255,0.5);
+	box-shadow:1px 1px 10px #666;
+	-moz-transition:background 0.3s ease-out;
+	-webkit-transition:background 0.3s ease-out;
+}
+.shortcut-button:hover{
+	background:rgba(70,70,70,0.5);
+	text-decoration:none;
+}
+.shortcut-button span{
+	display:block;
+	text-align:center;
+	padding:15px 10px;
+}
+.shortcut-button:hover span{
+	color:#FFF;
+}
+.rights{
+	text-align:center;
+	font-size:14px;
+	text-shadow:-1px 0 1px #CCC;
+	position:absolute;
+	width:100%;
+	bottom:30px;
+	display:none;
+}
+/*login page end*/
