@@ -12,20 +12,21 @@ $(function(){
 		w=document.documentElement.clientWidth,
 		Obj=$(".shortcut-button"),
 		len=Obj.length,
-		aw=Obj.outerWidth();
-	console.log("w:"+w+",len:"+len+",aw:"+aw+",wid:"+w/len)
-	$.each(Obj,function(i){
-		var k=2*i+1,
-			_left=k*w/len-aw;
-		$(this).css({"left":_left/2});
-	})
+		perrow=5,
+		pages=Math.ceil(len/perrow),
+		cur_page=1,
+		aw=Obj.outerWidth(),
+		ah=Obj.outerHeight(),
+		bh=$(".login-top").outerHeight(),
+		runOver=false;
+	set_posit_left(w);
 	
 	$("#login_btn").click(function(){
 		var name=$("#user_name").val(),
 			pwd=$("#password").val();
 		if(check_user(name,pwd)){
 			jQuery.easing.def="easeOutBounce";
-			$("#login-wrapper").animate({marginTop:[h-190,"easeInQuart"]},500,function(){
+			$("#login-wrapper").animate({paddingTop:[h-147,"easeInQuart"]},500,function(){
 				$("#login-form").remove();
 				gogo();
 			})
@@ -35,6 +36,39 @@ $(function(){
 		return false;
 	});
 	
+	$(".next").click(function(){
+		var w=document.documentElement.clientWidth;
+		if(pages!=1 && cur_page!=pages){
+			$(".channel_box").stop().animate({marginLeft:-w*cur_page},800);
+			cur_page++;
+		}
+	})
+	
+	$(".prev").click(function(){
+		if(cur_page!=1)cur_page--;
+		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800);
+	})
+	
+	$(window).resize(function(e){
+		var h=document.documentElement.clientHeight,
+			w=document.documentElement.clientWidth;
+		if(runOver){
+			$("#login-wrapper").css("padding-top",h-147);
+			$(".channel_box").css({"height":h-147});
+			Obj.css({"top":(h-ah-147)/2});
+		}
+		set_posit_left(w);
+		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800)
+	})
+	
+	function set_posit_left(w){
+		$.each(Obj,function(i){
+			var k=2*i+1,
+				_left=k*w/perrow-aw;
+			$(this).css({"left":_left/2});
+		})
+	}
+	
 	function check_user(a,b){
 		/*if(a=="admin" && b=="abc123")return true;
 		return false;*/
@@ -42,12 +76,14 @@ $(function(){
 	};
 	
 	function gogo(){
+		$(".channel_box").css({"display":"block","height":h-147});
 		$.each(Obj,function(i){
-			$("#a"+i).delay(i*300).animate({top:["50%","easeOutBounce"],opacity:1},800,function(){
+			$("#a"+i).delay(i*300).animate({top:[(h-ah-147)/2,"easeOutBounce"],opacity:1},800,function(){
 				if(i==len-1){
 					$(".login-top h1").animate({top:[-60,"easeInBack"]},500,function(){
-						$(".rights").fadeIn(1000);
+						$(".rights,.movebtn").fadeIn(1000);
 					})
+					runOver=true;
 				}
 			});
 		})
@@ -85,11 +121,17 @@ $(function(){
         <a id="a0" href="third.html" class="shortcut-button icon_cj"><span><img src="../static/img/admin/cj.png" height="48" width="48" alt="财经频道图标"><br>财经频道</span></a>
         <a id="a1" href="third.html" class="shortcut-button icon_lc"><span><img src="../static/img/admin/lc.png" height="48" width="48" alt="理财频道图标"><br>理财频道</span></a>
         <a id="a2" href="third.html" class="shortcut-button icon_hq"><span><img src="../static/img/admin/hq.png" height="48" width="48" alt="行情资讯图标"><br>行情资讯</span></a>
-        <a id="a3" href="third.html" class="shortcut-button icon_gp"><span><img src="../static/img/admin/gp.png" height="48" width="48" alt="股票频道图标"><br>股票频道</span></a>
+        <a id="a3" href="third.html" class="shortcut-button icon_gp disable"><span><img src="../static/img/admin/gp.png" height="48" width="48" alt="股票频道图标"><br>股票频道</span></a>
         <a id="a4" href="third.html" class="shortcut-button icon_qh"><span><img src="../static/img/admin/qh.png" height="48" width="48" alt="期货频道图标"><br>期货频道</span></a>
         <a id="a5" href="third.html" class="shortcut-button icon_jj"><span><img src="../static/img/admin/jj.png" height="48" width="48" alt="基金频道图标"><br>基金频道</span></a>
         <a id="a6" href="third.html" class="shortcut-button icon_xw"><span><img src="../static/img/admin/xw.png" height="48" width="48" alt="新闻源图标"><br>新闻源</span></a>
         <a id="a7" href="third.html" class="shortcut-button icon_sx"><span><img src="../static/img/admin/sx.png" height="48" width="48" alt="视讯中心图标"><br>视讯中心</span></a>
+    </div>
+    
+    <div class="movebtn">
+    	<span class="prev" title="Prev">&lt;&lt;</span>
+        &lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;
+        <span class="next" title="Next">&gt;&gt;</span>
     </div>
     
     <div class="rights">

@@ -1307,11 +1307,17 @@ body{
 /*--end--*/
 
 /*login page*/
+.login{
+	overflow:hidden;
+}
+.login body{
+	background:url(../../img/admin/Jianyue009.jpg) no-repeat center center;
+}
 .login-top{
-	padding:100px 0 30px;
+	padding:75px 0 30px;
 	border-bottom:1px #CCC solid;
-	background:#F1F1F1;
 	box-shadow:0 2px 5px #CCC;
+	background:url(../../img/admin/bg-login.gif) repeat-x;
 }
 .login-form{
 	padding-top:20px;
@@ -1319,7 +1325,7 @@ body{
 .login-top h1{
 	position:relative;
 	top:0;
-	width:200px;
+	width:232px;
 	height:50px;
 	margin:0 auto;
 	font-family:Segoe UI, Verdana, sans-serif;
@@ -1341,35 +1347,89 @@ body{
     color:#666;
     text-shadow:3px 2px 5px #999;
 }
+.channel_box{
+	height:147px;
+	width:100%;
+	position:absolute;
+	top:0;
+	display:none;
+	/*border-top:1px #CCC solid;
+	border-bottom:1px #CCC solid;
+	box-shadow:0 2px 5px #CCC;*/
+}
 .shortcut-button{
 	position:absolute;
 	top:0;
 	left:0;
 	opacity:0;
 	width:120px;
-	border:1px #666 solid;
+	height:100px;
+	border:1px rgba(255,255,255,0.8) solid;
 	border-radius:6px;
-	background:rgba(255,255,255,0.5);
-	box-shadow:1px 1px 10px #666;
+	background:rgba(0,0,0,0.2);
+	box-shadow:0 0 6px #CCC;
 	-moz-transition:background 0.3s ease-out;
 	-webkit-transition:background 0.3s ease-out;
 }
 .shortcut-button:hover{
-	background:rgba(70,70,70,0.5);
 	text-decoration:none;
+	background:rgba(255,255,255,0.5);
 }
 .shortcut-button span{
 	display:block;
+	height:70px;
+	overflow:hidden;
 	text-align:center;
 	padding:15px 10px;
+	border-radius:6px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-shadow:-1px 0 3px #CCC;
+	background:transparent;	
 }
 .shortcut-button:hover span{
+	color:#333;
+}
+.movebtn{
+	position:absolute;
+	display:none;
+	bottom:200px;
+	width:100%;
+	height:32px;
+	overflow:hidden;
+	text-align:center;
+	line-height:32px;
 	color:#FFF;
+}
+.movebtn span{
+	display:block;
+	height:30px;
+	width:30px;
+	border:1px #CCC dotted;
+	border-radius:6px;
+	background:rgba(200,200,200,0.4);
+	cursor:pointer;
+	line-height:30px;
+	color:#FFF;
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+}
+.movebtn span.prev{
+	float:left;
+	margin-left:5%;
+}
+.movebtn span.next{
+	float:right;
+	margin-right:5%;
 }
 .rights{
 	text-align:center;
-	font-size:14px;
-	text-shadow:-1px 0 1px #CCC;
+	font-size:12px;
+	color:#212121;
+	font-weight:bold;
+	text-shadow:-1px 0 1px #FFF;
 	position:absolute;
 	width:100%;
 	bottom:30px;
