@@ -1,0 +1,84 @@
+ul.dir_tree, ul.dir_tree ul{
+	padding-left:24px;
+	border-left:1px dotted #000;
+	clear:both;
+	margin-bottom:5px
+}
+
+ul.dir_tree{
+	margin-bottom:20px
+}
+
+ul.dir_tree li{
+	position:relative;
+}
+
+ul.dir_tree li:after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden
+}
+
+ul.dir_tree span{
+	padding-left:33px;
+	margin-left:-24px;
+	border-bottom:1px dotted #000;
+	float:left;
+	position:relative;
+}
+
+ul.dir_tree span a{
+	display:block;
+	height:24px;
+	line-height:24px;
+	white-space:nowrap;
+	position:relative;
+	top:12px;
+	padding-left:3px;
+	background:#fff
+}
+
+ul.dir_tree span i{
+	position:absolute;
+	overflow:hidden;
+	cursor:pointer;
+	background-image:url(../../img/admin/dir_icon.png);
+	background-repeat:no-repeat;
+	background-color:#fff
+}
+
+ul.dir_tree span i.icon{
+	width:16px;
+	height:16px;
+	left:17px;
+	top:17px;
+}
+
+ul.dir_tree span i.folder_on{
+	background-position:center -20px
+}
+
+ul.dir_tree span i.folder_off{
+	background-position:center 0
+}
+
+ul.dir_tree span i.page{
+	background-position:center -40px
+}
+
+ul.dir_tree span i.on_off{
+	left:-6px;
+	top:18px;
+	width:11px;
+	height:11px
+}
+
+ul.dir_tree span i.off{
+	background-position:-3px -75px
+}
+
+ul.dir_tree span i.on{
+	background-position:-3px -60px
+}
