@@ -6,8 +6,10 @@ ul.dir_tree, ul.dir_tree ul{
 }
 
 ul.dir_tree{
-	margin-bottom:20px
+	margin-bottom:20px;
+	margin-left:10px
 }
+
 
 ul.dir_tree li{
 	position:relative;
@@ -19,6 +21,10 @@ ul.dir_tree li:after{
 	clear:both;
 	height:0;
 	visibility:hidden
+}
+
+ul.dir_tree li.hide > ul{
+	display:none
 }
 
 ul.dir_tree span{
@@ -37,13 +43,13 @@ ul.dir_tree span a{
 	position:relative;
 	top:12px;
 	padding-left:3px;
-	background:#fff
+	background:#fff;
+	z-index:9
 }
 
 ul.dir_tree span i{
 	position:absolute;
 	overflow:hidden;
-	cursor:pointer;
 	background-image:url(../../img/admin/dir_icon.png);
 	background-repeat:no-repeat;
 	background-color:#fff
@@ -72,7 +78,8 @@ ul.dir_tree span i.on_off{
 	left:-6px;
 	top:18px;
 	width:11px;
-	height:11px
+	height:11px;
+	cursor:pointer;
 }
 
 ul.dir_tree span i.off{
