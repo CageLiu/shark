@@ -152,5 +152,5 @@ background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 		  
 		  
 		  
-.window{width:500px;height:500px;border:5px solid #D2E0E6;margin:20px auto;border-radius:8px;box-shadow:0 2px 13px #999 inset}
-.win_close{width:42px;height:25px;border-radius:8px;text-indent:-99px;overflow:hidden;display:inline-block;background:url(../../img/admin/close.png) no-repeat;position:relative;right:3px;float:right;top:-5px;z-index:-1;}		  
+.window{width:500px;height:500px;border:5px solid #A0BCF3;margin:20px auto;border-radius:8px;box-shadow:0 2px 13px #999 inset}
+.win_close{width:42px;height:25px;border-radius:8px;text-indent:-99px;overflow:hidden;display:inline-block;background:url(../../img/admin/close.png) no-repeat;position:relative;right:0;float:right;top:-5px;z-index:-1;}		  
