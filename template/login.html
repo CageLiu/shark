@@ -8,86 +8,88 @@
 <script type="text/javascript" src="../static/js/public/jplugins/easing.js"></script>
 <script type="text/javascript">
 $(function(){
-	var h=document.documentElement.clientHeight,
-		w=document.documentElement.clientWidth,
-		Obj=$(".shortcut-button"),
-		len=Obj.length,
-		perrow=5,
-		pages=Math.ceil(len/perrow),
-		cur_page=1,
-		aw=Obj.outerWidth(),
-		ah=Obj.outerHeight(),
-		bh=$(".login-top").outerHeight(),
-		runOver=false;
-	set_posit_left(w);
+	var perrow=5, //默认显示个数
+		cur_page=1;
 	
 	$("#login_btn").click(function(){
 		var name=$("#user_name").val(),
 			pwd=$("#password").val();
-		if(check_user(name,pwd)){
-			jQuery.easing.def="easeOutBounce";
-			$("#login-wrapper").animate({paddingTop:[h-147,"easeInQuart"]},500,function(){
-				$("#login-form").remove();
-				gogo();
-			})
-		}else{
-			alert("Error!");
-		}
-		return false;
+		$(".channel_box,.movebtn").remove();
+		$.ajax({
+			url:"channel.php?name="+name+"&pwd="+pwd,
+			dataType:"json",
+			beforeSend:function(){console.log("验证登录信息...")},
+			success:function(data){
+				if(data[0]){ //登录成功，获取到频道列表
+					$("<div/>",{class:"channel_box"}).appendTo("body");
+					$('<div class="movebtn"><span class="prev" title="Prev">&lt;&lt;</span>&lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;<span class="next" title="Next">&gt;&gt;</span></div>').appendTo("body");
+					$.each(data[1],function(i,_item){
+						//console.log(i+":"+_item.channel_name);
+						$('<a id="a'+i+'" href="'+_item.url+'" class="shortcut-button icon_cj"><span><img src="../static/img/admin/cj.png" height="48" width="48" alt="'+_item.channel_name+'图标"><br>'+_item.channel_name+'</span></a>').appendTo(".channel_box");
+					});
+					var h=document.documentElement.clientHeight,
+						w=document.documentElement.clientWidth,
+						Obj=$(".shortcut-button"),
+						len=Obj.length,
+						pages=Math.ceil(len/perrow),
+						aw=Obj.outerWidth(),
+						ah=Obj.outerHeight(),
+						bh=$(".login-top").outerHeight();
+					$.each(Obj,function(i){
+						var k=2*i+1,
+							_left=k*w/perrow-aw;
+						$(this).css({"left":_left/2});
+					})
+					$("#login-wrapper").animate({paddingTop:[h-147,"easeInQuart"]},500,function(){
+						$("#login-form").remove();
+						$(".channel_box").css({"display":"block","height":h-147});
+						$.each(Obj,function(i){
+							$("#a"+i).delay(i*300).animate({top:[(h-ah-147)/2,"easeOutBounce"],opacity:1},800,function(){
+								if(i==len-1){
+									$(".login-top h1").animate({top:[-60,"easeInBack"]},500,function(){
+										$(".rights,.movebtn").fadeIn(1000);
+									})
+								}
+							});
+						})
+					})
+				}else{
+					alert("用户名或密码错误！")
+				}
+			}
+		});
+		return false; //阻止表单提交
 	});
-	
-	$(".next").click(function(){
-		var w=document.documentElement.clientWidth;
+	$(".next").live("click",function(){
+		var w=document.documentElement.clientWidth,
+			len=$(".shortcut-button").length,
+			pages=Math.ceil(len/perrow);
 		if(pages!=1 && cur_page!=pages){
-			$(".channel_box").stop().animate({marginLeft:-w*cur_page},800);
+			$(".channel_box").stop().animate({marginLeft:[-w*cur_page,"easeOutExpo"]},1000);
 			cur_page++;
 		}
 	})
-	
-	$(".prev").click(function(){
+	$(".prev").live("click",function(){
+		var w=document.documentElement.clientWidth;
 		if(cur_page!=1)cur_page--;
-		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800);
+		$(".channel_box").stop().animate({marginLeft:[-w*(cur_page-1),"easeOutExpo"]},1000);
 	})
-	
 	$(window).resize(function(e){
 		var h=document.documentElement.clientHeight,
-			w=document.documentElement.clientWidth;
-		if(runOver){
-			$("#login-wrapper").css("padding-top",h-147);
-			$(".channel_box").css({"height":h-147});
-			Obj.css({"top":(h-ah-147)/2});
-		}
-		set_posit_left(w);
-		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800)
-	})
-	
-	function set_posit_left(w){
+			w=document.documentElement.clientWidth,
+			Obj=$(".shortcut-button"),
+			aw=Obj.outerWidth(),
+			ah=Obj.outerHeight();
+		$("#login-wrapper").css("padding-top",h-147);
+		$(".channel_box").css({"height":h-147});
+		Obj.css({"top":(h-ah-147)/2});
 		$.each(Obj,function(i){
 			var k=2*i+1,
 				_left=k*w/perrow-aw;
 			$(this).css({"left":_left/2});
 		})
-	}
-	
-	function check_user(a,b){
-		/*if(a=="admin" && b=="abc123")return true;
-		return false;*/
-		return true;
-	};
-	
-	function gogo(){
-		$(".channel_box").css({"display":"block","height":h-147});
-		$.each(Obj,function(i){
-			$("#a"+i).delay(i*300).animate({top:[(h-ah-147)/2,"easeOutBounce"],opacity:1},800,function(){
-				if(i==len-1){
-					$(".login-top h1").animate({top:[-60,"easeInBack"]},500,function(){
-						$(".rights,.movebtn").fadeIn(1000);
-					})
-					runOver=true;
-				}
-			});
-		})
-	}
+		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800)
+	})
 })
 </script>
 </head>
@@ -117,7 +119,7 @@ $(function(){
         </div>
 	</div>
     
-    <div class="channel_box">
+   <!-- <div class="channel_box">
         <a id="a0" href="third.html" class="shortcut-button icon_cj"><span><img src="../static/img/admin/cj.png" height="48" width="48" alt="财经频道图标"><br>财经频道</span></a>
         <a id="a1" href="third.html" class="shortcut-button icon_lc"><span><img src="../static/img/admin/lc.png" height="48" width="48" alt="理财频道图标"><br>理财频道</span></a>
         <a id="a2" href="third.html" class="shortcut-button icon_hq"><span><img src="../static/img/admin/hq.png" height="48" width="48" alt="行情资讯图标"><br>行情资讯</span></a>
@@ -132,7 +134,7 @@ $(function(){
     	<span class="prev" title="Prev">&lt;&lt;</span>
         &lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;
         <span class="next" title="Next">&gt;&gt;</span>
-    </div>
+    </div>-->
     
     <div class="rights">
         Copyright&nbsp;&nbsp;&nbsp;&nbsp;2009-2011&nbsp;&nbsp;&copy; CCTV证券资讯&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved
