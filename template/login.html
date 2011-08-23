@@ -10,7 +10,8 @@
 $(function(){
 	var perrow=5, //默认显示个数
 		cur_page=1,
-		tips=$(".tips");
+		tips=$(".tips"),
+		runOver=false;
 	
 	$("#login_btn").click(function(){
 		var name=$("#username").val(),
@@ -55,6 +56,7 @@ $(function(){
 									})
 								}
 							});
+							runOver=true;
 						})
 					})
 				}else{
@@ -84,15 +86,18 @@ $(function(){
 			Obj=$(".shortcut-button"),
 			aw=Obj.outerWidth(),
 			ah=Obj.outerHeight();
-		$("#login-wrapper").css("padding-top",h-147);
-		$(".channel_box").css({"height":h-147});
+		if(runOver){
+			$("#login-wrapper").css("padding-top",h-147);
+			$(".channel_box").css({"height":h-147});
+			$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800);
+			
+		}
 		Obj.css({"top":(h-ah-147)/2});
 		$.each(Obj,function(i){
 			var k=2*i+1,
 				_left=k*w/perrow-aw;
 			$(this).css({"left":_left/2});
 		})
-		$(".channel_box").stop().animate({marginLeft:-w*(cur_page-1)},800)
 	})
 })
 </script>
