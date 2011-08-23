@@ -20,6 +20,7 @@ $(function(){
 			dataType:"json",
 			beforeSend:function(){console.log("验证登录信息...")},
 			success:function(data){
+				console.log("成功登录！")
 				if(data[0]){ //登录成功，获取到频道列表
 					$("<div/>",{class:"channel_box"}).appendTo("body");
 					$('<div class="movebtn"><span class="prev" title="Prev">&lt;&lt;</span>&lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;<span class="next" title="Next">&gt;&gt;</span></div>').appendTo("body");
@@ -118,24 +119,6 @@ $(function(){
             </form>
         </div>
 	</div>
-    
-   <!-- <div class="channel_box">
-        <a id="a0" href="third.html" class="shortcut-button icon_cj"><span><img src="../static/img/admin/cj.png" height="48" width="48" alt="财经频道图标"><br>财经频道</span></a>
-        <a id="a1" href="third.html" class="shortcut-button icon_lc"><span><img src="../static/img/admin/lc.png" height="48" width="48" alt="理财频道图标"><br>理财频道</span></a>
-        <a id="a2" href="third.html" class="shortcut-button icon_hq"><span><img src="../static/img/admin/hq.png" height="48" width="48" alt="行情资讯图标"><br>行情资讯</span></a>
-        <a id="a3" href="third.html" class="shortcut-button icon_gp disable"><span><img src="../static/img/admin/gp.png" height="48" width="48" alt="股票频道图标"><br>股票频道</span></a>
-        <a id="a4" href="third.html" class="shortcut-button icon_qh"><span><img src="../static/img/admin/qh.png" height="48" width="48" alt="期货频道图标"><br>期货频道</span></a>
-        <a id="a5" href="third.html" class="shortcut-button icon_jj"><span><img src="../static/img/admin/jj.png" height="48" width="48" alt="基金频道图标"><br>基金频道</span></a>
-        <a id="a6" href="third.html" class="shortcut-button icon_xw"><span><img src="../static/img/admin/xw.png" height="48" width="48" alt="新闻源图标"><br>新闻源</span></a>
-        <a id="a7" href="third.html" class="shortcut-button icon_sx"><span><img src="../static/img/admin/sx.png" height="48" width="48" alt="视讯中心图标"><br>视讯中心</span></a>
-    </div>
-    
-    <div class="movebtn">
-    	<span class="prev" title="Prev">&lt;&lt;</span>
-        &lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;
-        <span class="next" title="Next">&gt;&gt;</span>
-    </div>-->
-    
     <div class="rights">
         Copyright&nbsp;&nbsp;&nbsp;&nbsp;2009-2011&nbsp;&nbsp;&copy; CCTV证券资讯&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved
     </div>
