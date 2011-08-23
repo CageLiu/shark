@@ -29,7 +29,7 @@ $(function(){
 					$('<div class="movebtn"><span class="prev" title="Prev">&lt;&lt;</span>&lt;&lt;点击左边按钮向前翻 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 点击右边按钮向后翻&gt;&gt;<span class="next" title="Next">&gt;&gt;</span></div>').appendTo("body");
 					$.each(data[1],function(i,_item){
 						//console.log(i+":"+_item.channel_name);
-						$('<a id="a'+i+'" href="'+_item.url+'" class="shortcut-button"><span><img src="../static/img/admin/cj.png" height="48" width="48" alt="'+_item.channel_name+'图标"><br>'+_item.channel_name+'</span></a>').appendTo(".channel_box");
+						$('<a id="a'+i+'" href="'+_item.url+'" class="shortcut-button"><span><img src="../static/img/admin/'+_item.icon+'" height="48" width="48" alt="'+_item.channel_name+'图标"><br>'+_item.channel_name+'</span></a>').appendTo(".channel_box");
 					});
 					var h=document.documentElement.clientHeight,
 						w=document.documentElement.clientWidth,
