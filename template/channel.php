@@ -1,8 +1,11 @@
 <?php
 	$login_info=array(); //登录信息 
 	$channel_list=array(); //频道列表
-	
-	$login_info[0]=1; //0登录失败 1登录成功
+	if($_POST["name"]=="admin" && $_POST["pwd"]=="abc123"){
+		$login_info[0]=1;
+	}else{
+		$login_info[0]=0;
+	}
 	
 	if($login_info[0]){
 		$channel_list[0]=array("channel_name"=>"财经频道","url"=>"third.html");
