@@ -70,7 +70,8 @@ ul.dir_tree li div.operate{
 	right:0;
 	width:97%;
 	text-align:right;
-	border-bottom:1px solid #eee
+	border-bottom:1px solid #eee;
+	padding-right:1%
 }
 
 
