@@ -46,7 +46,16 @@ ul.dir_tree li.title{
 ul.dir_tree li.title a{
 	position:relative;
 	z-index:19;
-	padding:0 5px
+	padding:0 5px;
+	display:inline-block;
+}
+
+ul.dir_tree li.title a.current{
+	border:1px solid #fff;
+	background:#fff;
+	border-radius:3px 3px 0 0;
+	box-shadow:0 0 2px #555 inset;
+	color:#4668B0
 }
 
 #tog_all{
