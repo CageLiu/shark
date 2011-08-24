@@ -38,6 +38,19 @@ ul.dir_tree li.title{
 	border-bottom:1px solid #ccc;
 	box-shadow:0 2px 3px #ccc;
 	line-height:25px;
+	z-index:99
+}
+
+#tog_all{
+	height:18px;
+	position:absolute;
+	top:28px;
+	left:0;
+	background:#fff;
+	z-index:10;
+	border:none;
+	line-height:18px;
+	text-indent:-999em
 }
 
 ul.dir_tree li.title div.operate{
