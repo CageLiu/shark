@@ -113,7 +113,7 @@ input.ipt{width:120px;height:22px;border:1px solid #a6a6a6;padding-left:3px;colo
 .table td,.table th{border:1px solid #ccc}
 .table tr:nth-child(odd){background-color:#fafdff;}
 .table tr:nth-child(even){background-color:#ebf6fd;}
-.table tr:hover{
+.table tbody tr:hover{
 	background:#e0e0e0
 }
 .table th{
