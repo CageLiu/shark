@@ -85,14 +85,14 @@ ul.dir_tree li div.operate{
 	position:absolute;
 	top:15px;
 	right:0;
-	width:96%;
+	width:95%;
 	text-align:right;
 	border-bottom:1px solid #eee;
 	padding-right:1%
 }
 
 ul.dir_tree li div.operate:hover{
-	background:#CCE8F9
+	background:#eee
 }
 
 ul.dir_tree li div.operate span{
