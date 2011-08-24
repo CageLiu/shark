@@ -60,5 +60,16 @@ $(document).ready(function(){
 		$.cookie("dir_tree",$iStatus.join(":"));
 	})
 
+	$("#check_all").toggle(
+		function(){
+			$("#dir_tree input[type='checkbox']").attr("checked","true");
+			$(this).text("取消全选");
+		},
+		function(){
+			$("#dir_tree input[type='checkbox']").removeAttr("checked")
+			$(this).text("选择全部");
+		}
+	)
+
 
 })

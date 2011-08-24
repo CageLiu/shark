@@ -70,6 +70,10 @@ ul.dir_tree li.title a.current{
 	text-indent:-999em
 }
 
+#check_all{
+	cursor:pointer;
+}
+
 ul.dir_tree li.title div.operate{
 	top:0;
 	border:none
@@ -120,6 +124,10 @@ ul.dir_tree li div.operate span a{
 	top:0;
 	padding:0 5px;
 	background:none
+}
+
+ul.dir_tree div.operate input[type="checkbox"]{
+	vertical-align:middle
 }
 
 ul.dir_tree span{
