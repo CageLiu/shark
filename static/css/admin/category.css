@@ -1,6 +1,5 @@
 ul.dir_tree, ul.dir_tree ul{
-	padding-left:24px;
-	border-left:1px dotted #000;
+	/*padding-left:24px;*/
 	clear:both;
 }
 
@@ -12,6 +11,8 @@ ul.dir_tree{
 
 ul.dir_tree li{
 	position:relative;
+	padding-left:24px;
+	border-left:1px dotted #000;
 }
 
 ul.dir_tree li:after{
@@ -81,6 +82,10 @@ ul.dir_tree span{
 	border-bottom:1px dotted #000;
 	float:left;
 	position:relative;
+	border-left:1px dotted #000;
+	left:-1px;
+	margin-top:1px;
+	[;margin-top:0;]
 }
 
 ul.dir_tree span a{

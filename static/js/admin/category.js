@@ -3,6 +3,12 @@ $(document).ready(function(){
 	var $dirItem = $onOff.parent("span").siblings("ul");
 	var $i = $("#dir_tree i[status]");
 
+	$("ul").each(function(){
+		//if($(this).children("li").length > 1){
+			$(this).children("li").last().has("ul").css("border-left-color","#fff")	
+		//}
+	})
+
 	//读取cookie
 	if(!$.cookie("dir_tree")){
 		var $iStatus = [];
