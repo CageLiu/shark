@@ -43,6 +43,12 @@ ul.dir_tree li.title{
 	border-bottom:1px solid #fff
 }
 
+ul.dir_tree li.title a{
+	position:relative;
+	z-index:19;
+	padding:0 5px
+}
+
 #tog_all{
 	height:18px;
 	position:absolute;
@@ -60,20 +66,34 @@ ul.dir_tree li.title div.operate{
 	border:none
 }
 
-ul.dir_tree li.title div.operate a{
+ul.dir_tree li.title div.operate:hover{
 	background:none
+}
+
+
+ul.dir_tree li.title div.operate a{
+	background:none;
+	cursor:default
+}
+
+ul.dir_tree li.title div.operate a:hover{
+	color:#2f2e2a;
+	text-decoration:none
 }
 
 ul.dir_tree li div.operate{
 	position:absolute;
 	top:15px;
 	right:0;
-	width:97%;
+	width:96%;
 	text-align:right;
 	border-bottom:1px solid #eee;
 	padding-right:1%
 }
 
+ul.dir_tree li div.operate:hover{
+	background:#CCE8F9
+}
 
 ul.dir_tree li div.operate span{
 	padding:0;
@@ -90,6 +110,7 @@ ul.dir_tree li div.operate span a{
 	line-height:normal;
 	top:0;
 	padding:0 5px;
+	background:none
 }
 
 ul.dir_tree span{
