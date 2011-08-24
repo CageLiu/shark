@@ -38,13 +38,15 @@ ul.dir_tree li.title{
 	border-bottom:1px solid #ccc;
 	box-shadow:0 2px 3px #ccc;
 	line-height:25px;
-	z-index:99
+	z-index:99;
+	border-left:none;
+	border-bottom:1px solid #fff
 }
 
 #tog_all{
 	height:18px;
 	position:absolute;
-	top:28px;
+	top:27px;
 	left:0;
 	background:#fff;
 	z-index:10;
