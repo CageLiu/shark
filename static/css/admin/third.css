@@ -268,7 +268,7 @@ body{
 	top:0;
 	box-shadow:3px 2px 3px #aaa;
 	border-top:1px solid #eee;
-	z-index:99999;
+	z-index:999;
 	border-left:1px solid #eee;
 	border-bottom:1px solid #fff;
 	background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.75), rgba(223, 223, 223, 0.46));
