@@ -1,5 +1,6 @@
 ul.dir_tree, ul.dir_tree ul{
-	/*padding-left:24px;*/
+	padding-left:24px;
+	border-left:1px dotted #000;
 	clear:both;
 }
 
@@ -11,8 +12,6 @@ ul.dir_tree{
 
 ul.dir_tree li{
 	position:relative;
-	padding-left:24px;
-	border-left:1px dotted #000;
 }
 
 ul.dir_tree li:after{
@@ -38,40 +37,6 @@ ul.dir_tree li.title{
 	border-bottom:1px solid #ccc;
 	box-shadow:0 2px 3px #ccc;
 	line-height:25px;
-	z-index:99;
-	border-left:none;
-	border-bottom:1px solid #fff;
-	font-weight:bold
-}
-
-ul.dir_tree li.title a{
-	position:relative;
-	z-index:19;
-	padding:0 5px;
-	display:inline-block;
-}
-
-ul.dir_tree li.title a.current{
-	border:1px solid #fff;
-	background:#fff;
-	border-radius:3px 3px 0 0;
-	box-shadow:0 0 2px #555 inset;
-	color:#4668B0
-}
-
-#tog_all{
-	height:20px;
-	position:absolute;
-	top:27px;
-	left:0;
-	background:#fff;
-	z-index:10;
-	border:none;
-	text-indent:-999em
-}
-
-#check_all{
-	cursor:pointer;
 }
 
 ul.dir_tree li.title div.operate{
@@ -79,7 +44,7 @@ ul.dir_tree li.title div.operate{
 	border:none
 }
 
-ul.dir_tree li.title div.operate:hover{
+ul.dir_tree li.title div.operate a{
 	background:none
 }
 
@@ -87,18 +52,11 @@ ul.dir_tree li div.operate{
 	position:absolute;
 	top:15px;
 	right:0;
-	width:95%;
+	width:100%;
 	text-align:right;
-	border-bottom:1px solid #eee;
-	padding-right:1%;
-	z-index:8;
-	height:25px;
-	line-height:27px
+	border-bottom:1px solid #eee
 }
 
-ul.dir_tree li div.operate:hover{
-	background:#eee
-}
 
 ul.dir_tree li div.operate span{
 	padding:0;
@@ -115,13 +73,6 @@ ul.dir_tree li div.operate span a{
 	line-height:normal;
 	top:0;
 	padding:0 5px;
-	background:none
-}
-
-ul.dir_tree div.operate input[type="checkbox"]{
-	vertical-align:middle;
-	position:relative;
-	top:-3px
 }
 
 ul.dir_tree span{
@@ -130,17 +81,15 @@ ul.dir_tree span{
 	border-bottom:1px dotted #000;
 	float:left;
 	position:relative;
-	border-left:1px dotted #000;
-	left:-1px;
 }
 
 ul.dir_tree span a{
 	display:block;
-	height:27px;
-	line-height:27px;
+	height:24px;
+	line-height:24px;
 	white-space:nowrap;
 	position:relative;
-	top:15px;
+	top:12px;
 	padding-left:3px;
 	background:#fff;
 	z-index:9;
@@ -160,7 +109,7 @@ ul.dir_tree span i.icon{
 	width:16px;
 	height:16px;
 	left:17px;
-	top:20px;
+	top:17px;
 }
 
 ul.dir_tree span i.folder_on{
@@ -177,7 +126,7 @@ ul.dir_tree span i.page{
 
 ul.dir_tree span i.on_off{
 	left:-6px;
-	top:21px;
+	top:18px;
 	width:11px;
 	height:11px;
 	cursor:pointer;

@@ -2,13 +2,6 @@ $(document).ready(function(){
 	var $onOff = $("#dir_tree .on_off");
 	var $dirItem = $onOff.parent("span").siblings("ul");
 	var $i = $("#dir_tree i[status]");
-	var $check = $("#dir_tree input:checkbox")
-
-	$("ul").each(function(){
-		//if($(this).children("li").length > 1){
-			$(this).children("li").last().has("ul").css("border-left-color","#fff")	
-		//}
-	})
 
 	//读取cookie
 	if(!$.cookie("dir_tree")){
@@ -59,24 +52,6 @@ $(document).ready(function(){
 			$iStatus[$(this).siblings(".icon").index("#dir_tree i[status]")] = 1;
 		}
 		$.cookie("dir_tree",$iStatus.join(":"));
-	})
-
-	/*
-	 *$("#check_all").toggle(
-	 *    function(){
-	 *        $("#dir_tree input[type='checkbox']").attr("checked","true");
-	 *    },
-	 *    function(){
-	 *        $("#dir_tree input[type='checkbox']").removeAttr("checked")
-	 *    }
-	 *)
-	 */
-
-	$check.change(function(){
-		if($(this).parents(".operate").parent("li").has("ul")){
-			var $child = $(this).parents(".operate").parent("li").find("input");	
-			$child.attr("checked","checked")
-		}
 	})
 
 
