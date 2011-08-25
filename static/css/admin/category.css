@@ -85,7 +85,7 @@ ul.dir_tree li.title div.operate:hover{
 
 ul.dir_tree li div.operate{
 	position:absolute;
-	top:13px;
+	top:15px;
 	right:0;
 	width:95%;
 	text-align:right;
@@ -93,7 +93,7 @@ ul.dir_tree li div.operate{
 	padding-right:1%;
 	z-index:8;
 	height:25px;
-	line-height:25px
+	line-height:27px
 }
 
 ul.dir_tree li div.operate:hover{
@@ -119,7 +119,9 @@ ul.dir_tree li div.operate span a{
 }
 
 ul.dir_tree div.operate input[type="checkbox"]{
-	vertical-align:middle
+	vertical-align:middle;
+	position:relative;
+	top:-3px
 }
 
 ul.dir_tree span{
