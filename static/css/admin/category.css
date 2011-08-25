@@ -91,7 +91,8 @@ ul.dir_tree li div.operate{
 	width:95%;
 	text-align:right;
 	border-bottom:1px solid #eee;
-	padding-right:1%
+	padding-right:1%;
+	z-index:8
 }
 
 ul.dir_tree li div.operate:hover{
