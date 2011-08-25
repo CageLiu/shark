@@ -60,14 +60,13 @@ ul.dir_tree li.title a.current{
 }
 
 #tog_all{
-	height:18px;
+	height:20px;
 	position:absolute;
 	top:27px;
 	left:0;
 	background:#fff;
 	z-index:10;
 	border:none;
-	line-height:18px;
 	text-indent:-999em
 }
 
@@ -91,7 +90,10 @@ ul.dir_tree li div.operate{
 	width:95%;
 	text-align:right;
 	border-bottom:1px solid #eee;
-	padding-right:1%
+	padding-right:1%;
+	z-index:8;
+	height:25px;
+	line-height:27px
 }
 
 ul.dir_tree li div.operate:hover{
@@ -117,7 +119,9 @@ ul.dir_tree li div.operate span a{
 }
 
 ul.dir_tree div.operate input[type="checkbox"]{
-	vertical-align:middle
+	vertical-align:middle;
+	position:relative;
+	top:-3px
 }
 
 ul.dir_tree span{
@@ -128,17 +132,15 @@ ul.dir_tree span{
 	position:relative;
 	border-left:1px dotted #000;
 	left:-1px;
-	margin-top:1px;
-	[;margin-top:0;]
 }
 
 ul.dir_tree span a{
 	display:block;
-	height:24px;
-	line-height:24px;
+	height:27px;
+	line-height:27px;
 	white-space:nowrap;
 	position:relative;
-	top:12px;
+	top:15px;
 	padding-left:3px;
 	background:#fff;
 	z-index:9;
@@ -158,7 +160,7 @@ ul.dir_tree span i.icon{
 	width:16px;
 	height:16px;
 	left:17px;
-	top:17px;
+	top:20px;
 }
 
 ul.dir_tree span i.folder_on{
@@ -175,7 +177,7 @@ ul.dir_tree span i.page{
 
 ul.dir_tree span i.on_off{
 	left:-6px;
-	top:18px;
+	top:21px;
 	width:11px;
 	height:11px;
 	cursor:pointer;

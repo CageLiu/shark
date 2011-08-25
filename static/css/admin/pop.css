@@ -51,8 +51,14 @@ body{
 	clear:both
 }
 a:hover{color:#4668B0;text-decoration:none;}
+
 .pop{margin:0 auto;color:#666;width:500px;height:476px;background:#e8e8e8;border:1px solid #666;
-	border-radius:3px;box-shadow:0 0 6px #999;position:absolute;top:50%;margin-top:-238px;left:50%;margin-left:-250px;display:none;}
+	border-radius:3px;box-shadow:0 0 6px #999; position:absolute}
+
+input,label{padding:0;vertical-align:top}
+.pop{color:#666;background:#e8e8e8;border:1px solid #666;
+	border-radius:3px;box-shadow:0 0 6px #999; position:absolute;top:50%; left:50%; z-index:999999}
+
 .pop_title{height:24px;padding-left:5px;position:relative;padding-top:5px; cursor:move}
 .pop_title i.arrow{border-width:4px;border-color:#E8E8E8 #E8E8E8 #E8E8E8 #666;}
 .pop_hd{font-family:"宋体";color:#666;display:inline;line-height:18px;font-weight:normal;}
@@ -75,7 +81,7 @@ a:hover{color:#4668B0;text-decoration:none;}
 			background:-o-linear-gradient(bottom,#e2e2e2,#f9f9f9);
 }
 	
-.pop_cont_c{padding:10px;background:#fff;height:420px;overflow:auto}
+.pop_cont_c{background:#fff}
 
 
 label,input,textarea{vertical-align:middle;}
@@ -154,11 +160,10 @@ font-family:"微软雅黑";font-weight:bold;text-shadow:2px 1px 0px #fff;color:#
 background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 		  background:-moz-linear-gradient(bottom,#eaeaea,#f8f8f8);
 		  background:-o-linear-gradient(bottom,#eaeaea,#f8f8f8);}
-		  
-		  
-		  
+		  	  
 .window{width:500px;height:500px;border:5px solid #A0BCF3;margin:20px auto;border-radius:8px;box-shadow:0 2px 13px #999 inset}
 .win_close{width:42px;height:25px;border-radius:8px;text-indent:-99px;overflow:hidden;display:inline-block;background:url(../../img/admin/close.png) no-repeat;position:relative;right:0;float:right;top:-5px;z-index:-1;}		  
+
 .add_category{margin:10px auto;width:80%}
 .add_category .tag{margin-bottom:20px;}
 .add_category .textarea{width:50%;height:50px;}
@@ -169,4 +174,22 @@ background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 .pop .up_btn{left:286px}
 .pop .up_txt{width:160px;left:120px;}
 #divmask{width:100%; height:100%;overflow:hidden;background-color:#666; filter:alpha(opacity=30);opacity: 0.3;display:none;z-index:99; position: absolute; top: 0px; left: 0px;}
-#pop{z-index:999}
+#pop{z-index:999;top:50%;margin-top:-238px;left:50%;margin-left:-250px;display:none;}
+
+
+/**/
+.mask_layer{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:99998;
+	height:100%;
+	width:100%;
+	background-color:rgba(255,255,255,0.5);
+}
+.perloading{
+	background-image:url(../../img/admin/perloading.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+
