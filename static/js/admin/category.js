@@ -72,16 +72,12 @@ $(document).ready(function(){
 	 *)
 	 */
 
-	$check.click(
-		function(){
-			if($(this).attr("checked")){
-				console.log(1)	
-			}
-			else{
-				console.log(0)	
-			}
+	$check.change(function(){
+		if($(this).parents(".operate").parent("li").has("ul")){
+			var $child = $(this).parents(".operate").parent("li").find("input");	
+			$child.attr("checked","checked")
 		}
-	)
+	})
 
 
 })
