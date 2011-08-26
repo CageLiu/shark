@@ -142,3 +142,15 @@ $(document).ready(
 	 */
 	}
 );
+
+function drag_pop(){
+	$(".pop").draggable({
+		disabled:false,
+		handle:".pop_title",
+		containment:'document',
+		opacity:0.7
+	});
+}
+function drop_pop(){
+	$(".pop").draggable({disabled:true})
+}

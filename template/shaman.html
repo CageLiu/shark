@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="../static/css/admin/pop11.css">
+<link rel="stylesheet" type="text/css" href="../static/css/admin/pop.css">
+<link rel="stylesheet" type="text/css" href="../static/js/public/jplugins/ui/css/ui-lightness/jquery-ui-1.8.14.custom.css">
 <title>MagicBox -shaman modules page</title>
 </head>
 
@@ -12,7 +13,10 @@
     <span class="btn_bg"><input id="btn2" type="button" class="btn" value="iframe打开"></span>
     <span class="btn_bg"><input id="btn3" type="button" class="btn" value="对话框"></span>
 </div>
-<div id="cc" style="height:100px; width:100px; background:#09F">
+<div class="tr" style="padding:12px">
+	<span class="btn_bg"><input id="btn4" type="button" class="btn" value="点击我"></span>
+</div>
+<div id="cc" style="height:100px; width:100px; background:#06F; position:relative">
 </div>
 <div id="html" style="display:none">
 	<br><br>
@@ -41,10 +45,29 @@ $(function(){
 	$("#btn3").click(function(){
 		var html=$("#html").html();
 		mb_pop({data:html,height:400,width:500},function(){
-			window.setTimeout(function(){alert("我是回调函数")},1000);
+			alert("我是回调函数")
 		});	
 	})
+	
+	$("#btn4").click(function(){
+		$("#cc").effect("explode",{},1000,calls)
+	})
+	
+	$( "#cc" ).resizable({
+		handles:'se',
+		resize:function(){
+			var _this=$(this),_c=_this.find(".pop_cont_c");
+			console.log(_this.outerHeight())
+			//_c.css("height",_this.outerHeight()-36)
+		}
+	});
 })
+
+function calls() {
+	/*setTimeout(function() {
+		$( "#cc" ).removeAttr( "style" ).hide().fadeIn();
+	}, 1000 );*/
+};
 </script>
 </body>
 </html>

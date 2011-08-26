@@ -55,10 +55,10 @@ function mb_pop(options,callback){
 		$(this).attr("class","fullscreen").parents(".pop").css({
 			height:height,
 			width:width,
-			top:"50%",
-			left:"50%",
-			marginTop:-height/2,
-			marginLeft:-width/2
+			top:(h-height)/2,
+			left:(w-width)/2
+			//marginTop:-height/2,
+			//marginLeft:-width/2
 		}).find(".pop_cont_c").css({height:height-36});
 		window.parent.drag_pop();
 	});
@@ -98,7 +98,7 @@ function mb_pop(options,callback){
 	function mb_pop_alert(){  //弹出类型 alert
 		if(data==null)return;
 		$(mask).appendTo(parent_doc);
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
+		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
 								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
@@ -116,7 +116,7 @@ function mb_pop(options,callback){
 
 	function mb_pop_div(){  //弹出类型 div
 		if(url==null)return;
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
+		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
 								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
@@ -136,7 +136,7 @@ function mb_pop(options,callback){
 	
 	function mb_pop_iframe(){  //弹出类型 iframe
 		if(url==null)return;
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
+		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
 								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
@@ -146,7 +146,7 @@ function mb_pop(options,callback){
 								'</div>'+
 							'</div>'+
 						  '</div>';
-		$(mb_pop_window).appendTo(parent_doc);
+		$(mb_pop_window).resizable({ handles: 'se' }).appendTo(parent_doc);
 		window.parent.length>0?window.parent.drag_pop():drag_pop();
 		$("<iframe/>",{
 			src:url,
@@ -164,7 +164,16 @@ function drag_pop(){
 	$(".pop").draggable({
 		disabled:false,
 		handle:".pop_title",
-		containment:'parent' 
+		containment:'document',
+		opacity:0.7
+	});
+	$(".pop").resizable({
+		handles:'se',
+		resize:function(){
+			var _this=$(this),_c=_this.find(".pop_cont_c");
+			//console.log(_this.outerHeight())
+			_c.css("height",_this.outerHeight()-36)
+		}
 	});
 }
 function drop_pop(){
