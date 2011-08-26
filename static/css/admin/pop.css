@@ -66,10 +66,12 @@ input,label{padding:0;vertical-align:top}
 .pop_title span.pr{position:absolute;right:0;}
 .pop_button a{display:inline-block;width:21px;height:19px;background:url(../../img/admin/icon.png) no-repeat;overflow:hidden;margin-right:4px;}
 .pop_button a.fullscreen{background-position:-34px -24px}
+.pop_button a.nomarlscreen{background-position:-152px -24px}
 .pop_button a.min{background-position:-63px -24px}
 .pop_button a.max{background-position:-94px -24px}
 .pop_button a.close{background-position:-123px -24px}
 .pop_button a.fullscreen:hover{background-position:-34px -53px}
+.pop_button a.nomarlscreen:hover{background-position:-152px -53px}
 .pop_button a.min:hover{background-position:-63px -53px}
 .pop_button a.max:hover{background-position:-94px -53px}.pop_button a.close:hover{background-position:-123px -53px}
 	
