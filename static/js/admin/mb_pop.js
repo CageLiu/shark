@@ -1,6 +1,6 @@
 /* mb_pop对象
  * 1.弹出层页面 2.对话框
- * @param options
+ * @param options 设置参数。 默认类型为alert,此时data为必须项；类型为div和iframe时,url为必须项。
  * @param callback 回调函数
  */
 function mb_pop(options,callback){
@@ -28,7 +28,10 @@ function mb_pop(options,callback){
 		parent_doc=$(parent).find("body"),//父级窗口
 	 	mask='<div class="mask_layer"></div>';//遮罩层
 	$(".pop",parent_doc).remove();
-	
+	$(".close",parent_doc).live("click",function(){
+		$(this).parents(".pop").remove();
+		$(".mask_layer",parent_doc).remove();
+	})
 	switch(type){
 		case "alert":
 			mb_pop_alert();
@@ -45,21 +48,21 @@ function mb_pop(options,callback){
 	}
 	
 	function mb_pop_alert(){  //弹出类型 alert
+		if(data==null)return;
+		$(mask).appendTo(parent_doc);
 		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
 								'<span class="pr pop_button"><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-36)+'px">'+
+								'<div class="pop_cont_c" style="height:'+(height-56)+'px">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
-		if(typeof(data)=="string"){
-			$(mb_pop_window).appendTo(parent_doc);
-			$(".pop_cont_c",parent_doc).html(data);
-			callback();
-		}
+		$(mb_pop_window).appendTo(parent_doc);
+		$(".pop_cont_c",parent_doc).html(data);
+		callback();
 	}
 
 	function mb_pop_div(){  //弹出类型 div
@@ -91,7 +94,7 @@ function mb_pop(options,callback){
 								'<span class="pr pop_button"><a title="全屏" class="fullscreen" href="#"></a><a title="最小化" class="min" href="#"></a><a title="最大化" class="max" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-56)+'px">'+
+								'<div class="pop_cont_c" style="height:'+(height-56)+'px;overflow:hidden">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';

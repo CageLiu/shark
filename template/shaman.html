@@ -41,7 +41,7 @@ $(function(){
 	$("#btn3").click(function(){
 		var html=$("#html").html();
 		mb_pop({data:html,height:400,width:500},function(){
-			//$(".pop",window.parent.document).draggable({handle:$(this).find(".pop_title")});
+			window.setTimeout(function(){alert("我是回调函数")},1000)
 		});	
 	})
 })
