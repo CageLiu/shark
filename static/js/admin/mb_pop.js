@@ -2,6 +2,7 @@
  * 1.弹出层页面 2.对话框
  * @param options 设置参数。 默认类型为alert,此时data为必须项；类型为div和iframe时,url为必须项。
  * @param callback 回调函数
+ * author:shaman
  */
 function mb_pop(options,callback){
 	if(typeof(options)!="object")return;
@@ -62,6 +63,7 @@ function mb_pop(options,callback){
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
 		$(".pop_cont_c",parent_doc).html(data);
+		window.parent.drag_pop();
 		callback();
 	}
 
@@ -74,11 +76,12 @@ function mb_pop(options,callback){
 								'<span class="pr pop_button"><a title="全屏" class="fullscreen" href="#"></a><a title="最小化" class="min" href="#"></a><a title="最大化" class="max" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(h-256)+'px;overflow-y:auto;overflow-x:hidden">'+
+								'<div class="pop_cont_c" style="height:'+(h-236)+'px;padding:0">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
+		window.parent.drag_pop();
 		$(".pop_cont_c",parent_doc).load(url,function(){
 			var w=$(this).find("#wrap").outerWidth();
 			$(".mask_layer",parent_doc).removeClass("perloading");
@@ -94,13 +97,15 @@ function mb_pop(options,callback){
 								'<span class="pr pop_button"><a title="全屏" class="fullscreen" href="#"></a><a title="最小化" class="min" href="#"></a><a title="最大化" class="max" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-56)+'px;overflow:hidden">'+
+								'<div class="pop_cont_c" style="height:'+(height-36)+'px;padding:0;overflow:hidden">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
+		window.parent.drag_pop();
 		$("<iframe/>",{
 			src:url,
+			class:"perloading",
 			style:"border:0;width:100%;height:100%"
 		}).appendTo($(".pop_cont_c",parent_doc))
 	}

@@ -31,17 +31,18 @@
 <script type="text/javascript">
 $(function(){
 	$("#btn1").click(function(){
-		mb_pop({title:"DIV形式打开页面",url:"test.html",type:"div",height:200,width:600});
+		mb_pop({title:"DIV形式打开页面",url:"third.html",type:"div",height:200,width:600});
 	})
 	
 	$("#btn2").click(function(){
-		mb_pop({title:"IFRAME形式打页面",url:"http://www.baidu.com",type:"iframe",height:500,width:800});
+		mb_pop({title:"IFRAME形式打页面",url:"http://www.cctvcj.com",type:"iframe",height:500,width:800});
 	})
 	
 	$("#btn3").click(function(){
 		var html=$("#html").html();
 		mb_pop({data:html,height:400,width:500},function(){
-			window.setTimeout(function(){alert("我是回调函数")},1000)
+			//window.setTimeout(function(){alert("我是回调函数")},1000)
+			//window.parent.drag_pop();
 		});	
 	})
 })
