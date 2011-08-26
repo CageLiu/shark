@@ -2,6 +2,13 @@ $(document).ready(function(){
 	var $onOff = $("#dir_tree .on_off");
 	var $dirItem = $onOff.parent("span").siblings("ul");
 	var $i = $("#dir_tree i[status]");
+	var $check = $("#dir_tree input:checkbox")
+
+	$("ul").each(function(){
+		//if($(this).children("li").length > 1){
+			$(this).children("li").last().has("ul").css("border-left-color","#fff")	
+		//}
+	})
 
 	//读取cookie
 	if(!$.cookie("dir_tree")){
@@ -53,6 +60,28 @@ $(document).ready(function(){
 		}
 		$.cookie("dir_tree",$iStatus.join(":"));
 	})
+
+	/*
+	 *$("#check_all").toggle(
+	 *    function(){
+	 *        $("#dir_tree input[type='checkbox']").attr("checked","true");
+	 *    },
+	 *    function(){
+	 *        $("#dir_tree input[type='checkbox']").removeAttr("checked")
+	 *    }
+	 *)
+	 */
+
+	$check.click(
+		function(){
+			if($(this).attr("checked")){
+				console.log(1)	
+			}
+			else{
+				console.log(0)	
+			}
+		}
+	)
 
 
 })
