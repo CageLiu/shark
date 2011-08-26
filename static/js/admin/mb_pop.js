@@ -27,12 +27,48 @@ function mb_pop(options,callback){
 		h=parent.documentElement.clientHeight,
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
-	 	mask='<div class="mask_layer"></div>';//遮罩层
+	 	mask='<div class="mask_layer"></div>',//遮罩层
 	$(".pop",parent_doc).remove();
+	$(".fullscreen",parent_doc).live("click",function(){
+		$(this).attr("class","nomarlscreen").parents(".pop").css({
+			height:h,
+			width:w,
+			top:0,
+			left:0,
+			marginTop:0,
+			marginLeft:0
+		}).find(".pop_cont_c").css({height:h-36});
+		window.parent.drop_pop();
+	});
+	$(".nomarlscreen",parent_doc).live("click",function(){
+		$(this).attr("class","fullscreen").parents(".pop").css({
+			height:height,
+			width:width,
+			top:"50%",
+			left:"50%",
+			marginTop:-height/2,
+			marginLeft:-width/2
+		}).find(".pop_cont_c").css({height:height-36});
+		window.parent.drag_pop();
+	});
 	$(".close",parent_doc).live("click",function(){
 		$(this).parents(".pop").remove();
 		$(".mask_layer",parent_doc).remove();
-	})
+	});
+	$(window).resize(function(){
+		h=parent.documentElement.clientHeight,
+		w=parent.documentElement.clientWidth;
+		if($(".pop",parent_doc).find(".nomarlscreen").length>0){
+			$(".pop",parent_doc).css({
+				height:h,
+				width:w,
+				top:0,
+				left:0,
+				marginTop:0,
+				marginLeft:0
+			}).find(".pop_cont_c").css({height:h-36});
+		}
+	});
 	switch(type){
 		case "alert":
 			mb_pop_alert();
@@ -57,7 +93,7 @@ function mb_pop(options,callback){
 								'<span class="pr pop_button"><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-56)+'px">'+
+								'<div class="pop_cont_c" style="height:'+(height-56)+'px";padding:0>'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
@@ -69,23 +105,20 @@ function mb_pop(options,callback){
 
 	function mb_pop_div(){  //弹出类型 div
 		if(url==null)return;
-		$(mask).addClass("perloading").appendTo(parent_doc);
-		var mb_pop_window='<div class="pop" style="display:none;height:'+(h-200)+'px;margin-top:-'+(h-200)/2+'px">'+
+		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button"><a title="全屏" class="fullscreen" href="#"></a><a title="最小化" class="min" href="#"></a><a title="最大化" class="max" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button"><a title="最大化" class="fullscreen" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(h-236)+'px;padding:0">'+
+								'<div class="pop_cont_c perloading" style="height:'+(height-36)+'px;padding:0">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
 		window.parent.drag_pop();
 		$(".pop_cont_c",parent_doc).load(url,function(){
-			var w=$(this).find("#wrap").outerWidth();
-			$(".mask_layer",parent_doc).removeClass("perloading");
-			$(".pop",parent_doc).css({"margin-left":-(w+35)/2}).delay(200).fadeIn(300);
+			$(this).removeClass("perloading");
 		})
 	}
 	
@@ -94,7 +127,7 @@ function mb_pop(options,callback){
 		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button"><a title="全屏" class="fullscreen" href="#"></a><a title="最小化" class="min" href="#"></a><a title="最大化" class="max" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button"><a title="最大化" class="fullscreen" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
 								'<div class="pop_cont_c" style="height:'+(height-36)+'px;padding:0;overflow:hidden">'+
