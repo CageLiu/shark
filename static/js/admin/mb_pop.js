@@ -1,19 +1,28 @@
-/* mb_pop对象
+/* mb_pop方法
  * 1.弹出层页面 2.对话框
- * @param options 设置参数。 默认类型为alert,此时data为必须项；类型为div和iframe时,url为必须项。
+ * @param options 设置参数。 
+ * ----参数使用说明：
+ * ----属性名     属性说明               是否必须                       默认值  
+ * ----title     弹出窗标题				否                          untitled
+ * ----type      弹出类型  				否							alert
+ * ----url       弹出窗加载的页面url     当类型为div或者iframe时为必须项   null   
+ * ----data      弹出窗信息               否							no data
+ * ----width     弹出窗宽度				否							300
+ * ----height    弹出窗高度				否							150
+ * ----allwMax   是否允许最大化			否							false(不允许)
  * @param callback 回调函数
  * author:shaman
  */
 function mb_pop(options,callback){
 	if(typeof(options)!="object")return;
-
 	var default_setting={  //默认设置
-			title:"未命名标题",
+			title:"untitled",
 			url:null,
 			type:"alert",
-			data:null,
+			data:"no data",
 			width:300,
-			height:150
+			height:150,
+			allowMax:false
 		}
 	var opt=$.extend(default_setting,options), //扩展默认设置
 		title=opt.title,
@@ -21,13 +30,15 @@ function mb_pop(options,callback){
 		type=opt.type,
 		data=opt.data,
 		width=opt.width,
-		height=opt.height;
+		height=opt.height,
+		allowMax=opt.allowMax;
 		
-	var parent=window.parent.document;
+	var parent=window.parent.length>0?window.parent.document:window.document;
 		h=parent.documentElement.clientHeight,
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
 	 	mask='<div class="mask_layer"></div>',//遮罩层
+		resize_btn=allowMax?'<a class="fullscreen" href="#"></a>':''; //最大化窗口
 	$(".pop",parent_doc).remove();
 	$(".fullscreen",parent_doc).live("click",function(){
 		$(this).attr("class","nomarlscreen").parents(".pop").css({
@@ -90,17 +101,17 @@ function mb_pop(options,callback){
 		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button"><a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-56)+'px";padding:0>'+
+								'<div class="pop_cont_c" style="height:'+(height-56)+'px;padding:10px">'+
 								'</div>'+
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
 		$(".pop_cont_c",parent_doc).html(data);
-		window.parent.drag_pop();
-		callback();
+		window.parent.length>0?window.parent.drag_pop():drag_pop();
+		if(!!callback)callback();
 	}
 
 	function mb_pop_div(){  //弹出类型 div
@@ -108,7 +119,7 @@ function mb_pop(options,callback){
 		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button"><a title="最大化" class="fullscreen" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
 								'<div class="pop_cont_c perloading" style="height:'+(height-36)+'px;padding:0">'+
@@ -116,9 +127,10 @@ function mb_pop(options,callback){
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
-		window.parent.drag_pop();
+		window.parent.length>0?window.parent.drag_pop():drag_pop();
 		$(".pop_cont_c",parent_doc).load(url,function(){
 			$(this).removeClass("perloading");
+			if(!!callback)callback();
 		})
 	}
 	
@@ -127,7 +139,7 @@ function mb_pop(options,callback){
 		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;margin-top:-'+height/2+'px;margin-left:-'+width/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button"><a title="最大化" class="fullscreen" href="#"></a><a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
 								'<div class="pop_cont_c" style="height:'+(height-36)+'px;padding:0;overflow:hidden">'+
@@ -135,11 +147,26 @@ function mb_pop(options,callback){
 							'</div>'+
 						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
-		window.parent.drag_pop();
+		window.parent.length>0?window.parent.drag_pop():drag_pop();
 		$("<iframe/>",{
 			src:url,
 			class:"perloading",
-			style:"border:0;width:100%;height:100%"
-		}).appendTo($(".pop_cont_c",parent_doc))
+			style:"border:0;width:100%;height:100%",
+			load:function(){
+				$(this).removeClass("perloading");
+				if(!!callback)callback();
+			}
+		}).appendTo($(".pop_cont_c",parent_doc));
 	}
+}
+
+function drag_pop(){
+	$(".pop").draggable({
+		disabled:false,
+		handle:".pop_title",
+		containment:'parent' 
+	});
+}
+function drop_pop(){
+	$(".pop").draggable({disabled:true})
 }

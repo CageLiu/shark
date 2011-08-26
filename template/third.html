@@ -133,8 +133,8 @@
 	</div>
     <script type="text/javascript">
 	function drag_pop(){
-		//alert("我是父窗口中的方法");
-		$(".pop").draggable({ 
+		$(".pop").draggable({
+			disabled:false,
 			handle:".pop_title",
 			containment:'parent' 
 		});

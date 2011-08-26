@@ -26,22 +26,22 @@
     <p class="input_list"><textarea class="textarea"></textarea></p>
 </div>
 <script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/public/jplugins/ui/js/jquery-ui.js"></script>
 <script type="text/javascript" src="../static/js/admin/mb_pop.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#btn1").click(function(){
-		mb_pop({title:"DIV形式打开页面",url:"test.html",type:"div",height:500,width:900});
+		mb_pop({title:"DIV形式打开页面",url:"test.html",allowMax:true,type:"div",height:500,width:900});
 	})
 	
 	$("#btn2").click(function(){
-		mb_pop({title:"IFRAME形式打页面",url:"http://www.cctvcj.com",type:"iframe",height:500,width:700});
+		mb_pop({title:"IFRAME形式打页面",url:"http://www.baidu.com",type:"iframe",height:450,width:750});
 	})
 	
 	$("#btn3").click(function(){
 		var html=$("#html").html();
 		mb_pop({data:html,height:400,width:500},function(){
-			//window.setTimeout(function(){alert("我是回调函数")},1000)
-			//window.parent.drag_pop();
+			window.setTimeout(function(){alert("我是回调函数")},1000);
 		});	
 	})
 })
