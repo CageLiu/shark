@@ -9,7 +9,7 @@
  * ----data      弹出窗信息               否							no data
  * ----width     弹出窗宽度				否							300
  * ----height    弹出窗高度				否							150
- * ----allwmax   是否允许最大化			否							false(不允许)
+ * ----allowmax   是否允许最大化			否							false(不允许)
  * ----button	 按钮参数					否							见button参数设置
  * button参数具体值设置:
  * ----disabled  是否不使用按钮			否							true(不使用)
@@ -28,7 +28,7 @@ function mb_pop(options,callback){
 			data:"no data",
 			width:300,
 			height:150,
-			allowMax:false,
+			allowmax:false,
 			button:{
 				disabled:true,
 				custom:null

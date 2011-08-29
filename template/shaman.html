@@ -7,7 +7,7 @@
 <title>MagicBox -shaman modules page</title>
 <style type="text/css">
 h1{font-size:20px}
-textarea{display:block; font-size:12px; padding:2px; height:200px; width:100%}
+textarea{display:block; font-size:12px; padding:2px; width:100%}
 table th{padding-left:5px;}
 td{padding:2px 5px; border:1px #CCC dotted}
 </style>
@@ -41,7 +41,7 @@ td{padding:2px 5px; border:1px #CCC dotted}
     	<td>height</td><td>弹出窗高度</td><td>否</td><td>150</td>
     </tr>
     <tr>
-    	<td>allwmax</td><td>是否允许最大化</td><td>否</td><td>false(不允许)</td>
+    	<td>allowmax</td><td>是否允许最大化</td><td>否</td><td>false(不允许)</td>
     </tr>
     <tr>
     	<td>button</td><td>按钮参数</td><td>否</td>
@@ -55,8 +55,14 @@ td{padding:2px 5px; border:1px #CCC dotted}
     </tr>
 </table>
 <div style="padding:12px">
+	<span class="btn_bg"><input id="btn0" type="button" class="btn" value="一个最简单的弹出层"></span>
+    <textarea style="height:20px">
+mb_pop({data:"最简单的弹出层"});
+	</textarea>
+</div>
+<div style="padding:12px">
 	<span class="btn_bg"><input id="btn1" type="button" class="btn" value="div打开"></span>
-    <textarea>
+    <textarea style="height:200px">
 mb_pop({
     title:"DIV形式打开页面",
     url:"test.html",
@@ -74,7 +80,7 @@ mb_pop({
 </div>
 <div style="padding:12px">
     <span class="btn_bg"><input id="btn2" type="button" class="btn" value="iframe打开"></span>
-    <textarea>
+    <textarea style="height:120px">
 mb_pop({
     title:"IFRAME形式打页面",
     url:"http://www.baidu.com",
@@ -86,7 +92,7 @@ mb_pop({
 </div>
 <div style="padding:12px">
     <span class="btn_bg"><input id="btn3" type="button" class="btn" value="对话框"></span>
-    <textarea>
+    <textarea style="height:130px">
 var html=$("#html").html();
 mb_pop({
     data:html,
@@ -99,7 +105,7 @@ mb_pop({
 </div>
 <div style="padding:12px">
     <span class="btn_bg"><input id="btn4" type="button" class="btn" value="按钮自定义"></span>
-    <textarea>
+    <textarea  style="height:170px">
 mb_pop({
     data:"<p>啊啊啊，按钮自定义</p>",
     height:120,
@@ -107,8 +113,7 @@ mb_pop({
     allowmax:true,
     button:{
         custom:'<input id="mybtn" type="button" value="我是定义的按钮">'
-    }
-},function(){
+    }},function(){
     $("#mybtn",window.parent.document).click(function(){alert("自定义按钮点击事件")})
 })
     </textarea>
@@ -129,6 +134,10 @@ mb_pop({
 <script type="text/javascript" src="../static/js/admin/mb_pop.js"></script>
 <script type="text/javascript">
 $(function(){
+	$("#btn0").click(function(){
+		mb_pop({data:"最简单的弹出层"});
+	})
+	
 	$("#btn1").click(function(){
 		mb_pop({
 			title:"DIV形式打开页面",
