@@ -196,4 +196,26 @@ background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 	background-position:center center;
 	background-repeat:no-repeat;
 }
-
+.pop_bottom{
+	height:24px;
+	padding:0 5px 6px;
+	text-align:right;
+	overflow:hidden;
+}
+.pop_btn{
+	display:inline-block;
+	height:22px;
+	line-height:22px;
+	margin-left:6px;
+	padding:0 8px;
+	border:1px #777 solid;
+	border-radius:4px;
+	background:-moz-linear-gradient(top,rgba(255,255,255,1),rgba(255,255,255,0));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,1)),to(rgba(255,255,255,0)));
+}
+.pop_btn:hover{
+	border-color:#0272c6;
+	background:-moz-linear-gradient(top,rgba(64,163,234,1),rgba(64,163,234,0.5));
+	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(64,163,234,1)),to(rgba(64,163,234,0.5)));
+	color:#FFF;
+}

@@ -9,10 +9,16 @@
  * ----data      弹出窗信息               否							no data
  * ----width     弹出窗宽度				否							300
  * ----height    弹出窗高度				否							150
- * ----allwMax   是否允许最大化			否							false(不允许)
+ * ----allwmax   是否允许最大化			否							false(不允许)
+ * ----button	 按钮参数					否							见button参数设置
+ * button参数具体值设置:
+ * ----disabled  是否不使用按钮			否							true(不使用)
+ * ----custom	 自定义按钮				否							null
  * @param callback 回调函数
  * author:shaman
  */
+if(!pop_ok)var pop_ok;
+if(!pop_cannel)var pop_cannel;
 function mb_pop(options,callback){
 	if(typeof(options)!="object")return;
 	var default_setting={  //默认设置
@@ -22,7 +28,11 @@ function mb_pop(options,callback){
 			data:"no data",
 			width:300,
 			height:150,
-			allowMax:false
+			allowMax:false,
+			button:{
+				disabled:true,
+				custom:null
+			}
 		}
 	var opt=$.extend(default_setting,options), //扩展默认设置
 		title=opt.title,
@@ -31,53 +41,78 @@ function mb_pop(options,callback){
 		data=opt.data,
 		width=opt.width,
 		height=opt.height,
-		allowMax=opt.allowMax;
+		pop_bh=opt.button.disabled?36:66;
+		allowmax=opt.allowmax;
 		
 	var parent=window.parent.length>0?window.parent.document:window.document;
 		h=parent.documentElement.clientHeight,
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
 	 	mask='<div class="mask_layer"></div>',//遮罩层
-		resize_btn=allowMax?'<a class="fullscreen" href="#"></a>':''; //最大化窗口
+		resize_btn=allowmax?'<a class="fullscreen" href="#"></a>':'', //最大化窗口
+		bottom_btn=opt.button.disabled?'':opt.button.custom!=null?
+			'<div class="pop_bottom">'+opt.button.custom+'</div>':  //自定义按钮
+			'<div class="pop_bottom"><a id="pop_btn_ok" class="pop_btn" href="javascript:"><span>确定</span></a>'+'<a id="pop_btn_cannel" class="pop_btn" href="javascript:"><span>取消</span></a></div>', //默认的连个按钮
+		mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
+							'<div class="pop_title">'+
+								'<h2 class="pop_hd">'+title+'</h2>'+
+								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
+							'</div>'+
+							'<div class="pop_cont">'+
+								'<div class="pop_cont_c" style="height:'+(height-pop_bh)+'px;padding:0">'+
+								'</div>'+
+							'</div>'+
+								bottom_btn+
+						  '</div>';
 	$(".pop",parent_doc).remove();
 	$(".fullscreen",parent_doc).live("click",function(){
+		var h=parent.documentElement.clientHeight,
+			w=parent.documentElement.clientWidth;
 		$(this).attr("class","nomarlscreen").parents(".pop").css({
-			height:h,
-			width:w,
+			height:h-2,
+			width:w-2,
 			top:0,
 			left:0,
+			opacity:1,
 			marginTop:0,
 			marginLeft:0
-		}).find(".pop_cont_c").css({height:h-36});
+		}).find(".pop_cont_c").css({height:h-pop_bh});
 		window.parent.drop_pop();
 	});
 	$(".nomarlscreen",parent_doc).live("click",function(){
+		var h=parent.documentElement.clientHeight,
+			w=parent.documentElement.clientWidth;
 		$(this).attr("class","fullscreen").parents(".pop").css({
 			height:height,
 			width:width,
 			top:(h-height)/2,
 			left:(w-width)/2
-			//marginTop:-height/2,
-			//marginLeft:-width/2
-		}).find(".pop_cont_c").css({height:height-36});
+		}).find(".pop_cont_c").css({height:height-pop_bh});
 		window.parent.drag_pop();
 	});
-	$(".close",parent_doc).live("click",function(){
+	$(".close,#pop_btn_cannel",parent_doc).live("click",function(){
 		$(this).parents(".pop").remove();
 		$(".mask_layer",parent_doc).remove();
 	});
 	$(window).resize(function(){
-		h=parent.documentElement.clientHeight,
-		w=parent.documentElement.clientWidth;
-		if($(".pop",parent_doc).find(".nomarlscreen").length>0){
-			$(".pop",parent_doc).css({
-				height:h,
-				width:w,
+		var h=parent.documentElement.clientHeight,
+			w=parent.documentElement.clientWidth,
+			pop_win=$(".pop",parent_doc);
+		if(pop_win.find(".nomarlscreen").length>0){
+			pop_win.css({
+				height:h-2,
+				width:w-2,
 				top:0,
 				left:0,
+				opacity:1,
 				marginTop:0,
 				marginLeft:0
-			}).find(".pop_cont_c").css({height:h-36});
+			}).find(".pop_cont_c").css({height:h-pop_bh});
+		}else{
+			pop_win.css({
+				top:(h-height)/2,
+				left:(w-width)/2
+			})
 		}
 	});
 	switch(type){
@@ -98,36 +133,16 @@ function mb_pop(options,callback){
 	function mb_pop_alert(){  //弹出类型 alert
 		if(data==null)return;
 		$(mask).appendTo(parent_doc);
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
-							'<div class="pop_title">'+
-								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
-							'</div>'+
-							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-56)+'px;padding:10px">'+
-								'</div>'+
-							'</div>'+
-						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
 		$(".pop_cont_c",parent_doc).html(data);
-		window.parent.length>0?window.parent.drag_pop():drag_pop();
+		init();
 		if(!!callback)callback();
 	}
 
 	function mb_pop_div(){  //弹出类型 div
 		if(url==null)return;
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
-							'<div class="pop_title">'+
-								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
-							'</div>'+
-							'<div class="pop_cont">'+
-								'<div class="pop_cont_c perloading" style="height:'+(height-36)+'px;padding:0">'+
-								'</div>'+
-							'</div>'+
-						  '</div>';
 		$(mb_pop_window).appendTo(parent_doc);
-		window.parent.length>0?window.parent.drag_pop():drag_pop();
+		init();
 		$(".pop_cont_c",parent_doc).load(url,function(){
 			$(this).removeClass("perloading");
 			if(!!callback)callback();
@@ -136,45 +151,40 @@ function mb_pop(options,callback){
 	
 	function mb_pop_iframe(){  //弹出类型 iframe
 		if(url==null)return;
-		var mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
-							'<div class="pop_title">'+
-								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
-							'</div>'+
-							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-36)+'px;padding:0;overflow:hidden">'+
-								'</div>'+
-							'</div>'+
-						  '</div>';
-		$(mb_pop_window).resizable({ handles: 'se' }).appendTo(parent_doc);
-		window.parent.length>0?window.parent.drag_pop():drag_pop();
+		$(mb_pop_window).appendTo(parent_doc);
+		init();
+		var pop_cont_c=$(".pop_cont_c",parent_doc);
+		pop_cont_c.css({"overflow":"hidden"})
 		$("<iframe/>",{
 			src:url,
 			class:"perloading",
-			style:"border:0;width:100%;height:100%",
+			style:"border:0;width:100%;height:100%;overflow:auto",
 			load:function(){
 				$(this).removeClass("perloading");
 				if(!!callback)callback();
 			}
-		}).appendTo($(".pop_cont_c",parent_doc));
+		}).appendTo(pop_cont_c);
 	}
 }
-
+function init(){
+	//window.parent.length>0?window.parent.drag_pop():drag_pop();
+	if(window.parent.length>0){
+		pop_ok=$("#pop_btn_ok",window.parent.document);
+		pop_cannel=$("#pop_btn_cannel",window.parent.document);
+		window.parent.drag_pop();
+	}else{
+		pop_ok=$("#pop_btn_ok");
+		pop_cannel=$("#pop_btn_cannel");
+		drag_pop();
+	}
+}
 function drag_pop(){
 	$(".pop").draggable({
 		disabled:false,
 		handle:".pop_title",
 		containment:'document',
 		opacity:0.7
-	});
-	$(".pop").resizable({
-		handles:'se',
-		resize:function(){
-			var _this=$(this),_c=_this.find(".pop_cont_c");
-			//console.log(_this.outerHeight())
-			_c.css("height",_this.outerHeight()-36)
-		}
-	});
+	})
 }
 function drop_pop(){
 	$(".pop").draggable({disabled:true})
