@@ -48,12 +48,12 @@ function mb_pop(options,callback){
 		h=parent.documentElement.clientHeight,
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
-	 	mask='<div class="mask_layer"></div>',//遮罩层
+	 	mask='<div class="mask_layer" style="position:fixed"></div>',//遮罩层
 		resize_btn=allowmax?'<a class="fullscreen" href="#"></a>':'', //最大化窗口
 		bottom_btn=opt.button.disabled?'':opt.button.custom!=null?
 			'<div class="pop_bottom">'+opt.button.custom+'</div>':  //自定义按钮
 			'<div class="pop_bottom"><a id="pop_btn_ok" class="pop_btn" href="javascript:"><span>确定</span></a>'+'<a id="pop_btn_cannel" class="pop_btn" href="javascript:"><span>取消</span></a></div>', //默认的连个按钮
-		mb_pop_window='<div class="pop" style="width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
+		mb_pop_window='<div class="pop" style="position:fixed;width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
 								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
