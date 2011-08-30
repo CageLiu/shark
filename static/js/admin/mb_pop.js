@@ -1,4 +1,5 @@
 /* mb_pop方法
+ * 依赖：jquery库文件  jq-ui-drag文件
  * 1.弹出层页面 2.对话框
  * @param options 设置参数。 
  * ----参数使用说明：
