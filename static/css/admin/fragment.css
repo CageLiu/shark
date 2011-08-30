@@ -25,7 +25,6 @@
 	white-space:nowrap;
 	overflow:hidden;
 	cursor:default;
-	text-align:center
 }
 
 .fragment_remarks a{
@@ -44,7 +43,6 @@
 	border-radius:0 3px 3px 0;
 	height:100%;
 	min-height:100px;
-	text-align:left
 }
 
 .unmodified{
