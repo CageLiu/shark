@@ -11,11 +11,11 @@
 	width:100%;
 	height:100%;
 	overflow:hidden;
-	z-index:999999999
+	z-index:9999999;
 }
 
 .fragment_remarks{
-	background:rgba(255,255,255,0.9);
+	background:rgba(255,255,255,0.4);
 	margin:0 10px;
 	font-size:12px;
 	padding:0 1%;
@@ -24,7 +24,8 @@
 	border-radius:0 0 4px 4px;
 	white-space:nowrap;
 	overflow:hidden;
-	cursor:default
+	cursor:default;
+	text-align:center
 }
 
 .fragment_remarks a{
@@ -42,6 +43,8 @@
 	margin:0;
 	border-radius:0 3px 3px 0;
 	height:100%;
+	min-height:100px;
+	text-align:left
 }
 
 .unmodified{
