@@ -22,7 +22,12 @@
 	min-height:1em;
 	border-radius:0 0 4px 4px;
 	white-space:nowrap;
-	overflow:hidden
+	overflow:hidden;
+	cursor:default
+}
+
+.fragment_remarks a{
+	color:#333
 }
 
 .fragment_info:hover{
