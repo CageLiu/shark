@@ -366,7 +366,7 @@
 	background-position: -0px -754px;
 	width: 15px;
 	height: 11px;
-	background-image: url(/static/img/public/ke/default/default.gif);
+	background-image: url(/img/public/ke/default/default.gif);
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -388,7 +388,7 @@
 	background-position: -9px -745px;
 	width: 7px;
 	height: 7px;
-	background-image: url(/static/img/public/ke/default/default.gif);
+	background-image: url(/img/public/ke/default/default.gif);
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -453,7 +453,7 @@
 	*display: inline;
 }
 .ke-common-icon-url {
-	background-image: url(/static/img/public/ke/default/default.gif);
+	background-image: url(/img/public/ke/default/default.gif);
 }
 .ke-icon {
 	display: block;
@@ -675,7 +675,7 @@
 	right: 10px;
 	top: 10px;
 	cursor: pointer;
-	background-image: url(/static/img/public/ke/default/default.gif);
+	background-image: url(/img/public/ke/default/default.gif);
 	overflow: hidden;
 }
 .ke-dialog-body {
@@ -722,7 +722,7 @@
 	background-color: #FFFFFF;
 }
 .ke-button-common {
-	background: url(/static/img/public/ke/default/bg.gif) no-repeat scroll 0 0 transparent;
+	background: url(/img/public/ke/default/bg.gif) no-repeat scroll 0 0 transparent;
 	cursor: pointer;
 	height: 25px;
 	line-height: 25px;
@@ -831,7 +831,7 @@
 	zoom: 1;
 	*display: inline;
 	background-repeat: no-repeat;
-	background-image: url(/static/img/public/ke/common/loading.gif);
+	background-image: url(/img/public/ke/common/loading.gif);
 	width: 16px;
 	height: 16px;
 	margin: 0;
@@ -882,7 +882,7 @@
 	margin:2px;
 	width:24px;
 	height:24px;
-	background-image:url(/static/img/public/ke/common/emoticons.gif);
+	background-image:url(/img/public/ke/common/emoticons.gif);
 	margin: 0;
 	padding: 0;
 	border: 0;

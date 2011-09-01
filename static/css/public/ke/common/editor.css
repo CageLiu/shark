@@ -17,7 +17,7 @@ p {
 }
 .ke-flash {
 	border:1px solid #AAAAAA;
-	background-image:url(/static/img/public/ke/common/flash.gif);
+	background-image:url(/img/public/ke/common/flash.gif);
 	background-position:center center;
 	background-repeat:no-repeat;
 	width:100px;
@@ -25,7 +25,7 @@ p {
 }
 .ke-rm {
 	border:1px solid #AAAAAA;
-	background-image:url(/static/img/public/ke/common/rm.gif);
+	background-image:url(/img/public/ke/common/rm.gif);
 	background-position:center center;
 	background-repeat:no-repeat;
 	width:100px;
@@ -33,7 +33,7 @@ p {
 }
 .ke-media {
 	border:1px solid #AAAAAA;
-	background-image:url(/static/img/public/ke/common/media.gif);
+	background-image:url(/img/public/ke/common/media.gif);
 	background-position:center center;
 	background-repeat:no-repeat;
 	width:100px;
