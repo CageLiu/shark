@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>jQuery datePicker demo: limit available dates (inline edition)</title>
+		
+		<!-- firebug lite -->
+		<script type="text/javascript" src="firebug/firebug.js"></script>
+
+        <!-- jQuery -->
+		<script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+        
+        <!-- required plugins -->
+		
+		<!--[if IE]><script type="text/javascript" src="/static/js/public/jplugins/jq.bgiframe.min.js"></script><![endif]-->
+        
+        <!-- jquery.datePicker.js -->
+		<script type="text/javascript" src="/static/js/public/jplugins/jq.dtp.min.js"></script>
+        
+        <!-- datePicker required styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/css/public/dtp/dtp.css">
+		
+        <!-- page specific styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/static/css/public/dtp/demo.css">
+        
+        <!-- page specific scripts -->
+		<script type="text/javascript" charset="utf-8">
+            $(function()
+            {
+				$durationRules = $('#durationRules');
+				$datePicker = $('#datePicker');
+				$dateField = $('#selectedDate');
+				
+				var allowedDay;
+				var numNights;
+
+				$datePicker.datePicker(
+					{
+						inline: true,
+						renderCallback:function ($td, thisDate, month, year)
+						{
+							var alreadyDisabled = $td.is('.disabled');
+							if (allowedDay && thisDate.getDay() != allowedDay && !alreadyDisabled) {
+								// the disabled class prevents the user from being able to select the element.
+								// the disallowed-day class provides a hook for different CSS styling of cells which are disabled 
+								// by this rule vs cells which are disabled because e.g. they fall outside the startDate - endDate range.
+								$td.addClass('disabled disallowed-day');
+							} else if (!alreadyDisabled) {	// only add the highlight class if the date wasn't already for some 
+															// reason disabled (e.g. it is outside the startDate - endDate range)
+								$td.addClass('highlight');
+								
+								// we also want to highlight the other related days when you roll over the relevant date
+								var $allTDs = $('td', $td.parent().parent());
+								var td = $td[0];
+
+								for (var i=0; i<$allTDs.length; i++) {
+									if ($allTDs[i] == td) {
+										break;
+									}
+								}
+								var includedNightCells = [];
+								for (var j=i; j<i+numNights; j++) {
+									includedNightCells.push($allTDs[j]);
+								}
+								var $includedNightCells = $(includedNightCells)	;
+
+								$td.hover(
+									function()
+									{
+										$includedNightCells.addClass('included-night');
+									},
+									function()
+									{
+										$allTDs.removeClass('included-night');
+									}
+								);
+							}
+						}
+					}
+				).bind(
+					'dateSelected',
+					function(event, date, $td, status) 
+					{
+						$dateField.val(date.asString());
+					}
+				);
+
+				$durationRules.bind(
+					'change', 
+					function()
+					{
+						var rules = $durationRules.val().split(',');
+						numNights = parseInt(rules[0]);
+						allowedDay = parseInt(rules[1]);
+
+						// if the current selected date is illegal via the new rules then remove it...
+						if (Date.fromString($dateField.val()).getDay() != allowedDay) {
+							$datePicker.dpSetSelected($dateField.val(), false, false);
+							$dateField.val('');
+						}
+						
+						// force the date picker to redraw...
+						$datePicker.dpDisplay();
+					}
+				).trigger('change');
+				
+				// add a listener for the form submit for this demo to illustrate that the date field on the form is being sucessfully set
+				$('#chooseDateForm').bind(
+					'submit',
+					function()
+					{
+						var v = $dateField.val();
+						alert(v == '' ? 'You didn\'t select a date' : 'You selected ' + v);
+						return false;
+					}
+				);
+            });
+		</script>
+
+		<style type="text/css">
+			table.jCalendar td
+			{
+				border: 1px solid;
+				padding: 3px 4px;
+			}
+			table.jCalendar td.disabled
+			{
+				border: 1px solid #bbb;
+			}
+			table.jCalendar td.highlight,
+			table.jCalendar td.other-month.highlight
+			{
+				background: #dd6;
+				color: #000;
+				border: 1px solid #dd6;
+			}
+			table.jCalendar td.highlight.dp-hover
+			{
+				background: #ee0;
+				border: 1px solid #000;
+			}
+			table.jCalendar td.selected,
+			table.jCalendar td.selected.other-month,
+			table.jCalendar td.selected.dp-hover
+			{
+				background: #ff0;
+				color: #000;
+				border: 1px solid #000;
+			}
+			/** 
+			 * Deal with the fact that all days are now disabled but we want to be able to visually 
+			 * differentiate between dates that are disabled because they are the wrong day of the
+			 * week and dates disabled for another reason...
+			 **/
+			table.jCalendar td.disallowed-day,
+			table.jCalendar td.disallowed-day.dp-hover
+			{
+				background: #ccc;
+				border: 1px solid #ccc;
+				color: #000;
+			}
+			table.jCalendar td.disallowed-day.other-month
+			{
+				background: #ddd;
+				border: 1px solid #ddd;
+			}
+			table.jCalendar td.included-night,
+			table.jCalendar td.other-month.included-night
+			{
+				border: 1px solid #ee0; 
+				background: #ee0;
+			}
+		</style>
+		
+	</head>
+	<body>
+        <div id="container">
+            <h1>jQuery datePicker demo: limit available dates (inline edition)</h1>
+			<p><a href="index.html">&lt; date picker home</a></p>
+            <p>
+                The following example demonstrates how you can limit the available dates for clicking on the calendar based
+				on the values in a dropdown.
+            </p>
+			<p>
+				It also demonstrates how you can add behaviour to the date picker so that when a date is rolled over the following
+				X days are also highlighted.
+			</p>
+			<form name="chooseDateForm" id="chooseDateForm" action="#">
+				<div class="step">
+					<h2>Step 1: Choose Duration of stay</h2>
+
+					<h3>Underlying rules</h3>
+					<ul>
+						<li>3 nights must start on a Friday</li>
+						<li>5 nights must start on a Monday</li>
+						<li>7 nights must start on a Saturday</li>
+					</ul>
+
+					<select id="durationRules" name="durationRules">
+						<option value="3,5">3 Nts Fri-Mon</option>
+						<option value="5,1">5 Nts Mon-Fri</option>
+						<option value="7,6">7 Nts Sat-Sat</option>
+					</select>
+				</div>
+				<div class="step">
+					<h2>Step 2: Choose a holiday start date</h2>
+					<input type="hidden" id="selectedDate" name="selectedDate" />
+					<div id="datePicker">You need javascript enabled to see this date picker</div>
+				</div>
+
+				<input type="submit" value="Submit" />
+			</form>
+			<h2>Page sourcecode</h2>
+			<pre class="sourcecode">
+$(function()
+{
+	$durationRules = $('#durationRules');
+	$datePicker = $('#datePicker');
+	$dateField = $('#selectedDate');
+	
+	var allowedDay;
+	var numNights;
+
+	$datePicker.datePicker(
+		{
+			inline: true,
+			renderCallback:function ($td, thisDate, month, year)
+			{
+				var alreadyDisabled = $td.is('.disabled');
+				if (allowedDay && thisDate.getDay() != allowedDay && !alreadyDisabled) {
+					// the disabled class prevents the user from being able to select the element.
+					// the disallowed-day class provides a hook for different CSS styling of cells which are disabled 
+					// by this rule vs cells which are disabled because e.g. they fall outside the startDate - endDate range.
+					$td.addClass('disabled disallowed-day');
+				} else if (!alreadyDisabled) {	// only add the highlight class if the date wasn't already for some 
+												// reason disabled (e.g. it is outside the startDate - endDate range)
+					$td.addClass('highlight');
+					
+					// we also want to highlight the other related days when you roll over the relevant date
+					var $allTDs = $('td', $td.parent().parent());
+					var td = $td[0];
+
+					for (var i=0; i<$allTDs.length; i++) {
+						if ($allTDs[i] == td) {
+							break;
+						}
+					}
+					var includedNightCells = [];
+					for (var j=i; j < i +numNights; j++) {
+						includedNightCells.push($allTDs[j]);
+					}
+					var $includedNightCells = $(includedNightCells)	;
+
+					$td.hover(
+						function()
+						{
+							$includedNightCells.addClass('included-night');
+						},
+						function()
+						{
+							$allTDs.removeClass('included-night');
+						}
+					);
+				}
+			}
+		}
+	).bind(
+		'dateSelected',
+		function(event, date, $td, status) 
+		{
+			$dateField.val(date.asString());
+		}
+	);
+
+	$durationRules.bind(
+		'change', 
+		function()
+		{
+			var rules = $durationRules.val().split(',');
+			numNights = parseInt(rules[0]);
+			allowedDay = parseInt(rules[1]);
+
+			// if the current selected date is illegal via the new rules then remove it...
+			if (Date.fromString($dateField.val()).getDay() != allowedDay) {
+				$datePicker.dpSetSelected($dateField.val(), false, false);
+				$dateField.val('');
+			}
+			
+			// force the date picker to redraw...
+			$datePicker.dpDisplay();
+		}
+	).trigger('change');
+	
+	// add a listener for the form submit for this demo to illustrate that the date field on the form is being sucessfully set
+	$('#chooseDateForm').bind(
+		'submit',
+		function()
+		{
+			var v = $dateField.val();
+			alert(v == '' ? 'You didn\'t select a date' : 'You selected ' + v);
+			return false;
+		}
+	);
+});</pre>
+			<h2>Page extra CSS</h2>
+			<pre class="sourcecode">table.jCalendar td
+{
+	border: 1px solid;
+	padding: 3px 4px;
+}
+table.jCalendar td.disabled
+{
+	border: 1px solid #bbb;
+}
+table.jCalendar td.highlight,
+table.jCalendar td.other-month.highlight
+{
+	background: #dd6;
+	color: #000;
+	border: 1px solid #dd6;
+}
+table.jCalendar td.highlight.dp-hover
+{
+	background: #ee0;
+	border: 1px solid #000;
+}
+table.jCalendar td.selected,
+table.jCalendar td.selected.other-month,
+table.jCalendar td.selected.dp-hover
+{
+	background: #ff0;
+	color: #000;
+	border: 1px solid #000;
+}
+/** 
+ * Deal with the fact that all days are now disabled but we want to be able to visually 
+ * differentiate between dates that are disabled because they are the wrong day of the
+ * week and dates disabled for another reason...
+ **/
+table.jCalendar td.disallowed-day,
+table.jCalendar td.disallowed-day.dp-hover
+{
+	background: #ccc;
+	border: 1px solid #ccc;
+	color: #000;
+}
+table.jCalendar td.disallowed-day.other-month
+{
+	background: #ddd;
+	border: 1px solid #ddd;
+}
+table.jCalendar td.included-night,
+table.jCalendar td.other-month.included-night
+{
+	border: 1px solid #ee0; 
+	background: #ee0;
+}</pre>
+        </div>
+	</body>
+</html>

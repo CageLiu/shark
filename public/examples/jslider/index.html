@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQ-Slide插件demo演示</title>
+<script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/public/jplugins/jq.jslider.js"></script>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href="jslide.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function(){
+    $("#temp1").jSlider({
+		effect : "DirY",
+    	speed : "normal",
+		timer : 3000
+	});
+	$("#temp2").jSlider({
+		effect : "DirX",
+    	speed : "normal",
+		timer : 3000
+	});	
+	$("#temp3").jSlider({
+		effect : "Fade",
+    	speed : "normal",
+		timer : 3000
+	});
+	$("#temp4").jSlider({
+		effect : "Loop",
+		autoPlay:false,
+    	speed : "normal",
+		timer : 3000,
+		steps:2
+	});
+	$("#temp5").jSlider({
+		effect : "Txt",
+    	speed : "normal",
+		timer : 3000,
+		steps:1
+	});
+	$("#temp6").jSlider({
+		effect : "DirY",
+    	speed : "normal",
+		timer : 3000
+	});
+});
+</script>
+</head>
+<body>
+<div class="SDemo-title">
+  <h1>jSlider插件demo演示：</h1></div>
+<div id="page"><br />
+<table width="760" border="0" cellspacing="0" cellpadding="0" class="KS-table">
+<caption>
+    jSlider插件参数说明表
+</caption>
+  <tr>
+    <th width="155" scope="row">参数名</th>
+    <td width="438">参数值(默认值可以省略)</td>
+    <td width="166">&nbsp;</td>
+    </tr>
+  <tr>
+    <th rowspan="5" scope="row">effect </th>
+    <td>dirY（默认）：垂直滚动</td>
+    <td rowspan="5">&nbsp;</td>
+    </tr>
+  <tr>
+    <td>dirX：水平滚动</td>
+  </tr>
+  <tr>
+    <td>Txt：文本垂直滚动</td>
+  </tr>
+  <tr>
+    <td>Fade：淡出</td>
+  </tr>
+  <tr>
+    <td>Loop：水平左右点击滚动</td>
+  </tr>
+  <tr>
+    <th scope="row">autoPlay</th>
+    <td>true（默认）： or false</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">speed</th>
+    <td>动画速度时间，默认&quot;normal&quot;，可以使用毫秒或者JQ中的fast，slow，normal</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">timer</th>
+    <td>滚动间隔时间，默认&quot;1000，可以使用毫秒或者JQ中的fast，slow，normal</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">claNav</th>
+    <td>jslider_handler（默认）：触点对象数组父级</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">claCon</th>
+    <td>jslider_content（默认）：滚动对象或滚动对象父级</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <th scope="row">steps</th>
+    <td>1（默认）：滚动几个</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+  <br />
+  <hr />
+  <br />
+  <h3>滚动一：</h3>
+  <div id="temp1">
+    <div class="jslider_content_box">
+      <ul class="jslider_content">
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_1.jpg" width="549" /></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_2.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_3.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_4.jpg" width="549"></a></li>
+      </ul>
+    </div>
+    <ul class="jslider_handler">
+      <li class="on"><a href="http://www.cctvcj.com/" class="next"><img src="images/pic_1.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_2.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_3.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_4.jpg"></a></li>
+    </ul>
+  </div>
+<pre>
+$("#temp1").jSlider({
+    effect : "scrollY",
+    speed : "normal",
+    timer : 3000
+});
+</pre>
+<hr />
+  <h3>滚动二：</h3>
+  <div id="temp2">
+    <div class="jslider_content_box">
+      <ul class="jslider_content">
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_1.jpg" width="549" /></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_2.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_3.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_4.jpg" width="549"></a></li>
+      </ul>
+    </div>
+    <ul class="jslider_handler">
+      <li class="on"><a href="http://www.cctvcj.com/"><img src="images/pic_1.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_2.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_3.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_4.jpg"></a></li>
+    </ul>
+  </div>
+  <pre>
+$("#temp2").jSlider({
+    effect : "scrollX",
+    speed : "normal",
+    timer : 3000
+});
+</pre>
+<hr />
+  <h3>滚动三：</h3>
+  <div id="temp3">
+    <div class="jslider_content_box">
+      <ul class="jslider_content">
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_1.jpg" width="549" /></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_2.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_3.jpg" width="549"></a></li>
+        <li><a href="http://www.cctvcj.com/" target="_blank"><img height="289" src="images/pic_4.jpg" width="549"></a></li>
+      </ul>
+    </div>
+    <ul class="jslider_handler">
+      <li class="on"><a href="http://www.cctvcj.com/"><img src="images/pic_1.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_2.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_3.jpg"></a></li>
+      <li><a href="http://www.cctvcj.com/"><img src="images/pic_4.jpg"></a></li>
+    </ul>
+  </div>
+  <pre>
+$("#temp3").jSlider({
+	effect : "fade",
+    speed : "normal",
+    timer : 3000
+});
+</pre>
+<hr />
+  <h3>滚动四：</h3>
+  <div id="slide-box"> <b class=corner></b>
+    <div class="slide-content" id="temp4">
+      <div class="wrap">
+        <ul class="jslider_content">
+          <li><a href="http://www.cctvcj.com/" target="_blank"><IMG alt="懒人图库" src="images/pic_01.jpg" width="330" height="450" /></a></li>
+          <li><a href="http://www.cctvcj.com/" target="_blank"><IMG alt="懒人图库" src="images/pic_02.jpg" width="330" height="450" /></a></li>
+          <li><a href="http://www.cctvcj.com/" target="_blank"><IMG alt="懒人图库" src="images/pic_03.jpg" width="330" height="450" /></a></li>
+          <li><a href="http://www.cctvcj.com/" target="_blank"><IMG alt="懒人图库" src="images/pic_04.jpg" width="330" height="450" /></a></li>
+        </ul>
+      </div>
+      <div class="jslider_handler"> <a class="prev" href="#"> <b class=corner></b><span>&#8249;</span><B class=corner></B></a> <a class="next" href="#"> <b class=corner></b><span>&#8250;</span><B class=corner></B></a> </div>
+    </div>
+    <b class=corner></b> </div>
+  <pre>
+$("#temp4").jSlider({
+    effect : "scrollLoop",
+    autoPlay:false,
+    speed : "normal",
+    timer : 3000,
+    steps:2
+});
+</pre>
+<hr />
+  <h3>滚动五：</h3>
+  <div id="temp5">
+    <div class="jslider_content_box">
+      <ul class="jslider_content">
+        <li>这是公告标题的第一行</li>
+        <li>这是公告标题的第二行</li>
+        <li>这是公告标题的第三行</li>
+        <li>这是公告标题的第四行</li>
+        <li>这是公告标题的第五行</li>
+        <li>这是公告标题的第六行</li>
+        <li>这是公告标题的第七行</li>
+        <li>这是公告标题的第八行</li>
+        <li>这是公告标题的第9行</li>
+        <li>这是公告标题的第10行</li>
+        <li>这是公告标题的第11行</li>
+        <li>这是公告标题的第12行</li>
+      </ul>
+    </div>
+  </div>
+  <pre>
+$("#temp5").jSlider({
+    effect : "scrollTxt",
+    speed : "normal",
+    timer : 3000,
+    steps:1
+});
+</pre>
+<hr />
+  <h3>滚动六：</h3>
+  <div id="temp6">
+    <div class="jslider_content_box" >
+      <ul class="jslider_content">
+        <li> <a href="http://www.cctvcj.com/" target="_blank"><img height="144" alt="" title="" src="images/pic_001.jpg" width="710" /></a> </li>
+        <li> <a href="http://www.cctvcj.com/" target="_blank"><img height="144" alt="" title="" src="images/pic_002.jpg" width="710" /></a> </li>
+        <li> <a href="http://www.cctvcj.com/9" target="_blank"><img height="144" alt="" title="" src="images/pic_003.jpg" width="710" /></a> </li>
+      </ul>
+      <ul class="jslider_handler">
+        <li class="on">1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+  </div>
+  <pre>
+$("#temp6").jSlider({
+    effect : "scrollY",
+    speed : "normal",
+    timer : 3000
+});
+</pre>
+</div>
+</body>
+</html>
