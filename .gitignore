@@ -4,3 +4,6 @@
 *.svn*
 
 prepare.php
+
+cache/
+templates_c/
