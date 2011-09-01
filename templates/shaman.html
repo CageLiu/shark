@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../static/css/admin/pop.css">
+<link rel="stylesheet" type="text/css" href="../static/js/public/jplugins/ui/css/ui-lightness/jquery-ui-1.8.14.custom.css">
+<title>MagicBox -shaman modules page</title>
+<style type="text/css">
+h1{font-size:20px}
+textarea{display:block; font-size:12px; padding:2px; width:100%}
+table th{padding-left:5px;}
+td{padding:2px 5px; border:1px #CCC dotted}
+</style>
+</head>
+
+<body>
+<h1>Magic Box 弹出层使用</h1>
+<table>
+	<thead>
+    	<tr><th colspan="5">mb_pop方法 参数说明</th></tr>
+    </thead>
+	<tr>
+    	<td>属性名</td><td>属性说明</td><td>类型</td><td>是否必须</td><td>默认值</td>
+    </tr>
+    <tr>
+    	<td>title</td><td>弹出窗标题</td><td>string</td><td>否</td><td>untitled</td>
+    </tr>
+    <tr>
+    	<td>type</td><td>弹出类型</td><td>string</td><td>否</td><td>alert</td>
+    </tr>
+    <tr>
+    	<td>url</td><td>弹出窗加载的页面url</td><td>string</td><td>当类型为div或者iframe时为必须项</td><td>null</td>
+    </tr>
+    <tr>
+    	<td>data</td><td>弹出窗信息</td><td>string</td><td>否</td><td>no data</td>
+    </tr>
+    <tr>
+    	<td>width</td><td>弹出窗宽度</td><td>number</td><td>否</td><td>300</td>
+    </tr>
+    <tr>
+    	<td>height</td><td>弹出窗高度</td><td>number</td><td>否</td><td>150</td>
+    </tr>
+    <tr>
+    	<td>allowmax</td><td>是否允许最大化</td><td>boolean</td><td>否</td><td>false(不允许)</td>
+    </tr>
+    <tr>
+    	<td>button</td><td>按钮参数</td><td>object</td><td>否</td>
+        <td>
+        	disabled:是否不使用按钮，默认值为true(不使用)<br>
+            button:自定义按钮。方法本身提供了一种默认的按钮，如果需要自定义按钮可设置自定义按钮的html以及样式,按钮事件则在回调函数里面添加
+        </td>
+    </tr>
+    <tr>
+    	<td>callback</td><td>回调函数</td><td>function</td><td>否</td><td>无回调函数</td>
+    </tr>
+</table>
+<div style="padding:12px">
+	<span class="btn_bg"><input id="btn0" type="button" class="btn" value="一个最简单的弹出层"></span>
+    <textarea style="height:20px">
+mb_pop({data:"最简单的弹出层"});
+	</textarea>
+</div>
+<div style="padding:12px">
+	<span class="btn_bg"><input id="btn1" type="button" class="btn" value="div打开"></span>
+    <textarea style="height:200px">
+mb_pop({
+    title:"DIV形式打开页面",
+    url:"test.html",
+    allowmax:true,
+    type:"div",
+    height:500,
+    width:900,
+    button:{
+        disabled:false
+    }
+},function(){
+    pop_ok.click(function(){alert("确定")})
+});
+	</textarea>
+</div>
+<div style="padding:12px">
+    <span class="btn_bg"><input id="btn2" type="button" class="btn" value="iframe打开"></span>
+    <textarea style="height:120px">
+mb_pop({
+    title:"IFRAME形式打页面",
+    url:"http://www.baidu.com",
+    type:"iframe",
+    height:400,
+    width:750
+})
+    </textarea>
+</div>
+<div style="padding:12px">
+    <span class="btn_bg"><input id="btn3" type="button" class="btn" value="对话框"></span>
+    <textarea style="height:130px">
+var html=$("#html").html();
+mb_pop({
+    data:html,
+    height:400,
+    width:500
+    },function(){
+        alert("我是回调函数")
+})
+    </textarea>
+</div>
+<div style="padding:12px">
+    <span class="btn_bg"><input id="btn4" type="button" class="btn" value="按钮自定义"></span>
+    <textarea  style="height:170px">
+mb_pop({
+    data:"<p>啊啊啊，按钮自定义</p>",
+    height:120,
+    width:300,
+    allowmax:true,
+    button:{
+        custom:'<input id="mybtn" type="button" value="我是定义的按钮">'
+    }},function(){
+    $("#mybtn",window.parent.document).click(function(){alert("自定义按钮点击事件")})
+})
+    </textarea>
+</div>
+<div id="html" style="display:none">
+	<br><br>
+	<p class="input_list"><label for="userName">用户名：</label><input type="text" id="userName" class="ipt">
+    	<span class="ipt_tips">请以汉字或英文字母开头！</span></p>
+    <p class="input_list"><label>性别：</label><input type="radio" id="male" name="sex" checked="checked"><label for="male">男</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="female" name="sex"><label for="female">女</label></p>
+    <p class="input_list"><input type="checkbox" checked="checked"><label>记住登录状态</label></p>
+    <p class="input_list input_file"><label for="upLoad">上传文件：</label><input type="file" class="upLoad" id="upLoad">
+					<input type="text" class="up_txt"><input type="button" value="上传" class="up_btn"> 
+					</p>
+    <p class="input_list"><textarea class="textarea"></textarea></p>
+</div>
+<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/public/jplugins/ui/js/jquery-ui.js"></script>
+<script type="text/javascript" src="../static/js/admin/mb_pop.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn0").click(function(){
+		mb_pop({data:"最简单的弹出层"});
+	})
+	
+	$("#btn1").click(function(){
+		mb_pop({
+			title:"DIV形式打开页面",
+			url:"test.html",
+			allowmax:true,
+			type:"div",
+			height:500,
+			width:900,
+			button:{
+				disabled:false
+			}
+		},function(){
+			pop_ok.click(function(){alert("确定")})
+		});
+	})
+	
+	$("#btn2").click(function(){
+		mb_pop({
+			title:"IFRAME形式打页面",
+			url:"http://www.baidu.com",
+			type:"iframe",
+			height:400,
+			width:750
+		});
+	})
+	
+	$("#btn3").click(function(){
+		var html=$("#html").html();
+		mb_pop({
+			data:html,
+			height:400,
+			width:500
+			},function(){
+				alert("我是回调函数")
+		});	
+	})
+	
+	$("#btn4").click(function(){
+		mb_pop({
+			data:"<p>啊啊啊，按钮自定义</p>",
+			height:120,
+			width:300,
+			allowmax:true,
+			button:{
+				custom:'<input id="mybtn" type="button" value="我是定义的按钮">'
+			}
+		},function(){
+			$("#mybtn",window.parent.document).click(function(){alert("自定义按钮点击事件")})
+		});	
+	})
+})
+</script>
+</body>
+</html>
