@@ -143,7 +143,14 @@ $(document).ready(
 	}
 );
 
+if(!dialog)var dialog;
+if(!dialog_ok)var dialog_ok;
+if(!dialog_cannel)var dialog_cannel;
+
 function drag_pop(){
+	dialog=$(".pop");
+	dialog_ok=$("#pop_btn_ok");
+	dialog_cannel=$("#pop_btn_cannel");
 	$(".pop").draggable({
 		disabled:false,
 		handle:".pop_title",

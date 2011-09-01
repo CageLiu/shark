@@ -18,8 +18,9 @@
  * @param callback 回调函数
  * author:shaman
  */
-if(!pop_ok)var pop_ok;
-if(!pop_cannel)var pop_cannel;
+if(!dialog)var dialog;
+if(!dialog_ok)var dialog_ok;
+if(!dialog_cannel)var dialog_cannel;
 function mb_pop(options,callback){
 	if(typeof(options)!="object")return;
 	var default_setting={  //默认设置
@@ -50,14 +51,14 @@ function mb_pop(options,callback){
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
 	 	mask='<div class="mask_layer" style="position:fixed"></div>',//遮罩层
-		resize_btn=allowmax?'<a class="fullscreen" href="#"></a>':'', //最大化窗口
+		resize_btn=allowmax?'<a class="fullscreen" href="javascript:"></a>':'', //最大化窗口
 		bottom_btn=opt.button.disabled?'':opt.button.custom!=null?
 			'<div class="pop_bottom">'+opt.button.custom+'</div>':  //自定义按钮
 			'<div class="pop_bottom"><a id="pop_btn_ok" class="pop_btn" href="javascript:"><span>确定</span></a>'+'<a id="pop_btn_cannel" class="pop_btn" href="javascript:"><span>取消</span></a></div>', //默认的连个按钮
 		mb_pop_window='<div class="pop" style="position:fixed;width:'+width+'px;height:'+height+'px;top:'+(h-height)/2+'px;left:'+(w-width)/2+'px">'+
 							'<div class="pop_title">'+
 								'<h2 class="pop_hd">'+title+'</h2>'+
-								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="#"></a></span>'+
+								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="javascript:"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
 								'<div class="pop_cont_c" style="height:'+(height-pop_bh)+'px;padding:0">'+
@@ -170,12 +171,14 @@ function mb_pop(options,callback){
 function init(){
 	//window.parent.length>0?window.parent.drag_pop():drag_pop();
 	if(window.parent.length>0){
-		pop_ok=$("#pop_btn_ok",window.parent.document);
-		pop_cannel=$("#pop_btn_cannel",window.parent.document);
+		dialog=$(".pop",window.parent.document);
+		dialog_ok=$("#pop_btn_ok",window.parent.document);
+		dialog_cannel=$("#pop_btn_cannel",window.parent.document);
 		window.parent.drag_pop();
 	}else{
-		pop_ok=$("#pop_btn_ok");
-		pop_cannel=$("#pop_btn_cannel");
+		dialog=$(".pop");
+		dialog_ok=$("#pop_btn_ok");
+		dialog_cannel=$("#pop_btn_cannel");
 		drag_pop();
 	}
 }

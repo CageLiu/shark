@@ -83,7 +83,7 @@ mb_pop({
     <textarea style="height:120px">
 mb_pop({
     title:"IFRAME形式打页面",
-    url:"http://www.baidu.com",
+    url:"test.html",
     type:"iframe",
     height:400,
     width:750
@@ -150,17 +150,22 @@ $(function(){
 				disabled:false
 			}
 		},function(){
-			pop_ok.click(function(){alert("确定")})
+			dialog_ok.click(function(){
+				alert("我是回调函数点击的确定事件")
+			})
 		});
 	})
 	
 	$("#btn2").click(function(){
 		mb_pop({
 			title:"IFRAME形式打页面",
-			url:"http://www.baidu.com",
+			url:"test.html",
 			type:"iframe",
 			height:400,
-			width:750
+			width:750,
+			button:{
+				disabled:false
+			}
 		});
 	})
 	

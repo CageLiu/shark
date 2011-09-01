@@ -14,8 +14,14 @@
     	<input id="test_send" type="button" value="传值">
     </div>
 </div>
+<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
 <script type="text/javascript">
-
+$(function(){
+	parent.dialog_ok.click(function(){
+		alert("Do something!  我是iframe页面中绑定的确定按钮点击事件");
+		parent.dialog.remove();
+	})
+})
 </script>
 </body>
 </html>
