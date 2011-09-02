@@ -143,6 +143,7 @@ function mb_pop(options,callback){
 
 	function mb_pop_div(){  //弹出类型 div
 		if(url==null)return;
+		$(mask).appendTo(parent_doc);
 		$(mb_pop_window).appendTo(parent_doc);
 		init();
 		$(".pop_cont_c",parent_doc).load(url,function(){
@@ -153,6 +154,7 @@ function mb_pop(options,callback){
 	
 	function mb_pop_iframe(){  //弹出类型 iframe
 		if(url==null)return;
+		$(mask).appendTo(parent_doc);
 		$(mb_pop_window).appendTo(parent_doc);
 		init();
 		var pop_cont_c=$(".pop_cont_c",parent_doc);
