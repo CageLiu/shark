@@ -21,6 +21,7 @@
 if(!dialog)var dialog;
 if(!dialog_ok)var dialog_ok;
 if(!dialog_cannel)var dialog_cannel;
+if(!dialog_mask)var dialog_mask;
 function mb_pop(options,callback){
 	if(typeof(options)!="object")return;
 	var default_setting={  //默认设置
@@ -176,11 +177,13 @@ function init(){
 		dialog=$(".pop",window.parent.document);
 		dialog_ok=$("#pop_btn_ok",window.parent.document);
 		dialog_cannel=$("#pop_btn_cannel",window.parent.document);
+		dialog_mask=$(".mask_layer",window.parent.document);
 		window.parent.drag_pop();
 	}else{
 		dialog=$(".pop");
 		dialog_ok=$("#pop_btn_ok");
 		dialog_cannel=$("#pop_btn_cannel");
+		dialog_mask=$(".mask_layer");
 		drag_pop();
 	}
 }
@@ -194,4 +197,8 @@ function drag_pop(){
 }
 function drop_pop(){
 	$(".pop").draggable({disabled:true})
+}
+function close_dialog(){
+	dialog.remove();
+	dialog_mask.remove();
 }
