@@ -220,3 +220,15 @@ background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 	background:-webkit-gradient(linear,0 0,0 100%,from(rgba(64,163,234,1)),to(rgba(64,163,234,0.5)));
 	color:#FFF;
 }
+
+
+/*edit_pieces.html 编辑碎片样式1*/
+.pieces_wrap{width:100%; min-height:410px;}
+.pieces_left,.pieces_right{/*border:1px solid #CCC; */padding:8px 0; margin:8px 1%}
+.pieces_left{width:32%; float:left}
+.pieces_right{width:63%; float:right}
+
+.pieces_search td{padding:6px; border-bottom:1px #CCC solid}
+.search_result{border:1px #CCC solid; border-bottom:none; margin-top:10px}
+.search_result ol{list-style:inside decimal}
+.search_result li{padding:4px; line-height:16px; border-bottom:1px #CCC solid}
