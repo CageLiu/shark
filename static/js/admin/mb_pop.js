@@ -18,7 +18,7 @@
  * @param callback 回调函数
  * author:shaman
  */
-if(!dialog)var dialog;
+if(!dialog)var dialog=new Object();
 if(!dialog_ok)var dialog_ok;
 if(!dialog_cannel)var dialog_cannel;
 if(!dialog_mask)var dialog_mask;

@@ -3,6 +3,128 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="../static/css/admin/pop.css"/>
+<script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var	_results=$(".search_result li"),    //搜索结果
+		_record_table=$(".pieces_records table"), //记录表格
+		_btn_up=_record_table.find(".btn_up"), //上移按钮
+		_btn_down=_record_table.find(".btn_down"), //下移按钮
+		_btn_delete=_record_table.find(".btn_delete"),
+		_btn_add=$(".pieces_records .btn_add"); //删除按钮
+	refrash_table();
+	_record_table.find("tr").live("click",function(){
+		$(this).addClass("trfocus").siblings().removeClass("trfocus");
+	})
+	
+	//添加操作 双击单条搜索结果
+	_results.live("dblclick",function(){
+		var id=parseInt($(this).find("span").text()),
+			_select=select_option();
+		if(_select.isselect){
+			alert("插入记录ID:"+id+",插入位置："+_select.index);
+			//插入操作
+			
+		}else{
+			alert("请先在右边选取要插入的位置!");
+			return;
+		}
+	})
+	
+	//上移
+	_btn_up.live("click",function(e){
+		if(e && e.stopPropagation){
+			e.stopPropagation();
+		}
+		var _this=$(this),
+			_cur_index=_this.parents("tr").index(),
+			_html=get_html(_this);
+		if(_cur_index!=0){
+			_this.parents("tr").remove();
+			$(_html).insertBefore(_record_table.find("tr").eq(_cur_index-1));
+			refrash_table();
+		}else{
+			alert("已经是第一条！");
+		}
+	})
+	
+	//下移
+	_btn_down.live("click",function(e){
+		if(e && e.stopPropagation){
+			e.stopPropagation();
+		}
+		var _this=$(this),
+			_cur_index=_this.parents("tr").index(),
+			_html=get_html(_this);
+		if(_cur_index!=_record_table.find("tr").length-1){
+			_this.parents("tr").remove();
+			$(_html).insertAfter(_record_table.find("tr").eq(_cur_index));
+			refrash_table();
+		}else{
+			alert("已经是最后一条！");
+		}
+	})
+	
+	//删除
+	_btn_delete.live("click",function(){
+		$(this).parents("tr").remove();
+		refrash_table();
+	})
+	
+	//增加
+	_btn_add.click(function(){
+		var _html='<tr>'+
+                	'<td width="30" align="center" valign="top">'+
+                    	'<a class="btn_up" href="javascript:" title="上移">上移</a>'+
+                        '<a class="btn_down" href="javascript:" title="下移">下移</a>'+
+                        '<a class="btn_delete" href="javascript:" title="清除">清除</a>'+
+                    '</td>'+
+                    '<td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>'+
+                    '<td valign="top" valign="top">'+
+                    	'<div class="record_title">'+
+                        	'<input type="text" id="" class="ipt" value="添加标题"><span class="tips">0/12</span>'+
+                        '</div>'+
+                        '<div class="record_content">'+
+                        	'<textarea class="textarea"></textarea><span class="tips">0/300</span>'+
+                        '</div>'+
+                    '</td>'+
+                '</tr>';
+		$(_html).appendTo(_record_table);
+		refrash_table();
+	})
+	
+	//确定
+	parent.dialog_ok.click(function(){
+		alert("确定");
+	})
+	
+	function select_option(){
+		var a={
+			isselect:false,
+			index:null
+		};
+		_record_table.find("tr").each(function(){
+			if($(this).hasClass("trfocus")){
+				a.isselect=true;
+				a.index=$(this).index();
+			}
+		})
+		return a;
+	}
+	
+	function get_html(obj){
+		var _ptr=obj.parents("tr"),
+			cn="";
+		if(_ptr.hasClass("trfocus"))cn="trfocus";
+		return "<tr class='"+cn+"'>"+_record_table.find("tr").eq(_ptr.index()).html()+"</tr>";
+	}
+	
+	function refrash_table(){ //刷新表格序列和背景
+		_record_table.find("tr").removeClass("trodd");
+		_record_table.find("tr:odd").addClass("trodd");
+	}
+})
+</script>
 <title>编辑碎片</title>
 </head>
 
@@ -13,10 +135,10 @@
             <form>
                 <table width="100%">
                     <tr>
-                        <td align="right" width="24%">栏目：</td>
-                        <td>
+                        <td align="right" width="20%">栏目：</td>
+                        <td colspan="3">
                             <select>
-                                <option>财经要闻</option>
+                                <option selected>财经要闻</option>
                                 <option>研究报告</option>
                                 <option>交易提示</option>
                             </select>
@@ -30,13 +152,27 @@
                     </tr>
                     <tr>
                         <td align="right">推荐：</td>
-                        <td>
-                            <input type="radio" name="tj" value="" checked><label>全部</label>&nbsp;&nbsp;
+                        <td width="75">
+                            <!--<input type="radio" name="tj" value="" checked><label>全部</label>&nbsp;&nbsp;
                             <input type="radio" name="tj" value=""><label>推荐</label>&nbsp;&nbsp;
-                            <input type="radio" name="tj" value=""><label>不推荐</label>
+                            <input type="radio" name="tj" value=""><label>不推荐</label>-->
+                            <select>
+                                <option selected>全部</option>
+                                <option>推荐</option>
+                                <option>不推荐</option>
+                            </select>
+                        </td>
+                        <td width="60" align="right">搜索方式：</td>
+                        <td>
+                        	<select>
+                                <option selected>标题</option>
+                                <option>简介</option>
+                                <option>用户名</option>
+                                <option>ID</option>
+                            </select>
                         </td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td align="right">搜索方式：</td>
                         <td>
                             <input type="radio" name="ssfs" value="" checked><label>标题</label>&nbsp;&nbsp;
@@ -44,23 +180,22 @@
                             <input type="radio" name="ssfs" value=""><label>用户名</label>&nbsp;&nbsp;
                             <input type="radio" name="ssfs" value=""><label>ID</label>
                         </td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td align="right">缩略图：</td>
-                        <td>
-                            <input type="radio" name="slt" value="" checked><label>全部</label>&nbsp;&nbsp;
-                            <input type="radio" name="slt" value=""><label>有图</label>&nbsp;&nbsp;
+                        <td colspan="3">
+                            <input type="radio" name="slt" value="" checked><label>有图</label>&nbsp;&nbsp;
                             <input type="radio" name="slt" value=""><label>无图</label>
                         </td>
                     </tr>
                     <tr>
                         <td align="right">关键词：</td>
-                        <td>
+                        <td colspan="3">
                             <input type="text" id="" class="ipt">
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="right"><span class="btn_bg"><input type="submit" class="btn" value="搜 索"></span></td>
+                        <td colspan="4" align="right"><span class="btn_bg"><input type="submit" class="btn" value="搜 索"></span></td>
                     </tr>
                 </table>
             </form>
@@ -68,17 +203,102 @@
         
         <div class="search_result">
         	<ol>
-            	<li>搜索结果1111</li>
-                <li>搜索结果2222fdsfsf21 21313213</li>
-                <li>搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333</li>
-                <li>搜索结果444444444</li>
-                <li>搜索结果5555555</li>
-                <li>搜索结果66666saf afa a 6666</li>
+            	<li title="点击插入本条记录"><span>5:</span>搜索结果1111</li>
+                <li title="点击插入本条记录"><span>15:</span>搜索结果2222fdsfsf21 21313213</li>
+                <li title="点击插入本条记录"><span>115:</span>搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333</li>
+                <li title="点击插入本条记录"><span>52:</span>搜索结果444444444</li>
+                <li title="点击插入本条记录"><span>5244:</span>搜索结果5555555</li>
+                <li title="点击插入本条记录"><span>103:</span>搜索结果66666saf afa a 6666</li>
+                <li title="点击插入本条记录"><span>5:</span>搜索结果1111</li>
+                <li title="点击插入本条记录"><span>15:</span>搜索结果2222fdsfsf21 21313213</li>
+                <li title="点击插入本条记录"><span>115:</span>搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333搜索结果3333</li>
+                <li title="点击插入本条记录"><span>52:</span>搜索结果444444444</li>
+                <li title="点击插入本条记录"><span>5244:</span>搜索结果5555555</li>
+                <li title="点击插入本条记录"><span>103:</span>搜索结果66666saf afa a 6666</li>
             </ol>
+            <div class="page clearfix">
+                <ul class="clearfix">
+                    <li><a href="#">上一页</a></li>
+                    <li><a class="current" href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li>...</li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">下一页</a></li>
+                    <li><input type="text" class="int"><input type="submit" value="GO" class="go"></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="pieces_right">
         <div class="pieces_records">
+        	<table width="100%">
+            	<tr>
+                	<td width="30" align="center" valign="top">
+                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
+                        <a class="btn_down" href="javascript:" title="下移">下移</a>
+                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                    </td>
+                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
+                    <td valign="top" valign="top">
+                    	<div class="record_title">
+                        	<input type="text" id="" class="ipt" value="111"><span class="tips">0/12</span>
+                        </div>
+                        <div class="record_content">
+                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<td width="30" align="center" valign="top">
+                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
+                        <a class="btn_down" href="javascript:" title="下移">下移</a>
+                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                    </td>
+                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
+                    <td valign="top" valign="top">
+                    	<div class="record_title">
+                        	<input type="text" id="" class="ipt" value="222"><span class="tips">0/12</span>
+                        </div>
+                        <div class="record_content">
+                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<td width="30" align="center" valign="top">
+                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
+                        <a class="btn_down" href="javascript:" title="下移">下移</a>
+                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                    </td>
+                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
+                    <td valign="top" valign="top">
+                    	<div class="record_title">
+                        	<input type="text" id="" class="ipt" value="333"><span class="tips">0/12</span>
+                        </div>
+                        <div class="record_content">
+                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<td width="30" align="center" valign="top">
+                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
+                        <a class="btn_down" href="javascript:" title="下移">下移</a>
+                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                    </td>
+                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
+                    <td valign="top" valign="top">
+                    	<div class="record_title">
+                        	<input type="text" id="" class="ipt" value="444"><span class="tips">0/12</span>
+                        </div>
+                        <div class="record_content">
+                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <a class="btn_add" href="javascript:" title="添加记录">添加记录</a>
         </div>
     </div>
 </div>
