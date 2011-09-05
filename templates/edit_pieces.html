@@ -16,6 +16,14 @@ $(function(){
 	_record_table.find("tr").live("click",function(){
 		$(this).addClass("trfocus").siblings().removeClass("trfocus");
 	})
+	_record_table.find("img").live("click",function(){
+		$(".pieces_search,.search_result").hide();
+		$(".img_upload").show();
+	})
+	_record_table.find(".ipt,.textarea").live("focus",function(){
+		$(".pieces_search,.search_result").show();
+		$(".img_upload").hide();
+	})
 	
 	//添加操作 双击单条搜索结果
 	_results.live("dblclick",function(){
@@ -195,7 +203,7 @@ $(function(){
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4" align="right"><span class="btn_bg"><input type="submit" class="btn" value="搜 索"></span></td>
+                        <td colspan="4" align="right"><span class="btn_bg"><input type="button" class="btn" value="搜 索"></span></td>
                     </tr>
                 </table>
             </form>
@@ -225,9 +233,18 @@ $(function(){
                     <li>...</li>
                     <li><a href="#">10</a></li>
                     <li><a href="#">下一页</a></li>
-                    <li><input type="text" class="int"><input type="submit" value="GO" class="go"></li>
+                    <li><input type="text" class="int"><input type="button" value="GO" class="go"></li>
                 </ul>
             </div>
+        </div>
+        
+        <div class="img_upload">
+        	<div class="input_file">
+            	<label for="upLoad">上传文件：</label>
+                <input type="file" class="upLoad" id="upLoad" size="23">
+            	<input type="text" class="up_txt"><input type="button" value="上传图片" class="up_btn"> 
+            </div>
+            <p><span class="btn_bg"><input type="button" class="btn" value="确 定"></span></p>
         </div>
     </div>
     <div class="pieces_right">
@@ -259,38 +276,6 @@ $(function(){
                     <td valign="top" valign="top">
                     	<div class="record_title">
                         	<input type="text" id="" class="ipt" value="222"><span class="tips">0/12</span>
-                        </div>
-                        <div class="record_content">
-                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                	<td width="30" align="center" valign="top">
-                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
-                        <a class="btn_down" href="javascript:" title="下移">下移</a>
-                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
-                    </td>
-                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
-                    <td valign="top" valign="top">
-                    	<div class="record_title">
-                        	<input type="text" id="" class="ipt" value="333"><span class="tips">0/12</span>
-                        </div>
-                        <div class="record_content">
-                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                	<td width="30" align="center" valign="top">
-                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
-                        <a class="btn_down" href="javascript:" title="下移">下移</a>
-                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
-                    </td>
-                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
-                    <td valign="top" valign="top">
-                    	<div class="record_title">
-                        	<input type="text" id="" class="ipt" value="444"><span class="tips">0/12</span>
                         </div>
                         <div class="record_content">
                         	<textarea class="textarea"></textarea><span class="tips">0/300</span>
