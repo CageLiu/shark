@@ -279,8 +279,7 @@ background:-webkit-linear-gradient(bottom,#eaeaea,#f8f8f8);
 .record_title .ipt{width:180px}
 .record_content .tips{vertical-align:bottom}
 
-
-
-
-
-
+.template_pieces{padding:10px}
+.template_pieces .tabcont{padding:10px 0; display:none}
+.btn_bar{padding:10px 0}
+.template_edit .textarea{width:692px; height:400px}
