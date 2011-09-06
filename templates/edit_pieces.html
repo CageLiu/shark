@@ -12,6 +12,9 @@ $(function(){
 		_btn_down=_record_table.find(".btn_down"), //下移按钮
 		_btn_delete=_record_table.find(".btn_delete"),
 		_btn_add=$(".pieces_records .btn_add"); //删除按钮
+	var title_len=12,
+		cont_len=300;
+	
 	refrash_table();
 	_record_table.find("tr").live("click",function(){
 		$(this).addClass("trfocus").siblings().removeClass("trfocus");
@@ -24,6 +27,29 @@ $(function(){
 		$(".pieces_search,.search_result").show();
 		$(".img_upload").hide();
 	})
+	_record_table.find(".ipt").each(function(){
+			keyup_check($(this),title_len);
+		})
+		.live({
+			"keyup":function(){
+				keyup_check($(this),title_len);
+			},
+			"blur":function(){
+				blur_check($(this),title_len,"字数过多,请调整字数！");
+			}
+		})
+	_record_table.find(".textarea").each(function(){
+			keyup_check($(this),cont_len);
+		})
+		.live({
+			"keyup":function(){
+				keyup_check($(this),cont_len);
+			},
+			"blur":function(){
+				blur_check($(this),cont_len,"字数过多！");
+			}
+		})
+	
 	$(".img_upload .tab span").click(function(){
 		var _index=$(this).index();
 		$(this).addClass("current").siblings().removeClass("current");
@@ -91,28 +117,6 @@ $(function(){
 		_parent.find(".textarea").val("");
 	})
 	
-	//增加
-	/*_btn_add.click(function(){
-		var _html='<tr>'+
-                	'<td width="30" align="center" valign="top">'+
-                    	'<a class="btn_up" href="javascript:" title="上移">上移</a>'+
-                        '<a class="btn_down" href="javascript:" title="下移">下移</a>'+
-                        '<a class="btn_delete" href="javascript:" title="清除">清除</a>'+
-                    '</td>'+
-                    '<td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>'+
-                    '<td valign="top" valign="top">'+
-                    	'<div class="record_title">'+
-                        	'<input type="text" id="" class="ipt" value="添加标题"><span class="tips">0/12</span>'+
-                        '</div>'+
-                        '<div class="record_content">'+
-                        	'<textarea class="textarea"></textarea><span class="tips">0/300</span>'+
-                        '</div>'+
-                    '</td>'+
-                '</tr>';
-		$(_html).appendTo(_record_table);
-		refrash_table();
-	})*/
-	
 	//确定
 	/*parent.dialog_ok.click(function(){
 		alert("确定");
@@ -155,7 +159,28 @@ $(function(){
 		_record_table.find("tr").removeClass("trodd");
 		_record_table.find("tr:odd").addClass("trodd");
 	}
-})
+});
+
+function keyup_check(obj,maxlen){
+	var _tips=obj.siblings(".tips");
+		if(str_len(obj.val())>maxlen){
+			_tips.addClass("tips_error")
+		}else{
+			_tips.removeClass("tips_error")
+		}
+		_tips.text( str_len(obj.val())+"/"+maxlen )
+}
+
+function blur_check(obj,maxlen,error_str){
+	if(str_len(obj.val())>maxlen){
+		obj.siblings(".tips").text(error_str);
+	}
+}
+
+function str_len(str){
+	var len=str.replace(/[^\x00-\xff]/g,"**").length;
+	return Math.ceil(len/2);
+}
 </script>
 <title>编辑碎片</title>
 </head>
@@ -328,10 +353,10 @@ $(function(){
                     <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
                     <td valign="top" valign="top">
                     	<div class="record_title">
-                        	<input type="text" id="" class="ipt" value="222222222"><span class="tips">0/12</span>
+                        	<input type="text" class="ipt" value="222222222"><span class="tips">0/12</span>
                         </div>
                         <div class="record_content">
-                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        	<textarea class="textarea">测试一下abc</textarea><span class="tips">0/300</span>
                         </div>
                     </td>
                 </tr>
@@ -344,10 +369,10 @@ $(function(){
                     <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
                     <td valign="top" valign="top">
                     	<div class="record_title">
-                        	<input type="text" id="" class="ipt" value="3333333"><span class="tips">0/12</span>
+                        	<input type="text" class="ipt" value="3333333"><span class="tips">0/12</span>
                         </div>
                         <div class="record_content">
-                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        	<textarea class="textarea">测试111abc</textarea><span class="tips">0/300</span>
                         </div>
                     </td>
                 </tr>
