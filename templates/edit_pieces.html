@@ -24,6 +24,11 @@ $(function(){
 		$(".pieces_search,.search_result").show();
 		$(".img_upload").hide();
 	})
+	$(".img_upload .tab span").click(function(){
+		var _index=$(this).index();
+		$(this).addClass("current").siblings().removeClass("current");
+		$(".img_upload .tabcont").hide().eq(_index).show();
+	})
 	
 	//添加操作 双击单条搜索结果
 	_results.live("dblclick",function(){
@@ -76,14 +81,18 @@ $(function(){
 		}
 	})
 	
-	//删除
-	_btn_delete.live("click",function(){
-		$(this).parents("tr").remove();
-		refrash_table();
+	//清除
+	_btn_delete.live("click",function(e){
+		if(e && e.stopPropagation){
+			e.stopPropagation();
+		}
+		var _parent=$(this).parents("tr");
+		_parent.find(".ipt").val("");
+		_parent.find(".textarea").val("");
 	})
 	
 	//增加
-	_btn_add.click(function(){
+	/*_btn_add.click(function(){
 		var _html='<tr>'+
                 	'<td width="30" align="center" valign="top">'+
                     	'<a class="btn_up" href="javascript:" title="上移">上移</a>'+
@@ -102,7 +111,7 @@ $(function(){
                 '</tr>';
 		$(_html).appendTo(_record_table);
 		refrash_table();
-	})
+	})*/
 	
 	//确定
 	/*parent.dialog_ok.click(function(){
@@ -154,7 +163,7 @@ $(function(){
 <body>
 <div class="pieces_wrap">
 	<div class="pieces_left">
-        <div class="pieces_search">
+        <div class="pieces_search" style="display:none">
             <form>
                 <table width="100%">
                     <tr>
@@ -176,9 +185,6 @@ $(function(){
                     <tr>
                         <td align="right">推荐：</td>
                         <td width="75">
-                            <!--<input type="radio" name="tj" value="" checked><label>全部</label>&nbsp;&nbsp;
-                            <input type="radio" name="tj" value=""><label>推荐</label>&nbsp;&nbsp;
-                            <input type="radio" name="tj" value=""><label>不推荐</label>-->
                             <select>
                                 <option selected>全部</option>
                                 <option>推荐</option>
@@ -195,15 +201,6 @@ $(function(){
                             </select>
                         </td>
                     </tr>
-                    <!--<tr>
-                        <td align="right">搜索方式：</td>
-                        <td>
-                            <input type="radio" name="ssfs" value="" checked><label>标题</label>&nbsp;&nbsp;
-                            <input type="radio" name="ssfs" value=""><label>简介</label>&nbsp;&nbsp;
-                            <input type="radio" name="ssfs" value=""><label>用户名</label>&nbsp;&nbsp;
-                            <input type="radio" name="ssfs" value=""><label>ID</label>
-                        </td>
-                    </tr>-->
                     <tr>
                         <td align="right">缩略图：</td>
                         <td colspan="3">
@@ -224,7 +221,7 @@ $(function(){
             </form>
         </div>
         
-        <div class="search_result">
+        <div class="search_result" style="display:none">
         	<ol>
             	<li title="点击插入本条记录"><span>5:</span>搜索结果1111</li>
                 <li title="点击插入本条记录"><span>15:</span>搜索结果2222fdsfsf21 21313213</li>
@@ -253,13 +250,54 @@ $(function(){
             </div>
         </div>
         
-        <div class="img_upload">
-        	<div class="input_file">
-            	<label for="upLoad">上传文件：</label>
-                <input type="file" class="upLoad" id="upLoad" size="23">
-            	<input type="text" class="up_txt"><input type="button" value="上传图片" class="up_btn"> 
+        <div class="img_upload" style="display:block">
+        	<div class="tab">
+            	<span class="current">图库</span>
+                <span>上传图片</span>
+                <span>网络文件</span>
             </div>
-            <p><span class="btn_bg"><input type="button" class="btn" value="确 定"></span></p>
+            
+            <div class="tabcont img_search" style="display:block">
+            	<p><label>搜索关键字：</label><input id="keyword" type="text" class="ipt"></p>
+                <p class="img_size"><label>图片尺寸：</label><input id="img_width" type="text" class="ipt">*<input id="img_height" type="text" class="ipt">(宽*高)</p>
+                <p><span class="btn_bg"><input id="img_search_ok" type="button" class="btn" value="确 定"></span></p>
+                <div class="img_search_results">
+                	<ul class="imglist clearfix">
+                    	<li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                        <li><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></li>
+                    </ul>
+                	<div class="page clearfix">
+                        <ul class="clearfix">
+                            <li><a href="#">上一页</a></li>
+                            <li><a class="current" href="#">1</a></li>
+                            <li><a href="#">2000</a></li>
+                            <li><a href="#">3000</a></li>
+                            <li>...</li>
+                            <li><a href="#">1000</a></li>
+                            <li><a href="#">下一页</a></li>
+                            <li><input type="text" class="int"><input type="button" value="GO" class="go"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        	<div class="tabcont">
+                <div class="input_file">
+                    <label for="upLoad">上传文件：</label>
+                    <input type="file" class="upLoad" id="upLoad" size="23">
+                    <input type="text" class="up_txt"><input type="button" value="上传图片" class="up_btn"> 
+                </div>
+                <p><span class="btn_bg"><input id="img_upload_ok" type="button" class="btn" value="确 定"></span></p>
+            </div>
+            <div class="tabcont img_url">
+            	<p>请输入网络图片地址：</p>
+                <p><input id="img_url" type="text" class="ipt"></p>
+                <p><span class="btn_bg"><input id="img_url_ok" type="button" class="btn" value="确 定"></span></p>
+            </div>
         </div>
     </div>
     <div class="pieces_right">
@@ -269,7 +307,7 @@ $(function(){
                 	<td width="30" align="center" valign="top">
                     	<a class="btn_up" href="javascript:" title="上移">上移</a>
                         <a class="btn_down" href="javascript:" title="下移">下移</a>
-                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                        <a class="btn_delete" href="javascript:" title="清空">清空</a>
                     </td>
                     <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
                     <td valign="top" valign="top">
@@ -285,12 +323,28 @@ $(function(){
                 	<td width="30" align="center" valign="top">
                     	<a class="btn_up" href="javascript:" title="上移">上移</a>
                         <a class="btn_down" href="javascript:" title="下移">下移</a>
-                        <a class="btn_delete" href="javascript:" title="清除">清除</a>
+                        <a class="btn_delete" href="javascript:" title="清空">清空</a>
                     </td>
                     <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
                     <td valign="top" valign="top">
                     	<div class="record_title">
-                        	<input type="text" id="" class="ipt" value="222"><span class="tips">0/12</span>
+                        	<input type="text" id="" class="ipt" value="222222222"><span class="tips">0/12</span>
+                        </div>
+                        <div class="record_content">
+                        	<textarea class="textarea"></textarea><span class="tips">0/300</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                	<td width="30" align="center" valign="top">
+                    	<a class="btn_up" href="javascript:" title="上移">上移</a>
+                        <a class="btn_down" href="javascript:" title="下移">下移</a>
+                        <a class="btn_delete" href="javascript:" title="清空">清空</a>
+                    </td>
+                    <td width="100" align="center" valign="top"><img src="../static/img/admin/hq.png" height="80" width="80" alt="暂无图片"></td>
+                    <td valign="top" valign="top">
+                    	<div class="record_title">
+                        	<input type="text" id="" class="ipt" value="3333333"><span class="tips">0/12</span>
                         </div>
                         <div class="record_content">
                         	<textarea class="textarea"></textarea><span class="tips">0/300</span>
@@ -298,7 +352,6 @@ $(function(){
                     </td>
                 </tr>
             </table>
-            <a class="btn_add" href="javascript:" title="添加记录">添加记录</a>
         </div>
     </div>
 </div>
