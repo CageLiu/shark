@@ -46,10 +46,11 @@ $(function(){
 		}
 		var _this=$(this),
 			_cur_index=_this.parents("tr").index(),
-			_html=get_html(_this);
+			_html=get_html(_this),
+			_val=get_val(_this);
 		if(_cur_index!=0){
 			_this.parents("tr").remove();
-			$(_html).insertBefore(_record_table.find("tr").eq(_cur_index-1));
+			$(_html).insertBefore(_record_table.find("tr").eq(_cur_index-1)).find(".ipt").val(_val.ipt_val).end().find(".textarea").val(_val.text_val);
 			refrash_table();
 		}else{
 			alert("已经是第一条！");
@@ -63,10 +64,12 @@ $(function(){
 		}
 		var _this=$(this),
 			_cur_index=_this.parents("tr").index(),
-			_html=get_html(_this);
+			_html=get_html(_this),
+			_val=get_val(_this);
 		if(_cur_index!=_record_table.find("tr").length-1){
+			//alert(_val.ipt_val)
 			_this.parents("tr").remove();
-			$(_html).insertAfter(_record_table.find("tr").eq(_cur_index));
+			$(_html).insertAfter(_record_table.find("tr").eq(_cur_index)).find(".ipt").val(_val.ipt_val).end().find(".textarea").val(_val.text_val);
 			refrash_table();
 		}else{
 			alert("已经是最后一条！");
@@ -102,11 +105,12 @@ $(function(){
 	})
 	
 	//确定
-	parent.dialog_ok.click(function(){
+	/*parent.dialog_ok.click(function(){
 		alert("确定");
-	})
+		//do something
+	})*/
 	
-	function select_option(){
+	function select_option(){ 
 		var a={
 			isselect:false,
 			index:null
@@ -117,6 +121,17 @@ $(function(){
 				a.index=$(this).index();
 			}
 		})
+		return a;
+	}
+	
+	function get_val(obj){
+		var a={
+			ipt_val:null,
+			text_val:null
+		};
+		_parent=obj.parents("tr");
+		a.ipt_val=_parent.find(".ipt").val();
+		a.text_val=_parent.find(".textarea").val();
 		return a;
 	}
 	
@@ -228,10 +243,10 @@ $(function(){
                 <ul class="clearfix">
                     <li><a href="#">上一页</a></li>
                     <li><a class="current" href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
+                    <li><a href="#">2000</a></li>
+                    <li><a href="#">3000</a></li>
                     <li>...</li>
-                    <li><a href="#">10</a></li>
+                    <li><a href="#">1000</a></li>
                     <li><a href="#">下一页</a></li>
                     <li><input type="text" class="int"><input type="button" value="GO" class="go"></li>
                 </ul>
