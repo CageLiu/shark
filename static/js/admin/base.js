@@ -167,3 +167,24 @@ function close_dialog(){
 	dialog.remove();
 	dialog_mask.remove();
 }
+
+function tabChange(list,cont){
+	var tab=document.getElementById(list);
+	var aa=tab.getElementsByTagName("a");
+	var tabwarp=document.getElementById(cont);
+	var tabCont=tabwarp.getElementsByTagName("div");
+	for(var i=0;i<aa.length;i++){
+		aa[i].index=i;
+		aa[i].onclick=function(){
+			for(var i=0;i<aa.length;i++){
+				aa[i].className="";
+				tabCont[i].style.display="none";
+			}
+			this.className="current";
+			tabCont[this.index].style.display="block";
+		}
+	}
+}
+window.onload=function (){
+	tabChange("tag","tag_cont_wrap");
+}
