@@ -39,11 +39,12 @@
         <!--<input type="submit" name="button" value="提交内容" /> (提交快捷键: Ctrl + Enter)-->
     </form>
     <div class="btn_bar">
-    	<span class="btn_bg"><input type="button" class="btn" value="预 览"></span>
+    	<span class="btn_bg"><input id="past_btn" type="button" class="btn" value="粘 贴"></span>
+    	<span class="btn_bg"><input id="view_btn" type="button" class="btn" value="预 览"></span>
     </div>
 </div>
 <div class="tabcont template_edit">
-    <textarea id="" class="textarea" readonly>
+    <textarea id="template_html" class="textarea" readonly>
 <ul>
     <li>fdsaf</li>
     <li>sfad</li>
@@ -86,7 +87,7 @@
 </ul>
     </textarea>
     <div class="btn_bar">
-    	<span class="btn_bg"><input type="button" class="btn" value="复制到剪切板"></span>
+    	<span class="btn_bg"><input id="clip_btn" type="button" class="btn" value="复制到剪切板"></span>
     </div>
 </div>
 <script type="text/javascript" src="../static/js/public/jquery.min.js"></script>
@@ -96,8 +97,39 @@ $(function(){
 		var _index=$(this).index();
 		$(this).addClass("current").siblings().removeClass("current");
 		$(".tabcont").hide().eq(_index).show();
+	});
+	
+	/*var _textarea=$("#template_html"),
+		_clip=_textarea.val();
+	
+	_textarea.select(function(){
+		_clip=getFieldSelection("template_html");
 	})
+	
+	$("#clip_btn").click(function(){
+		alert(_clip);
+	})*/
 })
+
+function getFieldSelection(id)
+{
+	var select_field = document.getElementById(id),
+    	word='';
+    if (document.selection) {
+        var sel = document.selection.createRange();
+        if (sel.text.length > 0) {
+            word = sel.text;
+        }
+    }    /*ie浏览器*/
+    else if (select_field.selectionStart || select_field.selectionStart == '0') {
+        var startP = select_field.selectionStart;
+        var endP = select_field.selectionEnd;
+        if (startP != endP) {
+            word = select_field.value.substring(startP, endP);
+        }
+    }   /*标准浏览器*/
+    return word;
+}
 </script>
 </body>
 </html>

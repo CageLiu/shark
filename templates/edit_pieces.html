@@ -113,8 +113,8 @@ $(function(){
 			e.stopPropagation();
 		}
 		var _parent=$(this).parents("tr");
-		_parent.find(".ipt").val("");
-		_parent.find(".textarea").val("");
+		_parent.find(".ipt").val("").end().find(".tips").removeClass("tips_error").text("0/"+title_len);
+		_parent.find(".textarea").val("").end().find(".tips").removeClass("tips_error").text("0/"+cont_len);
 	})
 	
 	//确定
