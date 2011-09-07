@@ -170,18 +170,22 @@ function close_dialog(){
 
 function tabChange(list,cont){
 	var tab=document.getElementById(list);
-	var aa=tab.getElementsByTagName("a");
-	var tabwarp=document.getElementById(cont);
-	var tabCont=tabwarp.getElementsByTagName("div");
-	for(var i=0;i<aa.length;i++){
-		aa[i].index=i;
-		aa[i].onclick=function(){
-			for(var i=0;i<aa.length;i++){
-				aa[i].className="";
-				tabCont[i].style.display="none";
+	if(document.getElementById(list)==null){
+		return false;
+		}else{
+		var aa=tab.getElementsByTagName("a");
+		var tabwarp=document.getElementById(cont);
+		var tabCont=tabwarp.getElementsByTagName("div");
+		for(var i=0;i<aa.length;i++){
+			aa[i].index=i;
+			aa[i].onclick=function(){
+				for(var i=0;i<aa.length;i++){
+					aa[i].className="";
+					tabCont[i].style.display="none";
+				}
+				this.className="current";
+				tabCont[this.index].style.display="block";
 			}
-			this.className="current";
-			tabCont[this.index].style.display="block";
 		}
 	}
 }
