@@ -83,5 +83,62 @@ $(document).ready(function(){
 		}
 	)
 
-
+	var _add=$(".add_category"),
+		_del=$(".del_category"),
+		_edit=$(".edit_category");
+	
+	_add.live("click",function(){
+		mb_pop({
+			title:"添加子栏目",
+			url:"category_add.html?action=add",
+			type:"iframe",
+			height:520,
+			width:600,
+			button:{
+				disabled:false
+			}
+		},function(){
+			parent.dialog_ok.click(function(){
+				alert("添加栏目成功！");
+				close_dialog();
+			})
+		})
+	});
+	
+	/*_del.live("click",function(){
+		var _cname=$(this).parents(".operate").siblings("span").find("a").text();
+		mb_pop({
+			title:"删除栏目："+_cname,
+			data:"您确定要删除栏目："+_cname+"吗？",
+			height:100,
+			width:300,
+			button:{
+				disabled:false
+			}	
+		},function(){
+			parent.dialog_ok.click(function(){
+				alert("删除栏目！");
+				close_dialog();
+			})		
+		})
+	});*/
+	
+	_edit.live("click",function(){
+		var _cname=$(this).parents(".operate").siblings("span").find("a").text();
+		mb_pop({
+			title:"编辑栏目："+_cname,
+			url:"category_add.html?action=edit&cid=111",
+			type:"iframe",
+			height:520,
+			width:600,
+			button:{
+				disabled:false
+			}
+		},function(){
+			parent.dialog_ok.click(function(){
+				alert("栏目："+_cname+"，修改成功！");
+				close_dialog();
+			})
+		})
+	});
 })

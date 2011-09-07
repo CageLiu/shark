@@ -52,6 +52,7 @@ function mb_pop(options,callback){
 		w=parent.documentElement.clientWidth,
 		parent_doc=$(parent).find("body"),//父级窗口
 	 	mask='<div class="mask_layer" style="position:fixed"></div>',//遮罩层
+		classtype=type=="alert"?"alertmsg":'',
 		resize_btn=allowmax?'<a class="fullscreen" href="javascript:"></a>':'', //最大化窗口
 		bottom_btn=opt.button.disabled?'':opt.button.custom!=null?
 			'<div class="pop_bottom">'+opt.button.custom+'</div>':  //自定义按钮
@@ -62,7 +63,7 @@ function mb_pop(options,callback){
 								'<span class="pr pop_button">'+resize_btn+'<a title="关闭" class="close" href="javascript:"></a></span>'+
 							'</div>'+
 							'<div class="pop_cont">'+
-								'<div class="pop_cont_c" style="height:'+(height-pop_bh)+'px;padding:0">'+
+								'<div class="pop_cont_c '+classtype+'" style="height:'+(height-pop_bh)+'px;padding:0">'+
 								'</div>'+
 							'</div>'+
 								bottom_btn+
@@ -201,4 +202,21 @@ function drop_pop(){
 function close_dialog(){
 	dialog.remove();
 	dialog_mask.remove();
+}
+
+function mb_del(title,msg,callback,id){
+	mb_pop({
+		title:title,
+		data:msg,
+		height:100,
+		width:400,
+		button:{
+			disabled:false
+		}	
+	},function(){
+		parent.dialog_ok.click(function(){
+			callback(id);
+			close_dialog();
+		})
+	})
 }
